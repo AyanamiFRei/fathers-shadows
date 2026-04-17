@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cth5p2sw3s7uk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ae7bu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dnlqt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kb8hb"]
+size = Vector3(1.8754883, 1.9179688, 1)
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=749761299]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1142478844]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ae7bu")
+mesh = SubResource("BoxMesh_dnlqt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1735738467]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035888672, 0.021484375, 0)
+shape = SubResource("BoxShape3D_kb8hb")
