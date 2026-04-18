@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://o44bx6yw0hbq" path="res://scripts/traffic_car_back.gd" id="1_vgchw"]
 [ext_resource type="PackedScene" uid="uid://cly1xcv4tshx5" path="res://scenes/road1.tscn" id="2_7httq"]
 [ext_resource type="Script" uid="uid://busyighmmy4t6" path="res://scripts/traffic_gen.gd" id="3_w141n"]
-[ext_resource type="Script" path="res://scenes/camera_3d.gd" id="6_w141n"]
+[ext_resource type="Script" uid="uid://clvsghiw73bmt" path="res://scenes/camera_3d.gd" id="6_w141n"]
 
 [node name="DayShift" type="Node3D" unique_id=669553328]
 script = ExtResource("1_vgchw")
