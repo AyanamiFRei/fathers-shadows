@@ -24,8 +24,5 @@ mesh = SubResource("BoxMesh_dnlqt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035888672, 0.021484375, 0)
 shape = SubResource("BoxShape3D_kb8hb")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=2021135368]
-transform = Transform3D(1, 0, 0, 0, 0.64278764, 0.76604444, 0, -0.76604444, 0.64278764, 0, 4.219608, 3.412733)
-
 [node name="Sketchfab_Scene" parent="." unique_id=1200176748 instance=ExtResource("2_ir7uv")]
 transform = Transform3D(-4.371139e-07, 0, -10, 0, 10, 0, 10, 0, -4.371139e-07, 0, -0.9480756, 0)
