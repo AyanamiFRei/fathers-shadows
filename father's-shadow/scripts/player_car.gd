@@ -50,3 +50,9 @@ func handle_forward_movement():
 	# Пусть машина всегда едет вперёд по оси Z
 	# Если у тебя дорога в другую сторону, поменяй знак
 	velocity.z = current_speed
+
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	if body.get_class() == "CharacterBody3D":
+		body.queue_free()
+		print("Deleted")

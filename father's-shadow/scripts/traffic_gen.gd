@@ -1,11 +1,14 @@
 extends StaticBody3D
 
+@export var player_path: NodePath
+
+var player: Node3D
 var traffic_forward = preload("res://scenes/TrafficCarForward.tscn")
 var traffic_backward = preload("res://scenes/TrafficCarBack.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	player = get_node(player_path)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,8 +18,8 @@ func _process(delta: float) -> void:
 		if node is CharacterBody3D:
 			chars_count += 1
 			
-	var posx = randi_range(-4, 4)
-	var posz = randi_range(-85, 0)
+	var posx = [-4, -2, 2, 4].pick_random()
+	var posz = randi_range(player.global_position.z + 30, player.global_position.z + 40)
 	if chars_count <= 15:
 		if posx > 0:
 			var instance = traffic_forward.instantiate()

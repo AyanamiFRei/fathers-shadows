@@ -38,6 +38,11 @@ Car_A={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_2="traffic"
+3d_physics/layer_4="camerabox"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

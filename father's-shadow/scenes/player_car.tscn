@@ -11,6 +11,9 @@ albedo_color = Color(0, 0, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_kb8hb"]
 size = Vector3(1.8754883, 1.9179688, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ir7uv"]
+size = Vector3(12, 5, 30)
+
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=749761299]
 script = ExtResource("1_dnlqt")
 
@@ -26,3 +29,10 @@ shape = SubResource("BoxShape3D_kb8hb")
 
 [node name="Sketchfab_Scene" parent="." unique_id=1200176748 instance=ExtResource("2_ir7uv")]
 transform = Transform3D(-4.371139e-07, 0, -10, 0, 10, 0, 10, 0, -4.371139e-07, 0, -0.9480756, 0)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1184493428]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1821877843]
+shape = SubResource("BoxShape3D_ir7uv")
+
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

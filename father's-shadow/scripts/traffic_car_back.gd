@@ -18,3 +18,5 @@ func _process(delta):
 		relative_speed = player_speed + car_speed
 	
 	position.z += relative_speed * delta
+	
+	
