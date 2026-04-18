@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cth5p2sw3s7uk" path="res://scenes/player_car.tscn" id="1_v8rv7"]
 [ext_resource type="Script" uid="uid://o44bx6yw0hbq" path="res://scripts/traffic_car_back.gd" id="1_vgchw"]
 [ext_resource type="PackedScene" uid="uid://cly1xcv4tshx5" path="res://scenes/road1.tscn" id="2_7httq"]
+[ext_resource type="Script" uid="uid://busyighmmy4t6" path="res://scripts/traffic_gen.gd" id="3_w141n"]
 [ext_resource type="Script" path="res://scenes/camera_3d.gd" id="6_w141n"]
 
 [node name="DayShift" type="Node3D" unique_id=669553328]
@@ -10,7 +11,7 @@ script = ExtResource("1_vgchw")
 
 [node name="Road1" parent="." unique_id=315762777 instance=ExtResource("2_7httq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21579218, 0)
-player_path = NodePath("../CharacterBody3D")
+script = null
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=966695047]
 transform = Transform3D(1, 0, 0, 0, 0.7284786, 0.68506867, 0, -0.68506867, 0.7284786, -58.518196, 145.30731, 134.77039)
@@ -21,4 +22,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2975521, 1.0459797, 88.9651
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1718996158]
 transform = Transform3D(1, 0, 0, 0, -0.011606238, 0.99993265, 0, -0.99993265, -0.011606238, -0.0008098781, 11.715581, 0.018240929)
 script = ExtResource("6_w141n")
+player_path = NodePath("../CharacterBody3D")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=217700894]
+script = ExtResource("3_w141n")
 player_path = NodePath("../CharacterBody3D")

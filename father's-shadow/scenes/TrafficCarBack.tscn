@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://p5rokuu7bvud"]
 
-[ext_resource type="Script" uid="uid://o44bx6yw0hbq" path="res://scripts/traffic_car_back.gd" id="1_keafn"]
+[ext_resource type="Script" uid="uid://dw6hhxt75ksbn" path="res://scripts/traffic_car.gd" id="1_ex4jn"]
 [ext_resource type="PackedScene" uid="uid://qhb5d6v0irqk" path="res://assets/cars/car2/scene.gltf" id="2_ex4jn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tobn0"]
@@ -13,7 +13,8 @@ albedo_color = Color(0, 0, 0.5529412, 1)
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1671194987]
 collision_layer = 3
 collision_mask = 9
-script = ExtResource("1_keafn")
+script = ExtResource("1_ex4jn")
+same_direction = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1511619662]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
