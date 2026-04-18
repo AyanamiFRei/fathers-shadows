@@ -1,0 +1,11 @@
+Model Information:
+* title:	Ford F100 1967
+* source:	https://sketchfab.com/3d-models/ford-f100-1967-a030ed2751d645a59525372498228935
+* author:	Lokeig (https://sketchfab.com/lokeig)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Ford F100 1967" (https://sketchfab.com/3d-models/ford-f100-1967-a030ed2751d645a59525372498228935) by Lokeig (https://sketchfab.com/lokeig) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
