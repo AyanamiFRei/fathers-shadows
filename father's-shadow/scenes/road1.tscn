@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cly1xcv4tshx5"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mlm3g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mlm3g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_udwhn"]
+size = Vector3(1.8740234, 1, 1.9267578)
+
+[node name="Road1" type="StaticBody3D" unique_id=315762777]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1515685020]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+mesh = SubResource("PlaneMesh_mlm3g")
+surface_material_override/0 = SubResource("StandardMaterial3D_mlm3g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=828593641]
+transform = Transform3D(5, 0, 0, 0, 0, 0, 0, 0, 100, 0, 0, 0)
+shape = SubResource("BoxShape3D_udwhn")

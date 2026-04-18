@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://p5rokuu7bvud"]
+
+[ext_resource type="Script" uid="uid://o44bx6yw0hbq" path="res://scripts/traffic_car_back.gd" id="1_keafn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tobn0"]
+albedo_color = Color(0, 0, 0.5529412, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_keafn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ex4jn"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1671194987]
+script = ExtResource("1_keafn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1511619662]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_tobn0")
+mesh = SubResource("BoxMesh_keafn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=724025258]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_ex4jn")
