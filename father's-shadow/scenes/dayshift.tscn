@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cth5p2sw3s7uk" path="res://scenes/player_car.tscn" id="1_v8rv7"]
 [ext_resource type="Script" uid="uid://o44bx6yw0hbq" path="res://scripts/traffic_car_back.gd" id="1_vgchw"]
 [ext_resource type="PackedScene" uid="uid://cly1xcv4tshx5" path="res://scenes/road1.tscn" id="2_7httq"]
+[ext_resource type="Script" uid="uid://busyighmmy4t6" path="res://scripts/traffic_gen.gd" id="3_w141n"]
 [ext_resource type="PackedScene" uid="uid://p5rokuu7bvud" path="res://scenes/TrafficCarBack.tscn" id="4_lmeyo"]
 [ext_resource type="PackedScene" uid="uid://m5sdjexwblp8" path="res://scenes/TrafficCarForward.tscn" id="5_lmeyo"]
 [ext_resource type="Script" uid="uid://clvsghiw73bmt" path="res://scenes/camera_3d.gd" id="6_w141n"]
@@ -12,6 +13,7 @@ script = ExtResource("1_vgchw")
 
 [node name="Road1" parent="." unique_id=315762777 instance=ExtResource("2_7httq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21579218, 0)
+script = ExtResource("3_w141n")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=966695047]
 transform = Transform3D(1, 0, 0, 0, 0.7284786, 0.68506867, 0, -0.68506867, 0.7284786, 0, 145.30731, 134.77039)
@@ -20,8 +22,14 @@ light_energy = 3.257
 [node name="CharacterBody3D2" parent="." unique_id=1671194987 instance=ExtResource("4_lmeyo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3, -17)
 
+[node name="CharacterBody3D4" parent="." unique_id=789776464 instance=ExtResource("4_lmeyo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3, -8.925121)
+
+[node name="CharacterBody3D5" parent="." unique_id=1897557178 instance=ExtResource("4_lmeyo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3, -1.8887577)
+
 [node name="CharacterBody3D" parent="." unique_id=749761299 instance=ExtResource("1_v8rv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2975521, 1.0459797, 0.036737144)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2975521, 1.0459797, 88.965126)
 
 [node name="CharacterBody3D3" parent="." unique_id=493776715 instance=ExtResource("5_lmeyo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6415691, 3.971758, -42.524143)
