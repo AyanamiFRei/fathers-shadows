@@ -20,7 +20,7 @@ transform = Transform3D(1, 0, 0, 0, 0.7284786, 0.68506867, 0, -0.68506867, 0.728
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2975521, 1.0459797, 88.965126)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1718996158]
-transform = Transform3D(1, 0, 0, 0, -0.011606238, 0.99993265, 0, -0.99993265, -0.011606238, -0.0008098781, 11.715581, 0.018240929)
+transform = Transform3D(1, 0, 0, 0, -0.011606238, 0.99993265, 0, -0.99993265, -0.011606238, -0.0008098781, 11.715581, 92.919716)
 script = ExtResource("6_w141n")
 player_path = NodePath("../CharacterBody3D")
 
