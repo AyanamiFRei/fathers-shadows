@@ -55,4 +55,3 @@ func handle_forward_movement():
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.get_class() == "CharacterBody3D":
 		body.queue_free()
-		print("Deleted")
