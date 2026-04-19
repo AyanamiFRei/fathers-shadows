@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://0rxo47rrvsuq"]
+
+[ext_resource type="Script" uid="uid://ci8eqs3odpr4f" path="res://road_manager.gd" id="1_jyclw"]
+[ext_resource type="PackedScene" uid="uid://cly1xcv4tshx5" path="res://scenes/road1.tscn" id="2_jyclw"]
+[ext_resource type="PackedScene" uid="uid://baigcy2wphxv7" path="res://scenes/road2.tscn" id="3_4eeix"]
+
+[node name="RoadManager" type="Node3D" unique_id=933467709]
+script = ExtResource("1_jyclw")
+road_scenes = null
+segment_length = null
+segments_on_start = null
+keep_behind_count = null
+
+[node name="Road1" parent="." unique_id=315762777 instance=ExtResource("2_jyclw")]
+
+[node name="Road2" parent="." unique_id=1617872907 instance=ExtResource("3_4eeix")]
