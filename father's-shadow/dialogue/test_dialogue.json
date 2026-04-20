@@ -1,0 +1,87 @@
+{
+  "start": "intro_1",
+  "nodes": [
+	{
+	  "id": "intro_1",
+	  "type": "line",
+	  "name": "ГРУШЕНЬКА",
+	  "text": "Ты слишком внимательно слушаешь для простого таксиста.",
+	  "portrait": "res://art/grushenka.png",
+	  "next": "intro_2"
+	},
+	{
+	  "id": "intro_2",
+	  "type": "line",
+	  "name": "ГРУШЕНЬКА",
+	  "text": "Не люблю, когда мне задают вопросы с подвохом.",
+	  "portrait": "res://art/grushenka.png",
+	  "next": "choice_1"
+	},
+	{
+	  "id": "choice_1",
+	  "type": "choice",
+	  "options": [
+		{
+		  "button": "choice_x",
+		  "text": "Спросить про Фёдора",
+		  "next": "fyodor_1"
+		},
+		{
+		  "button": "choice_y",
+		  "text": "Спросить про район",
+		  "next": "district_1"
+		},
+		{
+		  "button": "choice_b",
+		  "text": "Сменить тему",
+		  "next": "change_1"
+		}
+	  ]
+	},
+	{
+	  "id": "fyodor_1",
+	  "type": "line",
+	  "name": "ГРУШЕНЬКА",
+	  "text": "Фёдор любил думать, что всё можно купить.",
+	  "portrait": "res://art/grushenka.png",
+	  "next": "fyodor_2"
+	},
+	{
+	  "id": "fyodor_2",
+	  "type": "line",
+	  "name": "ГРУШЕНЬКА",
+	  "text": "Но некоторые долги не закрываются деньгами.",
+	  "portrait": "res://art/grushenka.png"
+	},
+	{
+	  "id": "district_1",
+	  "type": "line",
+	  "name": "ГРУШЕНЬКА",
+	  "text": "Район всё помнит, даже если делает вид, что молчит.",
+	  "portrait": "res://art/grushenka.png",
+	  "next": "district_2"
+	},
+	{
+	  "id": "district_2",
+	  "type": "line",
+	  "name": "ГРУШЕНЬКА",
+	  "text": "Слухи здесь бегают быстрее любой машины.",
+	  "portrait": "res://art/grushenka.png"
+	},
+	{
+	  "id": "change_1",
+	  "type": "line",
+	  "name": "ГРУШЕНЬКА",
+	  "text": "Умно. Не каждый разговор нужно доводить до конца.",
+	  "portrait": "res://art/grushenka.png",
+	  "next": "change_2"
+	},
+	{
+	  "id": "change_2",
+	  "type": "line",
+	  "name": "ГРУШЕНЬКА",
+	  "text": "Иногда лучше просто доехать молча.",
+	  "portrait": "res://art/grushenka.png"
+	}
+  ]
+}

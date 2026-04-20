@@ -1,0 +1,247 @@
+[gd_scene format=3 uid="uid://dytsp4lm1fj7d"]
+
+[ext_resource type="Script" uid="uid://sae2us05g6h" path="res://scripts/dialogue_manager.gd" id="1_v2sf5"]
+[ext_resource type="Texture2D" uid="uid://bgra0hlhwlr56" path="res://art/father.png" id="2_wn28b"]
+[ext_resource type="Texture2D" uid="uid://dra3k0m23mcow" path="res://assets_interface/xbox_buttons/button_xbox_digital_x_8.png" id="3_wn28b"]
+[ext_resource type="Texture2D" uid="uid://co6tjfco2tr0a" path="res://assets_interface/xbox_buttons/button_xbox_digital_y_8.png" id="4_ykprj"]
+[ext_resource type="Texture2D" uid="uid://b610s5tevkt8g" path="res://assets_interface/xbox_buttons/button_xbox_digital_b_8.png" id="5_n7dih"]
+[ext_resource type="Script" uid="uid://dqxwt0fimvroh" path="res://scripts/dialogue_state.gd" id="6_k2386"]
+[ext_resource type="Script" uid="uid://c0fm6o44k1vbo" path="res://scripts/loyalty_state.gd" id="7_wn28b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2imm4"]
+bg_color = Color(0, 0, 0, 0.6901961)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ae6bn"]
+bg_color = Color(0, 0, 0, 0.6901961)
+
+[sub_resource type="SystemFont" id="SystemFont_oepk5"]
+font_names = PackedStringArray("Bebas Neue Cyrillic")
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_an6vn"]
+font_names = PackedStringArray("Inter")
+font_weight = 450
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_3isj3"]
+font_names = PackedStringArray("Inter")
+font_weight = 450
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k2386"]
+bg_color = Color(0.09411765, 0.09411765, 0.09411765, 0.99215686)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wn28b"]
+bg_color = Color(0.89150864, 0.598496, 0.36354384, 1)
+
+[node name="UI Textboard" type="CanvasLayer" unique_id=267544843]
+
+[node name="DialogueUI" type="Control" parent="." unique_id=1431894958]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v2sf5")
+
+[node name="DialoguePanel" type="Control" parent="DialogueUI" unique_id=1574308892]
+layout_mode = 1
+anchor_right = 1.0385414
+anchor_bottom = 1.1583333
+offset_left = 510.0
+offset_top = 860.0
+offset_right = -478.99927
+offset_bottom = -220.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="Panel" parent="DialogueUI/DialoguePanel" unique_id=1325399915]
+layout_mode = 0
+offset_right = 870.0
+offset_bottom = 170.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2imm4")
+
+[node name="NamePlate" type="Panel" parent="DialogueUI/DialoguePanel" unique_id=1831755664]
+layout_mode = 0
+offset_left = 468.0
+offset_top = -43.999977
+offset_right = 874.0
+offset_bottom = 2.2888184e-05
+theme_override_styles/panel = SubResource("StyleBoxFlat_ae6bn")
+
+[node name="NameLabel" type="Label" parent="DialogueUI/DialoguePanel/NamePlate" unique_id=1975678976]
+layout_mode = 0
+offset_left = 18.0
+offset_top = -4.0
+offset_right = 418.40002
+offset_bottom = 45.0
+theme_override_fonts/font = SubResource("SystemFont_oepk5")
+theme_override_font_sizes/font_size = 35
+text = "Грушенька"
+horizontal_alignment = 3
+vertical_alignment = 2
+
+[node name="DialogueText" type="RichTextLabel" parent="DialogueUI/DialoguePanel" unique_id=381958699]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 30.0
+offset_right = 658.0
+offset_bottom = 138.0
+theme_override_fonts/normal_font = SubResource("SystemFont_an6vn")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 22
+theme_override_font_sizes/bold_italics_font_size = 22
+theme_override_font_sizes/italics_font_size = 22
+theme_override_font_sizes/mono_font_size = 22
+text = "Ты слишком внимательно слушаешь для простого таксиста."
+
+[node name="Portrait" type="TextureRect" parent="DialogueUI/DialoguePanel" unique_id=123698855]
+layout_mode = 0
+offset_left = 627.0
+offset_top = -155.99998
+offset_right = 1765.7095
+offset_bottom = 982.7095
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("2_wn28b")
+
+[node name="ChoicePanel" type="Control" parent="DialogueUI" unique_id=1598471978]
+visible = false
+layout_mode = 1
+anchor_right = 1.0385414
+anchor_bottom = 1.1583333
+offset_left = 510.0
+offset_top = 860.0
+offset_right = -478.99927
+offset_bottom = -220.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="Panel" parent="DialogueUI/ChoicePanel" unique_id=1921158000]
+layout_mode = 0
+offset_top = -44.0
+offset_right = 873.0
+offset_bottom = 170.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2imm4")
+
+[node name="Choice1 [X]" type="Button" parent="DialogueUI/ChoicePanel/Background" unique_id=1459495420]
+texture_filter = 2
+layout_mode = 0
+offset_left = 31.0
+offset_top = 15.0
+offset_right = 519.0
+offset_bottom = 503.0
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("3_wn28b")
+flat = true
+
+[node name="AnswerOption1" type="RichTextLabel" parent="DialogueUI/ChoicePanel/Background/Choice1 [X]" unique_id=1527332586]
+layout_mode = 0
+offset_left = 620.00024
+offset_top = 89.99998
+offset_right = 7990.0
+offset_bottom = 429.99997
+theme_override_fonts/normal_font = SubResource("SystemFont_3isj3")
+theme_override_font_sizes/normal_font_size = 249
+theme_override_font_sizes/bold_font_size = 22
+theme_override_font_sizes/bold_italics_font_size = 22
+theme_override_font_sizes/italics_font_size = 22
+theme_override_font_sizes/mono_font_size = 22
+text = "answer option 1"
+fit_content = true
+scroll_active = false
+
+[node name="Choice2 [Y]" type="Button" parent="DialogueUI/ChoicePanel/Background" unique_id=805419396]
+texture_filter = 2
+layout_mode = 0
+offset_left = 31.0
+offset_top = 63.675
+offset_right = 519.0
+offset_bottom = 551.67694
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("4_ykprj")
+flat = true
+
+[node name="AnswerOption2" type="RichTextLabel" parent="DialogueUI/ChoicePanel/Background/Choice2 [Y]" unique_id=318419658]
+layout_mode = 0
+offset_left = 620.00024
+offset_top = 89.99998
+offset_right = 8110.0
+offset_bottom = 429.99997
+theme_override_fonts/normal_font = SubResource("SystemFont_3isj3")
+theme_override_font_sizes/normal_font_size = 249
+theme_override_font_sizes/bold_font_size = 22
+theme_override_font_sizes/bold_italics_font_size = 22
+theme_override_font_sizes/italics_font_size = 22
+theme_override_font_sizes/mono_font_size = 22
+text = "answer option 2"
+fit_content = true
+scroll_active = false
+
+[node name="Choice3 [B]" type="Button" parent="DialogueUI/ChoicePanel/Background" unique_id=313199940]
+texture_filter = 2
+layout_mode = 0
+offset_left = 31.0
+offset_top = 112.235
+offset_right = 519.0
+offset_bottom = 600.2355
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("5_n7dih")
+flat = true
+
+[node name="AnswerOption3" type="RichTextLabel" parent="DialogueUI/ChoicePanel/Background/Choice3 [B]" unique_id=368469887]
+layout_mode = 0
+offset_left = 620.00024
+offset_top = 89.99998
+offset_right = 8170.0
+offset_bottom = 429.99997
+theme_override_fonts/normal_font = SubResource("SystemFont_3isj3")
+theme_override_font_sizes/normal_font_size = 249
+theme_override_font_sizes/bold_font_size = 22
+theme_override_font_sizes/bold_italics_font_size = 22
+theme_override_font_sizes/italics_font_size = 22
+theme_override_font_sizes/mono_font_size = 22
+text = "answer option 1"
+fit_content = true
+scroll_active = false
+
+[node name="DialogueTimerBar" type="ProgressBar" parent="DialogueUI" unique_id=1283197331]
+layout_mode = 0
+offset_left = 545.0
+offset_top = 992.0
+offset_right = 1165.0
+offset_bottom = 1006.0
+theme_override_styles/background = SubResource("StyleBoxFlat_k2386")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wn28b")
+max_value = 1.0
+value = 1.0
+show_percentage = false
+
+[node name="LoyaltyValueLabel" type="Label" parent="DialogueUI" unique_id=1956050865]
+layout_mode = 0
+offset_left = 1585.0
+offset_top = 38.0
+offset_right = 1863.0
+offset_bottom = 147.0
+theme_override_font_sizes/font_size = 79
+text = "---"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DialogueState" type="Control" parent="." unique_id=756953163]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 510.0
+offset_top = 860.0
+offset_right = 550.0
+offset_bottom = 900.0
+script = ExtResource("6_k2386")
+
+[node name="LoyaltyState" type="Control" parent="." unique_id=1545910428]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_wn28b")

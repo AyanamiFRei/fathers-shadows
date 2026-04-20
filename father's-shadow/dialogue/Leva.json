@@ -1,0 +1,376 @@
+{
+  "npc_id": "leva",
+  "start": "npc1_1",
+  "nodes": [
+	{
+	  "id": "npc1_1",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "Поехали… только давай побыстрее, ладно?",
+	  "portrait": "res://art/Leva.png",
+	  "pause_after": 2.0,
+	  "next": "npc1_2"
+	},
+
+
+	{
+	  "id": "npc1_2",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "Ты тут недавно работаешь? Лицо незнакомое…",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc0_choice"
+	},
+	{
+	  "id": "npc0_choice",
+	  "type": "choice",
+	  "portrait": "res://art/Leva.png",
+	  "options": [
+		{
+		  "button": "choice_x",
+		  "text": "Да! Первый день на работу вышел.",
+		  "next": "npc0_x_1"
+		},
+		{
+		  "button": "choice_y",
+		  "text": "Решил немного подзаработать.",
+		  "next": "npc0_x_1"
+		},
+		{
+		  "button": "choice_b",
+		  "text": "(Промолчать)",
+		  "next": "npc1_4"
+		}
+	  ]
+	},
+	{
+	  "id": "npc0_x_1",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "Это правильно. Времена сейчас непростые... Особенно в нашем районе.",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_4"
+	},
+
+
+	{
+	  "id": "npc1_4",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "Слышал же, что у нас тут недавно произошло?",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_5"
+	},
+	{
+	  "id": "npc1_5",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "Ну, старика одного… того.",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_choice"
+	},
+	{
+	  "id": "npc1_choice",
+	  "type": "choice",
+	  "portrait": "res://art/Leva.png",
+	  "options": [
+		{
+		  "button": "choice_x",
+		  "text": "Какого старика?",
+		  "next": "npc1_x_1"
+		},
+		{
+		  "button": "choice_y",
+		  "text": "Слышал кое-что",
+		  "next": "npc1_y_1"
+		},
+		{
+		  "button": "choice_b",
+		  "text": "Мне не до этого",
+		  "next": "npc1_b_1"
+		}
+	  ]
+	},
+	{
+	  "id": "npc1_x_1",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "Серьёзно?",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_x_2"
+	},
+	{
+	  "id": "npc1_x_2",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "Да весь район об этом говорит.",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_x_3"
+	},
+	{
+	  "id": "npc1_x_3",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "Фёдор Карамазов… не самый приятный тип был.",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_common_1"
+	},
+	{
+	  "id": "npc1_y_1",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "А, ну тогда знаешь…",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_y_2"
+	},
+	{
+	  "id": "npc1_y_2",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "Старик Карамазов. Говорят, его давно убрать хотели.",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_common_1"
+	},
+	{
+	  "id": "npc1_b_1",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "Ха… правильно. ",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_b_2"
+	},
+	{
+	  "id": "npc1_b_2",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "Чем меньше знаешь — тем крепче спишь.",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_common_1"
+	},
+
+
+	{
+	  "id": "npc1_common_1",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "Но там мутная история.",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_common_2"
+	},
+	{
+	  "id": "npc1_common_2",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "Кто-то говорит — сын его того... грохнул.",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_common_3"
+	},
+	{
+	  "id": "npc1_common_3",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "Кто-то — что это конкуренты по бизнесу убрать решились.",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_common_4"
+	},
+	{
+	  "id": "npc1_common_4",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "А у старика конкуренты были!",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_common_5"
+	},
+	{
+	  "id": "npc1_common_5",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "Всё же он делами грязными промышлял.",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_common_6"
+	},
+	{
+	  "id": "npc1_common_6",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "Контрабанда, деньги… Ну это, конечно, если слухам верить.",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_common_7"
+	},
+	{
+	  "id": "npc1_common_7",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "Но я тебе честно скажу.",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_common_8"
+	},
+	{
+	  "id": "npc1_common_8",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "Я в этом районе уже 20 лет живу и всякого за эти годы наслушаться успел.",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_common_9"
+	},
+	{
+	  "id": "npc1_common_9",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "Так что дам тебе совет — в нашем районе всегда стоит быть начеку...",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_common_10"
+	},
+	{
+	  "id": "npc1_common_10",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "Даже с самыми скверными слухами.",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_acquaintance_1"
+	}, 
+
+
+	{
+	  "id": "npc1_acquaintance_1",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "Кстати...",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_acquaintance_2"
+	},
+	{
+	  "id": "npc1_acquaintance_2",
+	  "type": "line",
+	  "name": "ПАССАЖИР",
+	  "text": "Меня Лёва зовут.",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_acquaintance_3"
+	},
+	{
+	  "id": "npc1_acquaintance_3",
+	  "type": "line",
+	  "name": "ЛЁВА",
+	  "text": "Я курьером работаю. Документы всякие важным шишкам доставляю.",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_acquaintance_4"
+	},
+	{
+	  "id": "npc1_acquaintance_4",
+	  "type": "line",
+	  "name": "ЛЁВА",
+	  "text": "Так что на такси частенько катаюсь.",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_acquaintance_5"
+	},
+	{
+	  "id": "npc1_acquaintance_5",
+	  "type": "line",
+	  "name": "ЛЁВА",
+	  "text": "Да... Такси — вещь хорошая. Особенно, когда водитель умелый.",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_acquaintance_6"
+	},
+	{
+	  "id": "npc1_acquaintance_6",
+	  "type": "line",
+	  "name": "ЛЁВА",
+	  "text": "А знаешь, что в такси лучше умелого водителя? Водитель, который может поддержать разговор...",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_acquaintance_7"
+	},
+	{
+	  "id": "npc1_acquaintance_7",
+	  "type": "line",
+	  "name": "ЛЁВА",
+	  "text": "Понимаешь к чему я веду?",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc3_choice"
+	},
+	{
+	  "id": "npc3_choice",
+	  "type": "choice",
+	  "portrait": "res://art/Leva.png",
+	  "options": [
+		{
+		  "button": "choice_x",
+		  "text": "Приму к сведению",
+		  "next": "npc3_x_1"
+		},
+		{
+		  "button": "choice_y",
+		  "text": "Я не очень разговорчив",
+		  "next": "npc3_y_1"
+		},
+		{
+		  "button": "choice_b",
+		  "text": "Это не твое дело",
+		  "next": "npc3_b_1"
+		}
+	  ]
+	},
+	{
+	  "id": "npc3_x_1",
+	  "type": "line",
+	  "name": "ЛЁВА",
+	  "text": "ПРАВИЛЬНО!!!",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc3_x_2"
+	},
+	{
+	  "id": "npc3_x_2",
+	  "type": "line",
+	  "name": "ЛЁВА",
+	  "text": "Я сразу понял, парень ты не глупый. Всё на лету сх...",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_end_1"
+	},
+	{
+	  "id": "npc3_y_1",
+	  "type": "line",
+	  "name": "ЛЁВА",
+	  "text": "Как знаешь.",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc3_y_2"
+	},
+	{
+	  "id": "npc3_y_2",
+	  "type": "line",
+	  "name": "ЛЁВА",
+	  "text": "Мое дело совет дать, а решать уже...",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_end_1"
+	},
+	{
+	  "id": "npc3_b_1",
+	  "type": "line",
+	  "name": "ЛЁВА",
+	  "text": "...",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc3_b_2"
+	},
+	{
+	  "id": "npc3_b_2",
+	  "type": "line",
+	  "name": "ЛЁВА",
+	  "text": "...",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_end_1"
+	},
+	{
+	  "id": "npc1_end_1",
+	  "type": "line",
+	  "name": "ЛЁВА",
+	  "text": "О, моя остановка...",
+	  "portrait": "res://art/Leva.png",
+	  "next": "npc1_end_2"
+	},
+	{
+	  "id": "npc1_end_2",
+	  "type": "line",
+	  "name": "ЛЁВА",
+	  "text": "Ещё увидимся!",
+	  "portrait": "res://art/Leva.png"
+	}
+  ]
+}
