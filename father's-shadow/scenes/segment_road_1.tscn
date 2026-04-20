@@ -2,6 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://cly1xcv4tshx5" path="res://scenes/road1.tscn" id="1_0ahn5"]
 
+[sub_resource type="Curve3D" id="Curve3D_0ahn5"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.18979836, 0, -33.52671, 0, 0, 0, 0, 0, 0, 0.63809395, -0.048950195, -35.487694, 0, 0, 0, 0, 0, 0, 1.363616, -0.083984375, -37.242134, 0, 0, 0, 0, 0, 0, 2.1814756, -0.11425781, -38.61403, 0, 0, 0, 0, 0, 0, 3.6720915, -0.15771484, -39.748474, 0, 0, 0, 0, 0, 0, 5.4265327, -0.11035156, -40.645485, 0, 0, 0, 0, 0, 0, 6.772044, -0.072631836, -41.212708, 0, 0, 0, 0, 0, 0, 8.128445, -0.042236328, -41.720764, 0, 0, 0, 0, 0, 0, 9.806041, 0, -42.12291, 0, 0, 0, 0, 0, 0, 11.682466, 0, -42.47944, 0, 0, 0, 0, 0, 0, 48.428032, 0, -42.996796),
+"tilts": PackedFloat32Array(0, 0, 0, 0, -2.2072384, 0, 0, 0, 0, 0, 0)
+}
+point_count = 11
+
 [node name="SegmentRoad1" type="Node3D" unique_id=1076022266]
 
 [node name="Road1" parent="." unique_id=315762777 instance=ExtResource("1_0ahn5")]
@@ -11,3 +18,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.552354)
 
 [node name="StartMarker" type="Marker3D" parent="." unique_id=54906771]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 85.6366)
+
+[node name="Path3D2" type="Path3D" parent="." unique_id=1283170101]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1522293, 1, 45.35856)
+curve = SubResource("Curve3D_0ahn5")

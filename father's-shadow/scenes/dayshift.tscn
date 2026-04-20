@@ -13,20 +13,20 @@ script = ExtResource("1_vgchw")
 [node name="UI Textboard" parent="." unique_id=267544843 instance=ExtResource("2_w141n")]
 
 [node name="RoadManager" parent="." unique_id=933467709 node_paths=PackedStringArray("player") instance=ExtResource("5_lmeyo")]
-player = NodePath("../CharacterBody3D")
+player = NodePath("../Player")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=966695047]
 transform = Transform3D(1, 0, 0, 0, 0.7284786, 0.68506867, 0, -0.68506867, 0.7284786, -58.518196, 145.30731, 134.77039)
 
-[node name="CharacterBody3D" parent="." unique_id=749761299 instance=ExtResource("1_v8rv7")]
+[node name="Player" parent="." unique_id=749761299 instance=ExtResource("1_v8rv7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2975521, 1.0459797, 88.965126)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1718996158]
 transform = Transform3D(1, 0, 0, 0, -0.011606238, 0.99993265, 0, -0.99993265, -0.011606238, -0.0008098781, 11.715581, 92.919716)
 near = 0.125
 script = ExtResource("6_w141n")
-player_path = NodePath("../CharacterBody3D")
+player_path = NodePath("../Player")
 
 [node name="Node3D" type="Node3D" parent="." unique_id=993733496]
 script = ExtResource("3_lmeyo")
-player_path = NodePath("../CharacterBody3D")
+player_path = NodePath("../Player")

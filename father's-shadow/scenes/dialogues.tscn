@@ -8,6 +8,60 @@
 [ext_resource type="Script" uid="uid://dqxwt0fimvroh" path="res://scripts/dialogue_state.gd" id="6_7htrt"]
 [ext_resource type="Script" uid="uid://c0fm6o44k1vbo" path="res://scripts/loyalty_state.gd" id="7_re33w"]
 
+[sub_resource type="Animation" id="Animation_w0ec4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("end_anim_rect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_y4fr7"]
+resource_name = "fadein"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("end_anim_rect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(4.5, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_51prw"]
+resource_name = "fadeout"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("end_anim_rect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3aohm"]
+_data = {
+&"RESET": SubResource("Animation_w0ec4"),
+&"fadein": SubResource("Animation_y4fr7"),
+&"fadeout": SubResource("Animation_51prw")
+}
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2imm4"]
 bg_color = Color(0, 0, 0, 0.6901961)
 
@@ -35,6 +89,19 @@ bg_color = Color(0.09411765, 0.09411765, 0.09411765, 0.99215686)
 bg_color = Color(0.89150864, 0.598496, 0.36354384, 1)
 
 [node name="UI Textboard" type="CanvasLayer" unique_id=267544843]
+
+[node name="end_anim_rect" type="ColorRect" parent="." unique_id=2121231402]
+modulate = Color(0, 0, 0, 0)
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1489363065]
+libraries/ = SubResource("AnimationLibrary_3aohm")
 
 [node name="DialogueUI" type="Control" parent="." unique_id=1431894958]
 layout_mode = 3

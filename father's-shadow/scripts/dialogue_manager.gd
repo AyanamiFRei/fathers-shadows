@@ -16,6 +16,11 @@ extends Control
 @onready var loyalty_state = $"../LoyaltyState"
 @onready var loyalty_value_label = $LoyaltyValueLabel
 
+@onready var end_anim_rect = $"../end_anim_rect"
+@onready var animation_player = $"../AnimationPlayer"
+
+@export var player: Node3D
+
 const LINE_TIME_LIMIT: float = 6.0
 const CHOICE_TIME_LIMIT: float = 8.0
 
@@ -26,6 +31,7 @@ var pending_node_id: String = ""
 var current_npc_id: String = ""
 
 func _ready() -> void:
+	end_anim_rect.visible = false
 	load_dialogue("res://dialogue/Leva.json")
 	dialogue_state.reset_dialogue_timer()
 	dialogue_state.start_dialogue_timer()
@@ -248,14 +254,15 @@ func select_choice(button_name: String) -> void:
 			return
 
 func end_dialogue() -> void:
+	get_tree().get_root().find_child("Player", true, false).end_anim()
 	dialogue_state.stop_dialogue_timer()
 	dialogue_state.stop_window_timer()
+	end_anim_rect.visible = true
+	animation_player.play("fadein")
 	print("Диалог завершён")
 	print("Общее время диалога: ", dialogue_state.get_total_dialogue_time())
 	timer_bar.hide()
 	hide()
-
-
 
 func handle_window_timeout() -> void:
 	var node = nodes.get(current_node_id, {})
@@ -296,5 +303,5 @@ func update_loyalty_ui() -> void:
 		return
 
 	var value = loyalty_state.get_loyalty(current_npc_id)
-	print("loyalty for ", current_npc_id, " = ", value)
+	# print("loyalty for ", current_npc_id, " = ", value)
 	loyalty_value_label.text = "" + str(value)
