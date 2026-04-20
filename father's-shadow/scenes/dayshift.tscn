@@ -6,11 +6,53 @@
 [ext_resource type="Script" uid="uid://busyighmmy4t6" path="res://scripts/traffic_gen.gd" id="3_lmeyo"]
 [ext_resource type="PackedScene" uid="uid://0rxo47rrvsuq" path="res://scenes/road_manager.tscn" id="5_lmeyo"]
 [ext_resource type="Script" uid="uid://clvsghiw73bmt" path="res://scenes/camera_3d.gd" id="6_w141n"]
+[ext_resource type="PackedScene" uid="uid://cr7hgcg41k7se" path="res://scenes/car_pov.tscn" id="7_mef3m"]
 
 [node name="DayShift" type="Node3D" unique_id=669553328]
 script = ExtResource("1_vgchw")
 
 [node name="UI Textboard" parent="." unique_id=267544843 instance=ExtResource("2_w141n")]
+
+[node name="Control" type="Control" parent="." unique_id=1909283603]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=28830251]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Control/HBoxContainer" unique_id=113709548]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="Control/HBoxContainer/SubViewportContainer" unique_id=383923868]
+handle_input_locally = false
+size = Vector2i(960, 1080)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Control/HBoxContainer/SubViewportContainer/SubViewport" unique_id=1718996158]
+transform = Transform3D(-1, 8.742278e-08, 0, 3.821371e-15, 4.371139e-08, 1, 8.742278e-08, 1, -4.371139e-08, -0.0008098781, 11.715581, 92.919716)
+near = 0.125
+script = ExtResource("6_w141n")
+player_path = NodePath("../../../../../Player")
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="Control/HBoxContainer" unique_id=1701473389]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="Control/HBoxContainer/SubViewportContainer2" unique_id=645727132]
+handle_input_locally = false
+size = Vector2i(960, 1080)
+render_target_update_mode = 4
+
+[node name="CarPov" parent="Control/HBoxContainer/SubViewportContainer2/SubViewport" unique_id=123706610 instance=ExtResource("7_mef3m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1071.4183, 253.40372, 1051.0355)
 
 [node name="RoadManager" parent="." unique_id=933467709 node_paths=PackedStringArray("player") instance=ExtResource("5_lmeyo")]
 player = NodePath("../Player")
@@ -20,12 +62,6 @@ transform = Transform3D(1, 0, 0, 0, 0.7284786, 0.68506867, 0, -0.68506867, 0.728
 
 [node name="Player" parent="." unique_id=749761299 instance=ExtResource("1_v8rv7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2975521, 1.0459797, 88.965126)
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1718996158]
-transform = Transform3D(1, 0, 0, 0, -0.011606238, 0.99993265, 0, -0.99993265, -0.011606238, -0.0008098781, 11.715581, 92.919716)
-near = 0.125
-script = ExtResource("6_w141n")
-player_path = NodePath("../Player")
 
 [node name="Node3D" type="Node3D" parent="." unique_id=993733496]
 script = ExtResource("3_lmeyo")
