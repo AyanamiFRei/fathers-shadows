@@ -1,0 +1,384 @@
+{
+"npc_id": "katerina",
+"start": "kat_1",
+"nodes": [
+
+
+{
+  "id": "kat_1",
+  "type": "line",
+  "name": "Катерина",
+  "text": "До Петроградской. Без остановок.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "pause_after": 1.2,
+  "next": "kat_2"
+},
+
+{
+  "id": "kat_2",
+  "type": "line",
+  "name": "Катерина",
+  "text": "И… желательно без разговоров.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "next": "kat_3"
+},
+
+{
+  "id": "kat_3",
+  "type": "line",
+  "name": "Катерина",
+  "text": "Хотя я сомневаюсь, что вы удержитесь.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "next": "kat_choice_1"
+},
+
+{
+  "id": "kat_choice_1",
+  "type": "choice",
+  "portrait_node": "Alex/Alex_Base",
+  "options": [
+	{
+	  "button": "choice_x",
+	  "text": "Не буду мешать вам",
+	  "loyalty_target": "katerina",
+	  "loyalty_change": 10,
+	  "next": "kat_x1"
+	},
+	{
+	  "button": "choice_y",
+	  "text": "Иногда разговор помогает отвлечься",
+	  "next": "kat_y1"
+	},
+	{
+	  "button": "choice_b",
+	  "text": "Как скажете",
+	  "loyalty_target": "katerina",
+	  "loyalty_change": -5,
+	  "next": "kat_b1"
+	}
+  ]
+},
+
+{
+  "id": "kat_x1",
+  "type": "line",
+  "name": "Катерина",
+  "text": "...Редкое качество.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "next": "kat_common_1"
+},
+
+{
+  "id": "kat_y1",
+  "type": "line",
+  "name": "Катерина",
+  "text": "Мне не нужно отвлекаться.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "next": "kat_common_1"
+},
+
+{
+  "id": "kat_b1",
+  "type": "line",
+  "name": "Катерина",
+  "text": "Именно.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "next": "kat_common_1"
+},
+
+{
+  "id": "kat_common_1",
+  "type": "line",
+  "name": "Катерина",
+  "text": "В последнее время люди стали слишком… разговорчивыми.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "next": "kat_common_2"
+},
+
+{
+  "id": "kat_common_2",
+  "type": "line",
+  "name": "Катерина",
+  "text": "Особенно когда речь заходит о вещах, в которых они ничего не понимают.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "pause_after": 1.2,
+  "next": "kat_choice_2"
+},
+
+{
+  "id": "kat_choice_2",
+  "type": "choice",
+  "portrait_node": "Alex/Alex_Base",
+  "options": [
+	{
+	  "button": "choice_x",
+	  "text": "Вы про убийство Карамазова?",
+	  "next": "kat_x2"
+	},
+	{
+	  "button": "choice_y",
+	  "text": "Слухи всегда искажают правду",
+	  "loyalty_target": "katerina",
+	  "loyalty_change": 5,
+	  "next": "kat_y2"
+	},
+	{
+	  "button": "choice_b",
+	  "text": "Меня это не касается",
+	  "loyalty_target": "katerina",
+	  "loyalty_change": -5,
+	  "next": "kat_b2"
+	}
+  ]
+},
+
+{
+  "id": "kat_x2",
+  "type": "line",
+  "name": "Катерина",
+  "text": "Вы слишком быстро делаете выводы.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "pause_after": 1.5,
+  "next": "kat_common_3"
+},
+
+{
+  "id": "kat_y2",
+  "type": "line",
+  "name": "Катерина",
+  "text": "Иногда правда хуже любых слухов.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "next": "kat_common_3"
+},
+
+{
+  "id": "kat_b2",
+  "type": "line",
+  "name": "Катерина",
+  "text": "И это правильно.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "next": "kat_common_3"
+},
+
+{
+  "id": "kat_common_3",
+  "type": "line",
+  "name": "Катерина",
+  "text": "...",
+  "portrait_node": "Katerina/Katerina_Base",
+  "pause_after": 2.0,
+  "next": "kat_common_4"
+},
+
+{
+  "id": "kat_common_4",
+  "type": "line",
+  "name": "Катерина",
+  "text": "Я знала этого человека.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "next": "kat_common_5"
+},
+
+{
+  "id": "kat_common_5",
+  "type": "line",
+  "name": "Катерина",
+  "text": "К сожалению.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "next": "kat_choice_3"
+},
+
+{
+  "id": "kat_choice_3",
+  "type": "choice",
+  "portrait_node": "Alex/Alex_Base",
+  "options": [
+	{
+	  "button": "choice_x",
+	  "text": "Он был неприятным человеком?",
+	  "next": "kat_x3"
+	},
+	{
+	  "button": "choice_y",
+	  "text": "Вы были близки?",
+	  "next": "kat_y3"
+	},
+	{
+	  "button": "choice_b",
+	  "text": "Не хочу в это лезть",
+	  "next": "kat_b3"
+	}
+  ]
+},
+
+{
+  "id": "kat_x3",
+  "type": "line",
+  "name": "Катерина",
+  "text": "Это мягко сказано.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "next": "kat_common_6"
+},
+
+{
+  "id": "kat_y3",
+  "type": "line",
+  "name": "Катерина",
+  "text": "...Скажем так, я была вынуждена с ним взаимодействовать.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "pause_after": 1.5,
+  "next": "kat_common_6"
+},
+
+{
+  "id": "kat_b3",
+  "type": "line",
+  "name": "Катерина",
+  "text": "Разумное решение.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "next": "kat_common_6"
+},
+
+{
+  "id": "kat_common_6",
+  "type": "line",
+  "name": "Катерина",
+  "text": "У него было… слишком много дел.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "next": "kat_common_7"
+},
+
+{
+  "id": "kat_common_7",
+  "type": "line",
+  "name": "Катерина",
+  "text": "И слишком много людей, которым он был должен.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "next": "kat_choice_4"
+},
+
+{
+  "id": "kat_choice_4",
+  "type": "choice",
+  "portrait_node": "Alex/Alex_Base",
+  "options": [
+	{
+	  "button": "choice_x",
+	  "text": "Вы имеете в виду деньги?",
+	  "next": "kat_x4"
+	},
+	{
+	  "button": "choice_y",
+	  "text": "Или что-то другое?",
+	  "loyalty_target": "katerina",
+	  "loyalty_change": 10,
+	  "next": "kat_y4"
+	},
+	{
+	  "button": "choice_b",
+	  "text": "Это не мое дело",
+	  "loyalty_target": "katerina",
+	  "loyalty_change": -10,
+	  "next": "kat_b4"
+	}
+  ]
+},
+
+{
+  "id": "kat_x4",
+  "type": "line",
+  "name": "Катерина",
+  "text": "Деньги — лишь часть проблемы.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "next": "kat_common_8"
+},
+
+{
+  "id": "kat_y4",
+  "type": "line",
+  "name": "Катерина",
+  "text": "...Вы задаёте правильные вопросы.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "pause_after": 1.0,
+  "next": "kat_loyalty_check"
+},
+
+{
+  "id": "kat_b4",
+  "type": "line",
+  "name": "Катерина",
+  "text": "Вот и не стоит начинать.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "next": "kat_common_8"
+},
+
+{
+  "id": "kat_loyalty_check",
+  "type": "line",
+  "name": "КАТЕРИНА",
+  "text": "Некоторые вещи… происходили у него дома.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "required_loyalty_target": "katerina",
+  "required_loyalty_min": 40,
+  "else_next": "kat_common_8",
+  "next": "kat_secret_1"
+},
+
+{
+  "id": "kat_secret_1",
+  "type": "line",
+  "name": "КАТЕРИНА",
+  "text": "И далеко не все из них стоит обсуждать вслух.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "pause_after": 1.5,
+  "next": "kat_secret_2"
+},
+
+{
+  "id": "kat_secret_2",
+  "type": "line",
+  "name": "КАТЕРИНА",
+  "text": "Но… если вы вдруг окажетесь рядом с этим домом — будьте внимательны.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "next": "kat_common_8"
+},
+
+{
+  "id": "kat_common_8",
+  "type": "line",
+  "name": "Катерина",
+  "text": "Люди думают, что знают правду.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "next": "kat_common_9"
+},
+
+{
+  "id": "kat_common_9",
+  "type": "line",
+  "name": "Катерина",
+  "text": "Но правда… часто зависит от того, кто её рассказывает.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "pause_after": 1.2,
+  "next": "kat_end_1"
+},
+
+{
+  "id": "kat_end_1",
+  "type": "line",
+  "name": "Катерина",
+  "text": "Мы приехали.",
+  "portrait_node": "Katerina/Katerina_Base",
+  "next": "kat_end_2"
+},
+
+{
+  "id": "kat_end_2",
+  "type": "line",
+  "name": "КАТЕРИНА",
+  "text": "...Спасибо.",
+  "portrait": "res://art/Katerina.png"
+}
+
+
+]
+}

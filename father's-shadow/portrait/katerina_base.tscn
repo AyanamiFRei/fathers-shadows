@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://o0l2q7b3xgt"]
+
+[ext_resource type="Texture2D" uid="uid://pmawrl8fo02r" path="res://assets/art/Katerina.png" id="1_q8jvc"]
+
+[node name="Katerina" type="Sprite2D" unique_id=1025381262]
+scale = Vector2(1.0983987, 1.0983987)
+texture = ExtResource("1_q8jvc")
