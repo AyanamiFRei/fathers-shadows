@@ -3,12 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dwa4ru6habu3i"
-valid=false
+uid="uid://c8g2etai71gy1"
+path="res://.godot/imported/tile1.gltf-0999bf43138e765b11461de86bcdfbb6.scn"
 
 [deps]
 
-source_file="res://scenes/scene.gltf"
+source_file="res://assets/cities/tile1 (merge)/tile1.gltf"
+dest_files=["res://.godot/imported/tile1.gltf-0999bf43138e765b11461de86bcdfbb6.scn"]
 
 [params]
 

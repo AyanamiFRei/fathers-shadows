@@ -3,5 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://baigcy2wphxv7" path="res://scenes/road2.tscn" id="1_lroew"]
 
 [node name="SegmentRoad2" type="Node3D" unique_id=1076022266]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.895752, 0, 0)
 
 [node name="Road2" parent="." unique_id=315762777 instance=ExtResource("1_lroew")]
+
+[node name="EndMarker" type="Marker3D" parent="." unique_id=1212715053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8880653, 0, -42.84835)
+
+[node name="StartMarker" type="Marker3D" parent="." unique_id=1055009685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.860631, 0, 110.466446)
