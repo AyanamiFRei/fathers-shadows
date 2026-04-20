@@ -1,25 +1,8 @@
 [gd_scene format=3 uid="uid://baigcy2wphxv7"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_mlm3g"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mlm3g"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_udwhn"]
-size = Vector3(1.8740234, 1, 1.9267578)
+[ext_resource type="PackedScene" uid="uid://bc0x8mv8yhsbs" path="res://assets/cities/tile2/tile2.gltf" id="1_vf3tb"]
 
 [node name="Road2" type="StaticBody3D" unique_id=315762777]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1515685020]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
-mesh = SubResource("PlaneMesh_mlm3g")
-surface_material_override/0 = SubResource("StandardMaterial3D_mlm3g")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=828593641]
-transform = Transform3D(5, 0, 0, 0, 0, 0, 0, 0, 100, 0, 0, 0)
-shape = SubResource("BoxShape3D_udwhn")
-
-[node name="Start" type="Marker3D" parent="." unique_id=1938008994]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
-
-[node name="End" type="Marker3D" parent="." unique_id=342002190]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
+[node name="tile2" parent="." unique_id=499724132 instance=ExtResource("1_vf3tb")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 36.65, 0, 123.33563)

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cth5p2sw3s7uk" path="res://scenes/player_car.tscn" id="1_v8rv7"]
 [ext_resource type="Script" uid="uid://o44bx6yw0hbq" path="res://scripts/traffic_car_back.gd" id="1_vgchw"]
-[ext_resource type="Script" uid="uid://busyighmmy4t6" path="res://scripts/traffic_gen.gd" id="3_w141n"]
+[ext_resource type="Script" uid="uid://busyighmmy4t6" path="res://scripts/traffic_gen.gd" id="3_lmeyo"]
 [ext_resource type="PackedScene" uid="uid://0rxo47rrvsuq" path="res://scenes/road_manager.tscn" id="5_lmeyo"]
 [ext_resource type="Script" uid="uid://clvsghiw73bmt" path="res://scenes/camera_3d.gd" id="6_w141n"]
 
@@ -20,9 +20,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2975521, 1.0459797, 88.9651
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1718996158]
 transform = Transform3D(1, 0, 0, 0, -0.011606238, 0.99993265, 0, -0.99993265, -0.011606238, -0.0008098781, 11.715581, 92.919716)
+near = 0.125
 script = ExtResource("6_w141n")
 player_path = NodePath("../CharacterBody3D")
 
-[node name="Node3D" type="Node3D" parent="." unique_id=217700894]
-script = ExtResource("3_w141n")
+[node name="Node3D" type="Node3D" parent="." unique_id=993733496]
+script = ExtResource("3_lmeyo")
 player_path = NodePath("../CharacterBody3D")

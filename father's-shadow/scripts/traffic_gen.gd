@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 	if cars.size() >= MAX_CARS:
 		return
 
-	var lane: int = [-4, -2, 2, 4].pick_random()
+	var lane: float = [-1.8, 1.8].pick_random()
 	var posz: float = randi_range(player.global_position.z + 30, player.global_position.z + 40)
 
 	if not _is_lane_free(lane, posz, cars):
@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 	instance.position = Vector3(lane, 1, posz)
 	get_tree().get_root().add_child(instance)
 
-func _is_lane_free(lane: int, posz: float, cars: Array) -> bool:
+func _is_lane_free(lane: float, posz: float, cars: Array) -> bool:
 	for car in cars:
 		if abs(car.global_position.x - lane) > 1.0:
 			continue
