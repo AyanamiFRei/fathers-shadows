@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b610s5tevkt8g" path="res://assets_interface/xbox_buttons/button_xbox_digital_b_8.png" id="5_b6e3c"]
 [ext_resource type="Texture2D" uid="uid://jdybi51l1rt0" path="res://assets/art/Alex.png" id="5_w0ec4"]
 [ext_resource type="Script" uid="uid://dqxwt0fimvroh" path="res://scripts/dialogue_state.gd" id="6_7htrt"]
+[ext_resource type="Texture2D" uid="uid://xa4mybo2atdm" path="res://art/Gregory_Engry.png" id="6_51prw"]
+[ext_resource type="Texture2D" uid="uid://cnhpck2smog78" path="res://art/Gregoryс_Base.png" id="7_3aohm"]
 [ext_resource type="Script" uid="uid://c0fm6o44k1vbo" path="res://scripts/loyalty_state.gd" id="7_re33w"]
 
 [sub_resource type="Animation" id="Animation_w0ec4"]
@@ -326,6 +328,18 @@ texture = SubResource("CompressedTexture2D_3sl4t")
 position = Vector2(90.6056, 9.373056)
 scale = Vector2(0.7479354, 0.7479354)
 texture = ExtResource("5_w0ec4")
+
+[node name="Gregory" type="Node2D" parent="DialogueUI/New_Portrait" unique_id=65312602]
+
+[node name="GregoryEngry" type="Sprite2D" parent="DialogueUI/New_Portrait/Gregory" unique_id=1697568005]
+position = Vector2(34.367676, -6.2487793)
+scale = Vector2(0.7587496, 0.7587494)
+texture = ExtResource("6_51prw")
+
+[node name="GregoryсBase" type="Sprite2D" parent="DialogueUI/New_Portrait/Gregory" unique_id=1225773736]
+position = Vector2(28.119154, -3.1243854)
+scale = Vector2(0.78118515, 0.78118515)
+texture = ExtResource("7_3aohm")
 
 [node name="DialogueState" type="Control" parent="." unique_id=756953163]
 layout_mode = 3
