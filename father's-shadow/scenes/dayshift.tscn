@@ -2,12 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://cth5p2sw3s7uk" path="res://scenes/player_car.tscn" id="1_v8rv7"]
 [ext_resource type="Script" uid="uid://o44bx6yw0hbq" path="res://scripts/traffic_car_back.gd" id="1_vgchw"]
+[ext_resource type="PackedScene" uid="uid://dytsp4lm1fj7d" path="res://scenes/dialogues.tscn" id="2_w141n"]
 [ext_resource type="Script" uid="uid://busyighmmy4t6" path="res://scripts/traffic_gen.gd" id="3_lmeyo"]
 [ext_resource type="PackedScene" uid="uid://0rxo47rrvsuq" path="res://scenes/road_manager.tscn" id="5_lmeyo"]
 [ext_resource type="Script" uid="uid://clvsghiw73bmt" path="res://scenes/camera_3d.gd" id="6_w141n"]
 
 [node name="DayShift" type="Node3D" unique_id=669553328]
 script = ExtResource("1_vgchw")
+
+[node name="UI Textboard" parent="." unique_id=267544843 instance=ExtResource("2_w141n")]
 
 [node name="RoadManager" parent="." unique_id=933467709 node_paths=PackedStringArray("player") instance=ExtResource("5_lmeyo")]
 player = NodePath("../CharacterBody3D")

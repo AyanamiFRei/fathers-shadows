@@ -15,6 +15,11 @@ run/main_scene="uid://b7hujxmpoclpt"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [input]
 
 Car_W={
