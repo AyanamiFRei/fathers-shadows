@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@export var base_speed: float = 10.0
+@export var base_speed: float = 13.0
 @export var boost_speed: float = 30.0
 @export var slow_speed: float = 7.0
 
@@ -22,6 +22,14 @@ var path_node: Path3D = null
 var path_progress: float = 0.0
 var path_start_world: Vector3  # первая точка пути в мировом пространстве
 
+# --- Столкновение с трафиком ---
+# Импульс должен быть БОЛЬШЕ base_speed, чтобы velocity.z стал отрицательным (назад)
+const PUSHBACK_IMPULSE  := 14.0
+const PUSHBACK_DECAY    := 35.0   # за ~0.7 с импульс затухает до нуля
+const HIT_COOLDOWN_TIME := 0.5
+var _pushback_velocity: float = 0.0
+var _hit_cooldown: float = 0.0
+
 
 func _ready():
 	current_speed = base_speed
@@ -37,7 +45,9 @@ func _physics_process(delta):
 			handle_speed()
 			handle_side_movement()
 			handle_forward_movement()
+			_apply_pushback(delta)
 			move_and_slide()
+			_check_traffic_collision()
 
 
 # ──────────────────────────────────────────────
@@ -73,12 +83,56 @@ func handle_forward_movement():
 
 
 # ──────────────────────────────────────────────
+#  Физика отброса при столкновении
+# ──────────────────────────────────────────────
+
+func _apply_pushback(delta: float) -> void:
+	if _hit_cooldown > 0.0:
+		_hit_cooldown -= delta
+	if _pushback_velocity > 0.0:
+		# Вычитаем из velocity.z — если импульс > current_speed, игрок едет назад
+		velocity.z -= _pushback_velocity
+		_pushback_velocity = move_toward(_pushback_velocity, 0.0, PUSHBACK_DECAY * delta)
+
+
+func _check_traffic_collision() -> void:
+	if _hit_cooldown > 0.0:
+		return
+	for i in get_slide_collision_count():
+		var col := get_slide_collision(i)
+		var collider := col.get_collider()
+		if collider == null:
+			continue
+		if not collider.is_in_group("traffic"):
+			continue
+
+		# Отброс игрока назад: impulse > base_speed → velocity.z < 0
+		_pushback_velocity = PUSHBACK_IMPULSE
+		_hit_cooldown = HIT_COOLDOWN_TIME
+
+		# Покраснение экрана
+		_trigger_hit_flash()
+
+		# Отброс встречной машины
+		if collider.has_method("apply_bounce"):
+			collider.apply_bounce()
+
+		break  # одного столкновения за кадр достаточно
+
+
+func _trigger_hit_flash() -> void:
+	var flash_nodes := get_tree().get_nodes_in_group("collision_flash")
+	if flash_nodes.size() > 0:
+		flash_nodes[0].play_flash()
+
+
+# ──────────────────────────────────────────────
 #  Финальная анимация
 # ──────────────────────────────────────────────
 
 func end_anim():
 	print("END")
-
+	set_collision_mask_value(1, false)
 	path_node = _find_nearest_path3d_ahead()
 	if path_node == null:
 		push_error("player_car: Path3D впереди не найден!")

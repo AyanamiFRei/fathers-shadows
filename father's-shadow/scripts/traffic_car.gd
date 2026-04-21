@@ -1,15 +1,21 @@
 extends Node3D
 
-@export var car_speed: float = randfn(8.0, 2.0)
+@export var car_speed: float = randfn(9.0, 2.0)
 @export var same_direction: bool = true
 
 const DETECTION_RANGE := 50.0
 const BRAKE_DISTANCE  := 30.0
-const SAFE_DISTANCE   := 10.0
+const SAFE_DISTANCE   := 20.0
 
 const RETURN_ACCEL := 2.0
 const BRAKE_ACCEL  := 4.0
 const LANE_EPSILON := 1.0
+
+# --- Отброс при столкновении (только для встречных, same_direction = false) ---
+# Импульс должен быть БОЛЬШЕ car_speed, иначе машина только тормозит, но не едет назад
+const BOUNCE_IMPULSE := 11.0
+const BOUNCE_DECAY   := 28.0
+var _bounce_z: float = 0.0
 
 var current_speed: float
 
@@ -25,13 +31,24 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	_adapt_speed(delta)
 
-	# Абсолютное движение в мировых координатах:
-	#   попутные  → +Z (вперёд вместе с игроком, но медленнее)
-	#   встречные → −Z (едут навстречу игроку)
+	# Затухание импульса
+	if _bounce_z != 0.0:
+		_bounce_z = move_toward(_bounce_z, 0.0, BOUNCE_DECAY * delta)
+
+	# Абсолютное движение.
+	# Для встречной: (current_speed + _bounce_z) < 0  =>  машина едет назад
 	if same_direction:
-		position.z -= current_speed * delta
+		position.z -= (current_speed + _bounce_z) * delta
 	else:
-		position.z += current_speed * delta
+		position.z += (current_speed + _bounce_z) * delta
+
+
+# Вызывается игроком при столкновении
+func apply_bounce() -> void:
+	if same_direction:
+		_bounce_z = -BOUNCE_IMPULSE*2   # отрицательный → перекрывает current_speed
+	else:
+		_bounce_z = BOUNCE_IMPULSE
 
 
 func _adapt_speed(delta: float) -> void:
@@ -84,8 +101,6 @@ func _find_car_ahead() -> Node3D:
 func _forward_distance_to(other: Node3D) -> float:
 	var dz := other.global_position.z - global_position.z
 
-	# Попутные:  «впереди» = больший Z
-	# Встречные: «впереди» = меньший Z (машина едет в −Z)
 	if same_direction:
 		return dz
 	else:

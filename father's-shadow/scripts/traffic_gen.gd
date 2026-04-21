@@ -2,7 +2,7 @@ extends Node3D
 
 @export var player_path: NodePath
 
-const MIN_GAP  = 10.0
+const MIN_GAP  = 30.0
 const MAX_CARS = 25
 
 var player: Node3D
@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 	if spawn_cooldown > 0.0:
 		return
 
-	spawn_cooldown = SPAWN_INTERVAL
+	spawn_cooldown = randf_range(SPAWN_INTERVAL, SPAWN_INTERVAL+0.3)
 
 	# Используем группу — надёжно и без load() каждый кадр
 	var cars = get_tree().get_nodes_in_group("traffic")
@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 	if cars.size() >= MAX_CARS:
 		return
 
-	var lane: float = [-1.8, 1.8].pick_random()
+	var lane: float = [-1.8, -1.8, 1.8].pick_random()
 	var posz: float = randi_range(player.global_position.z + 30, player.global_position.z + 40)
 
 	if not _is_lane_free(lane, posz, cars):

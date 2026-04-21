@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://xa4mybo2atdm" path="res://art/Gregory_Engry.png" id="6_51prw"]
 [ext_resource type="Texture2D" uid="uid://cnhpck2smog78" path="res://art/Gregoryс_Base.png" id="7_3aohm"]
 [ext_resource type="Script" uid="uid://c0fm6o44k1vbo" path="res://scripts/loyalty_state.gd" id="7_re33w"]
+[ext_resource type="Script" uid="uid://cs2qx3rbwx3gn" path="res://scripts/hit_flash.gd" id="8_hflsh"]
 
 [sub_resource type="Animation" id="Animation_w0ec4"]
 length = 0.001
@@ -43,6 +44,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_51prw"]
 resource_name = "fadeout"
+length = 1.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -50,7 +52,7 @@ tracks/0/path = NodePath("end_anim_rect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.4, 1),
+"times": PackedFloat32Array(1, 1.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
@@ -62,6 +64,20 @@ _data = {
 &"fadein": SubResource("Animation_y4fr7"),
 &"fadeout": SubResource("Animation_51prw")
 }
+
+[sub_resource type="Shader" id="Shader_hflsh"]
+code = "shader_type canvas_item;
+
+void fragment() {
+	vec2 centered = UV - vec2(0.5, 0.5);
+	float dist = length(centered * vec2(1, 1));
+	float vignette = smoothstep(0.3, 1.0, dist);
+	COLOR = vec4(0.8, 0.0, 0.0, vignette);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hflsh"]
+shader = SubResource("Shader_hflsh")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2imm4"]
 bg_color = Color(0, 0, 0, 0.6901961)
@@ -109,6 +125,17 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=744823662]
 libraries/ = SubResource("AnimationLibrary_w0ec4")
+
+[node name="hit_flash_rect" type="ColorRect" parent="." unique_id=-1826953717]
+z_index = 3
+material = SubResource("ShaderMaterial_hflsh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("8_hflsh")
 
 [node name="DialogueUI" type="Control" parent="." unique_id=1431894958]
 layout_mode = 3

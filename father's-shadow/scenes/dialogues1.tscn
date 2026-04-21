@@ -1,12 +1,15 @@
-[gd_scene format=3 uid="uid://byxkstfkbs0qb"]
+[gd_scene format=3 uid="uid://dytsp4lm1fj7d"]
 
 [ext_resource type="Script" uid="uid://sae2us05g6h" path="res://scripts/dialogue_manager.gd" id="1_w0ec4"]
-[ext_resource type="Texture2D" uid="uid://bgra0hlhwlr56" path="res://art/father.png" id="2_y4fr7"]
 [ext_resource type="Texture2D" uid="uid://dra3k0m23mcow" path="res://assets_interface/xbox_buttons/button_xbox_digital_x_8.png" id="3_51prw"]
 [ext_resource type="Texture2D" uid="uid://co6tjfco2tr0a" path="res://assets_interface/xbox_buttons/button_xbox_digital_y_8.png" id="4_3aohm"]
 [ext_resource type="Texture2D" uid="uid://b610s5tevkt8g" path="res://assets_interface/xbox_buttons/button_xbox_digital_b_8.png" id="5_b6e3c"]
+[ext_resource type="Texture2D" uid="uid://jdybi51l1rt0" path="res://assets/art/Alex.png" id="5_w0ec4"]
 [ext_resource type="Script" uid="uid://dqxwt0fimvroh" path="res://scripts/dialogue_state.gd" id="6_7htrt"]
+[ext_resource type="Texture2D" uid="uid://xa4mybo2atdm" path="res://art/Gregory_Engry.png" id="6_51prw"]
+[ext_resource type="Texture2D" uid="uid://cnhpck2smog78" path="res://art/Gregoryс_Base.png" id="7_3aohm"]
 [ext_resource type="Script" uid="uid://c0fm6o44k1vbo" path="res://scripts/loyalty_state.gd" id="7_re33w"]
+[ext_resource type="Script" uid="uid://cs2qx3rbwx3gn" path="res://scripts/hit_flash.gd" id="8_hflsh"]
 
 [sub_resource type="Animation" id="Animation_w0ec4"]
 length = 0.001
@@ -41,7 +44,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_51prw"]
 resource_name = "fadeout"
-length = 0.001
+length = 1.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -49,18 +52,32 @@ tracks/0/path = NodePath("end_anim_rect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(1, 1.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3aohm"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w0ec4"]
 _data = {
 &"RESET": SubResource("Animation_w0ec4"),
 &"fadein": SubResource("Animation_y4fr7"),
 &"fadeout": SubResource("Animation_51prw")
 }
+
+[sub_resource type="Shader" id="Shader_hflsh"]
+code = "shader_type canvas_item;
+
+void fragment() {
+	vec2 centered = UV - vec2(0.5, 0.5);
+	float dist = length(centered * vec2(1, 1));
+	float vignette = smoothstep(0.3, 1.0, dist);
+	COLOR = vec4(0.8, 0.0, 0.0, vignette);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hflsh"]
+shader = SubResource("Shader_hflsh")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2imm4"]
 bg_color = Color(0, 0, 0, 0.6901961)
@@ -77,6 +94,9 @@ font_names = PackedStringArray("Inter")
 font_weight = 450
 subpixel_positioning = 0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3sl4t"]
+load_path = "res://.godot/imported/Leva.png-4d72abc0e931b8bb7934b9a08cb4706f.ctex"
+
 [sub_resource type="SystemFont" id="SystemFont_3isj3"]
 font_names = PackedStringArray("Inter")
 font_weight = 450
@@ -88,9 +108,12 @@ bg_color = Color(0.09411765, 0.09411765, 0.09411765, 0.99215686)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wn28b"]
 bg_color = Color(0.89150864, 0.598496, 0.36354384, 1)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w0ec4"]
+load_path = "res://.godot/imported/Katerina.png-b36bb2724e0fb229094d6898a08c9536.ctex"
+
 [node name="UI Textboard" type="CanvasLayer" unique_id=267544843]
 
-[node name="end_anim_rect" type="ColorRect" parent="." unique_id=2121231402]
+[node name="end_anim_rect" type="ColorRect" parent="." unique_id=211028177]
 modulate = Color(0, 0, 0, 0)
 z_index = 1
 anchors_preset = 15
@@ -100,8 +123,19 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1489363065]
-libraries/ = SubResource("AnimationLibrary_3aohm")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=744823662]
+libraries/ = SubResource("AnimationLibrary_w0ec4")
+
+[node name="hit_flash_rect" type="ColorRect" parent="." unique_id=-1826953717]
+z_index = 3
+material = SubResource("ShaderMaterial_hflsh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("8_hflsh")
 
 [node name="DialogueUI" type="Control" parent="." unique_id=1431894958]
 layout_mode = 3
@@ -166,16 +200,16 @@ theme_override_font_sizes/mono_font_size = 22
 text = "Ты слишком внимательно слушаешь для простого таксиста."
 
 [node name="Portrait" type="TextureRect" parent="DialogueUI/DialoguePanel" unique_id=123698855]
+visible = false
 layout_mode = 0
-offset_left = 627.0
-offset_top = -155.99998
-offset_right = 1765.7095
-offset_bottom = 982.7095
+offset_left = 653.0
+offset_top = -152.99998
+offset_right = 1791.7095
+offset_bottom = 985.7095
 scale = Vector2(0.31, 0.31)
-texture = ExtResource("2_y4fr7")
+texture = SubResource("CompressedTexture2D_3sl4t")
 
 [node name="ChoicePanel" type="Control" parent="DialogueUI" unique_id=1598471978]
-visible = false
 layout_mode = 1
 anchor_right = 1.0385414
 anchor_bottom = 1.1583333
@@ -297,6 +331,41 @@ theme_override_font_sizes/font_size = 79
 text = "---"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="New_Portrait" type="Node2D" parent="DialogueUI" unique_id=1144850325]
+position = Vector2(1314, 886)
+scale = Vector2(0.32006818, 0.32006818)
+
+[node name="Katerina" type="Node2D" parent="DialogueUI/New_Portrait" unique_id=2134452565]
+
+[node name="Katerina_Base" type="Sprite2D" parent="DialogueUI/New_Portrait/Katerina" unique_id=1821879449]
+position = Vector2(31.243515, -46.86506)
+scale = Vector2(1.0739903, 1.0739903)
+texture = SubResource("CompressedTexture2D_w0ec4")
+
+[node name="Leva" type="Node2D" parent="DialogueUI/New_Portrait" unique_id=1253416076]
+
+[node name="Leva_Base" type="Sprite2D" parent="DialogueUI/New_Portrait/Leva" unique_id=605429446]
+texture = SubResource("CompressedTexture2D_3sl4t")
+
+[node name="Alex" type="Node2D" parent="DialogueUI/New_Portrait" unique_id=1924561514]
+
+[node name="Alex_Base" type="Sprite2D" parent="DialogueUI/New_Portrait/Alex" unique_id=2124776172]
+position = Vector2(90.6056, 9.373056)
+scale = Vector2(0.7479354, 0.7479354)
+texture = ExtResource("5_w0ec4")
+
+[node name="Gregory" type="Node2D" parent="DialogueUI/New_Portrait" unique_id=65312602]
+
+[node name="GregoryEngry" type="Sprite2D" parent="DialogueUI/New_Portrait/Gregory" unique_id=1697568005]
+position = Vector2(34.367676, -6.2487793)
+scale = Vector2(0.7587496, 0.7587494)
+texture = ExtResource("6_51prw")
+
+[node name="GregoryсBase" type="Sprite2D" parent="DialogueUI/New_Portrait/Gregory" unique_id=1225773736]
+position = Vector2(28.119154, -3.1243854)
+scale = Vector2(0.78118515, 0.78118515)
+texture = ExtResource("7_3aohm")
 
 [node name="DialogueState" type="Control" parent="." unique_id=756953163]
 layout_mode = 3
