@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://byxkstfkbs0qb"]
+[gd_scene format=3 uid="uid://cccnvau3cp3wq"]
 
 [ext_resource type="Script" uid="uid://sae2us05g6h" path="res://scripts/dialogue_manager.gd" id="1_w0ec4"]
-[ext_resource type="Texture2D" uid="uid://bgra0hlhwlr56" path="res://art/father.png" id="2_y4fr7"]
+[ext_resource type="Texture2D" uid="uid://bgra0hlhwlr56" path="res://assets/art/father.png" id="2_y4fr7"]
 [ext_resource type="Texture2D" uid="uid://dra3k0m23mcow" path="res://assets_interface/xbox_buttons/button_xbox_digital_x_8.png" id="3_51prw"]
 [ext_resource type="Texture2D" uid="uid://co6tjfco2tr0a" path="res://assets_interface/xbox_buttons/button_xbox_digital_y_8.png" id="4_3aohm"]
 [ext_resource type="Texture2D" uid="uid://b610s5tevkt8g" path="res://assets_interface/xbox_buttons/button_xbox_digital_b_8.png" id="5_b6e3c"]
@@ -175,7 +175,6 @@ scale = Vector2(0.31, 0.31)
 texture = ExtResource("2_y4fr7")
 
 [node name="ChoicePanel" type="Control" parent="DialogueUI" unique_id=1598471978]
-visible = false
 layout_mode = 1
 anchor_right = 1.0385414
 anchor_bottom = 1.1583333

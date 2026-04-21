@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b610s5tevkt8g" path="res://assets_interface/xbox_buttons/button_xbox_digital_b_8.png" id="5_b6e3c"]
 [ext_resource type="Texture2D" uid="uid://jdybi51l1rt0" path="res://assets/art/Alex.png" id="5_w0ec4"]
 [ext_resource type="Script" uid="uid://dqxwt0fimvroh" path="res://scripts/dialogue_state.gd" id="6_7htrt"]
-[ext_resource type="Texture2D" uid="uid://xa4mybo2atdm" path="res://art/Gregory_Engry.png" id="6_51prw"]
+[ext_resource type="Texture2D" uid="uid://gjkdo63g7b21" path="res://art/Gregory_Engry.png" id="6_51prw"]
 [ext_resource type="Texture2D" uid="uid://cnhpck2smog78" path="res://art/Gregoryс_Base.png" id="7_3aohm"]
 [ext_resource type="Script" uid="uid://c0fm6o44k1vbo" path="res://scripts/loyalty_state.gd" id="7_re33w"]
 
@@ -115,14 +115,16 @@ libraries/ = SubResource("AnimationLibrary_w0ec4")
 layout_mode = 3
 anchor_right = 1.667
 anchor_bottom = 1.667
-offset_right = -0.3840332
-offset_bottom = -0.21606445
+offset_left = 433.91
+offset_right = -846.72974
+offset_bottom = -720.3601
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_w0ec4")
 
 [node name="DialoguePanel" type="Control" parent="DialogueUI" unique_id=1574308892]
 layout_mode = 1
+anchor_left = 0.0141093545
 anchor_right = 1.0385414
 anchor_bottom = 1.1583333
 offset_left = 510.0
@@ -197,6 +199,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="Panel" parent="DialogueUI/ChoicePanel" unique_id=1921158000]
 layout_mode = 0
+offset_left = 27.089966
 offset_top = -44.0
 offset_right = 873.0
 offset_bottom = 170.0
@@ -207,7 +210,7 @@ texture_filter = 2
 layout_mode = 0
 offset_left = 31.0
 offset_top = 15.0
-offset_right = 519.0
+offset_right = 6050.9995
 offset_bottom = 503.0
 scale = Vector2(0.1, 0.1)
 icon = ExtResource("3_51prw")
@@ -234,8 +237,8 @@ texture_filter = 2
 layout_mode = 0
 offset_left = 31.0
 offset_top = 63.675
-offset_right = 519.0
-offset_bottom = 551.67694
+offset_right = 6050.9995
+offset_bottom = 551.675
 scale = Vector2(0.1, 0.1)
 icon = ExtResource("4_3aohm")
 flat = true
@@ -261,8 +264,8 @@ texture_filter = 2
 layout_mode = 0
 offset_left = 31.0
 offset_top = 112.235
-offset_right = 519.0
-offset_bottom = 600.2355
+offset_right = 6050.9995
+offset_bottom = 600.235
 scale = Vector2(0.1, 0.1)
 icon = ExtResource("5_b6e3c")
 flat = true
@@ -285,7 +288,7 @@ scroll_active = false
 
 [node name="DialogueTimerBar" type="ProgressBar" parent="DialogueUI" unique_id=1283197331]
 layout_mode = 0
-offset_left = 545.0
+offset_left = 575.08997
 offset_top = 992.0
 offset_right = 1165.0
 offset_bottom = 1006.0
