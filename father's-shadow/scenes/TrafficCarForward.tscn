@@ -9,6 +9,7 @@ albedo_color = Color(0.7607843, 0, 0.5529412, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_keafn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ex4jn"]
+size = Vector3(1.0452881, 1.2919922, 3.2141724)
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1671194987]
 collision_layer = 3
@@ -22,7 +23,7 @@ material_override = SubResource("StandardMaterial3D_tobn0")
 mesh = SubResource("BoxMesh_keafn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=724025258]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.0015869141, 0.2763672, -0.070617676)
 shape = SubResource("BoxShape3D_ex4jn")
 
 [node name="Sketchfab_Scene" parent="." unique_id=287743695 instance=ExtResource("2_h13jo")]

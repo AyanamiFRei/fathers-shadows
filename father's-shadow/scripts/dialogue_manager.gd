@@ -38,6 +38,8 @@ func _ready() -> void:
 	start_dialogue()
 	#update_loyalty_ui()
 	print("loyalty_state = ", loyalty_state)
+	end_anim_rect.visible = true
+	animation_player.play("fadeout")
 
 
 func _process(_delta: float) -> void:
