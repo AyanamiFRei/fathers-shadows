@@ -10,6 +10,9 @@ extends Control
 @onready var choice_1_text = $ChoicePanel/Background/"Choice1 [X]"/AnswerOption1
 @onready var choice_2_text = $ChoicePanel/Background/"Choice2 [Y]"/AnswerOption2
 @onready var choice_3_text = $ChoicePanel/Background/"Choice3 [B]"/AnswerOption3
+@onready var choice_1_button = $ChoicePanel/Background/"Choice1 [X]"
+@onready var choice_2_button = $ChoicePanel/Background/"Choice2 [Y]"
+@onready var choice_3_button = $ChoicePanel/Background/"Choice3 [B]"
 
 @onready var end_anim_rect = $"../end_anim_rect"
 @onready var animation_player = $"../AnimationPlayer"
@@ -23,6 +26,8 @@ extends Control
 
 const LINE_TIME_LIMIT: float = 6.0
 const CHOICE_TIME_LIMIT: float = 8.0
+const CHOICE_TEXT_NORMAL_COLOR := Color(1, 1, 1, 1)
+const CHOICE_TEXT_HOVER_COLOR := Color(1, 0.8, 0.2, 1)
 
 var start_id: String = ""
 var nodes: Dictionary = {}
@@ -40,6 +45,24 @@ func _ready() -> void:
 	print("loyalty_state = ", loyalty_state)
 	end_anim_rect.visible = true
 	animation_player.play("fadeout")
+
+	dialogue_panel.gui_input.connect(_on_dialogue_panel_gui_input)
+	choice_1_button.pressed.connect(_on_choice_1_pressed)
+	choice_2_button.pressed.connect(_on_choice_2_pressed)
+	choice_3_button.pressed.connect(_on_choice_3_pressed)
+	
+	choice_1_button.mouse_entered.connect(func(): _set_choice_text_hover(choice_1_text, true))
+	choice_1_button.mouse_exited.connect(func(): _set_choice_text_hover(choice_1_text, false))
+
+	choice_2_button.mouse_entered.connect(func(): _set_choice_text_hover(choice_2_text, true))
+	choice_2_button.mouse_exited.connect(func(): _set_choice_text_hover(choice_2_text, false))
+
+	choice_3_button.mouse_entered.connect(func(): _set_choice_text_hover(choice_3_text, true))
+	choice_3_button.mouse_exited.connect(func(): _set_choice_text_hover(choice_3_text, false))
+
+	choice_1_text.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	choice_2_text.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	choice_3_text.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 
 func _process(_delta: float) -> void:
@@ -74,29 +97,76 @@ func _input(event: InputEvent) -> void:
 		return
 	if current_node_id == "":
 		return
-	
+	if not (event is InputEventMouseButton):
+		return
+	if event.button_index != MOUSE_BUTTON_LEFT or not event.pressed or event.is_echo():
+		return
+
 	var node = nodes.get(current_node_id, {})
 	if node.is_empty():
 		return
-	
-	var node_type = str(node.get("type", ""))
-	if node_type == "line":
-		if event.is_action_pressed("choice_a"):
+
+	if str(node.get("type", "")) == "line" and dialogue_panel.visible:
+		if dialogue_panel.get_global_rect().has_point(event.position):
 			dialogue_state.stop_window_timer()
 			go_to_next_line()
-	elif node_type == "choice":
-		if event.is_action_pressed("choice_x"):
-			dialogue_state.stop_window_timer()
-			select_choice("choice_x")
-		elif event.is_action_pressed("choice_y"):
-			dialogue_state.stop_window_timer()
-			select_choice("choice_y")
-		elif event.is_action_pressed("choice_b"):
-			dialogue_state.stop_window_timer()
-			select_choice("choice_b")
-		
 
 
+func _on_dialogue_panel_gui_input(event: InputEvent) -> void:
+	if dialogue_state.is_between_window_timer_running:
+		return
+	if current_node_id == "":
+		return
+	if not (event is InputEventMouseButton):
+		return
+	if event.button_index != MOUSE_BUTTON_LEFT or not event.pressed:
+		return
+
+	var node = nodes.get(current_node_id, {})
+	if node.is_empty():
+		return
+
+	var node_type = str(node.get("type", ""))
+	if node_type == "line":
+		dialogue_state.stop_window_timer()
+		go_to_next_line()
+
+
+func _on_choice_1_pressed() -> void:
+	_handle_mouse_choice("choice_x")
+
+
+func _on_choice_2_pressed() -> void:
+	_handle_mouse_choice("choice_y")
+
+
+func _on_choice_3_pressed() -> void:
+	_handle_mouse_choice("choice_b")
+
+
+func _handle_mouse_choice(button_name: String) -> void:
+	if dialogue_state.is_between_window_timer_running:
+		return
+	if current_node_id == "":
+		return
+
+	var node = nodes.get(current_node_id, {})
+	if node.is_empty():
+		return
+	if str(node.get("type", "")) != "choice":
+		return
+
+	dialogue_state.stop_window_timer()
+	select_choice(button_name)
+
+func _set_choice_text_hover(label: Control, hovered: bool) -> void:
+	if label == null:
+		return
+	var color = CHOICE_TEXT_HOVER_COLOR if hovered else CHOICE_TEXT_NORMAL_COLOR
+	if label is RichTextLabel:
+		label.modulate = color
+	elif label is Label:
+		(label as Label).add_theme_color_override("font_color", color)
 
 func load_dialogue(path: String) -> void:
 	if not FileAccess.file_exists(path):
@@ -193,12 +263,23 @@ func show_choice_node(node: Dictionary) -> void:
 	choice_2_text.text = ""
 	choice_3_text.text = ""
 
+	choice_1_button.hide()
+	choice_2_button.hide()
+	choice_3_button.hide()
+	
+	_set_choice_text_hover(choice_1_text, false)
+	_set_choice_text_hover(choice_2_text, false)
+	_set_choice_text_hover(choice_3_text, false)
+
 	if options.size() > 0:
 		choice_1_text.text = str(options[0].get("text", ""))
+		choice_1_button.show()
 	if options.size() > 1:
 		choice_2_text.text = str(options[1].get("text", ""))
+		choice_2_button.show()
 	if options.size() > 2:
 		choice_3_text.text = str(options[2].get("text", ""))
+		choice_3_button.show()
 
 	timer_bar.show()
 	timer_bar.value = 1.0
@@ -241,6 +322,9 @@ func select_choice(button_name: String) -> void:
 			dialogue_state.stop_window_timer()
 			timer_bar.hide()
 
+			apply_choice_loyalty(option)
+			update_loyalty_ui()
+
 			var next_id = str(option.get("next", ""))
 			if next_id != "":
 				current_node_id = next_id
@@ -248,6 +332,17 @@ func select_choice(button_name: String) -> void:
 			else:
 				end_dialogue()
 			return
+
+func apply_choice_loyalty(option: Dictionary) -> void:
+	if current_npc_id == "":
+		return
+	if loyalty_state == null:
+		return
+
+	if option.has("loyalty_change"):
+		loyalty_state.change_loyalty(current_npc_id, int(option["loyalty_change"]))
+	elif option.has("loyalty_set"):
+		loyalty_state.set_loyalty(current_npc_id, int(option["loyalty_set"]))
 
 func end_dialogue() -> void:
 	get_tree().get_root().find_child("Player", true, false).end_anim()

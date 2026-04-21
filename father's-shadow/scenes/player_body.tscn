@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://m0vf3nbmb0p5"]
+
+[ext_resource type="Script" uid="uid://cwb131167bnq3" path="res://scripts/player_body.gd" id="1_y1lj5"]
+[ext_resource type="Texture2D" uid="uid://c6srelgfe4os" path="res://assets/sprites/icons8-e-key-48.png" id="2_qvhny"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qvhny"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y1lj5"]
+albedo_color = Color(0.29411766, 0.35686275, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ek12y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvhny"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y1lj5"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y1lj5"]
+size = Vector3(2.4140625, 1, 2.9980469)
+
+[node name="PlayerBody" type="CharacterBody3D" unique_id=516785971]
+collision_layer = 16
+collision_mask = 97
+script = ExtResource("1_y1lj5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2012474206]
+shape = SubResource("CapsuleShape3D_qvhny")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1469389534]
+material_override = SubResource("StandardMaterial3D_y1lj5")
+mesh = SubResource("CapsuleMesh_ek12y")
+
+[node name="Pivot" type="Node3D" parent="." unique_id=1965807298]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 20, 2)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Pivot" unique_id=243936763]
+
+[node name="Camera3D" type="Camera3D" parent="Pivot/SpringArm3D" unique_id=2114406891]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1136733924]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -5.532953, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_qvhny")
+mesh = SubResource("BoxMesh_y1lj5")
+
+[node name="InteractArea" type="Area3D" parent="." unique_id=1190170270]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea" unique_id=1893674468]
+shape = SubResource("BoxShape3D_y1lj5")
+
+[node name="InteractionKey" type="Sprite3D" parent="." unique_id=1190130451]
+transform = Transform3D(-2.0000002, 1.7484554e-07, 7.642743e-15, 0, -8.742277e-08, 2.0000002, 1.7484557e-07, 1.9999999, 8.7422784e-08, 0, 1.9623418, 2.5599995)
+texture = ExtResource("2_qvhny")
+
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]
