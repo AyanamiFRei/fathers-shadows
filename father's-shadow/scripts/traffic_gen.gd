@@ -9,14 +9,21 @@ var player: Node3D
 var traffic_forward  = preload("res://scenes/TrafficCarForward.tscn")
 var traffic_backward = preload("res://scenes/TrafficCarBack.tscn")
 
+var is_started = false
+
 # Cooldown чтобы не спаунить каждый кадр
 var spawn_cooldown: float = 0.0
 const SPAWN_INTERVAL = 0.5  # попытка спауна раз в 0.5 сек
 
 func _ready() -> void:
 	player = get_node(player_path)
+	await get_tree().create_timer(1.5).timeout
+	is_started = true
 
 func _process(delta: float) -> void:
+	if !is_started:
+		return
+		
 	spawn_cooldown -= delta
 	if spawn_cooldown > 0.0:
 		return

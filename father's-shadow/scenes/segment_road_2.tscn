@@ -2,6 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://baigcy2wphxv7" path="res://scenes/road2.tscn" id="1_lroew"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_lroew"]
+size = Vector3(1, 1, 68.779434)
+
 [sub_resource type="Curve3D" id="Curve3D_lroew"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.18979836, 0, -33.52671, 0, 0, 0, 0, 0, 0, 0.63809395, -0.048950195, -35.487694, 0, 0, 0, 0, 0, 0, 1.363616, -0.083984375, -37.242134, 0, 0, 0, 0, 0, 0, 2.1814756, -0.11425781, -38.61403, 0, 0, 0, 0, 0, 0, 3.6720915, -0.15771484, -39.748474, 0, 0, 0, 0, 0, 0, 5.4265327, -0.11035156, -40.645485, 0, 0, 0, 0, 0, 0, 6.772044, -0.072631836, -41.212708, 0, 0, 0, 0, 0, 0, 8.128445, -0.042236328, -41.720764, 0, 0, 0, 0, 0, 0, 9.806041, 0, -42.12291, 0, 0, 0, 0, 0, 0, 11.682466, 0, -42.47944, 0, 0, 0, 0, 0, 0, 48.428032, 0, -42.996796),
@@ -13,6 +16,22 @@ point_count = 11
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.895752, 0, 0)
 
 [node name="Road2" parent="." unique_id=315762777 instance=ExtResource("1_lroew")]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Road2" unique_id=2007929992]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3343067, 0, 74.628456)
+shape = SubResource("BoxShape3D_lroew")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Road2" unique_id=1855083118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.119527, 0, 70.22773)
+shape = SubResource("BoxShape3D_lroew")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Road2" unique_id=1621167278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3804522, 0, -6.273346)
+shape = SubResource("BoxShape3D_lroew")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Road2" unique_id=24885679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.130391, 0, -5.851589)
+shape = SubResource("BoxShape3D_lroew")
 
 [node name="EndMarker" type="Marker3D" parent="." unique_id=1212715053]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8880653, 0, -42.84835)

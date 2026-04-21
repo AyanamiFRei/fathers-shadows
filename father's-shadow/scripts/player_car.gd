@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @export var base_speed: float = 10.0
 @export var boost_speed: float = 30.0
-@export var slow_speed: float = 10.0
+@export var slow_speed: float = 7.0
 
 @export var lane_change_speed: float = 10.0
 @export var road_half_width: float = 6.0
@@ -69,7 +69,7 @@ func handle_side_movement():
 
 
 func handle_forward_movement():
-	velocity.z = base_speed
+	velocity.z = current_speed
 
 
 # ──────────────────────────────────────────────
@@ -162,5 +162,7 @@ func _collect_all_paths(node: Node, result: Array[Path3D]) -> void:
 # ──────────────────────────────────────────────
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
+	print("Deletion")
 	if body.get_class() == "CharacterBody3D":
 		body.queue_free()
+		print("deleted")

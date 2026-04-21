@@ -7,6 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://0rxo47rrvsuq" path="res://scenes/road_manager.tscn" id="5_lmeyo"]
 [ext_resource type="Script" uid="uid://clvsghiw73bmt" path="res://scenes/camera_3d.gd" id="6_w141n"]
 [ext_resource type="PackedScene" uid="uid://cr7hgcg41k7se" path="res://scenes/car_pov.tscn" id="7_mef3m"]
+[ext_resource type="Texture2D" uid="uid://chcovfv6rn3b3" path="res://assets/skyboxes/AllSky_Overcast4_Low.png" id="8_df7mf"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_hji44"]
+panorama = ExtResource("8_df7mf")
+
+[sub_resource type="Sky" id="Sky_s5tdb"]
+sky_material = SubResource("PanoramaSkyMaterial_hji44")
+
+[sub_resource type="Environment" id="Environment_5nr44"]
+background_mode = 2
+sky = SubResource("Sky_s5tdb")
+ambient_light_source = 3
 
 [node name="DayShift" type="Node3D" unique_id=669553328]
 script = ExtResource("1_vgchw")
@@ -38,7 +50,7 @@ size = Vector2i(960, 1080)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="Control/HBoxContainer/SubViewportContainer/SubViewport" unique_id=1718996158]
-transform = Transform3D(-1, 8.742278e-08, 0, 3.821371e-15, 4.371139e-08, 1, 8.742278e-08, 1, -4.371139e-08, -0.0008098781, 11.715581, 92.919716)
+transform = Transform3D(-1, -8.742278e-08, 0, -3.821371e-15, 4.371139e-08, 1, -8.742278e-08, 1, -4.371139e-08, -0.0008098781, 11.715581, 92.919716)
 near = 0.125
 script = ExtResource("6_w141n")
 player_path = NodePath("../../../../../Player")
@@ -66,3 +78,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2975521, 1.0459797, 88.9651
 [node name="Node3D" type="Node3D" parent="." unique_id=993733496]
 script = ExtResource("3_lmeyo")
 player_path = NodePath("../Player")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=969520399]
+environment = SubResource("Environment_5nr44")

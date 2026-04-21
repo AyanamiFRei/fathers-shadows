@@ -43,6 +43,8 @@ func _ready() -> void:
 	start_dialogue()
 	#update_loyalty_ui()
 	print("loyalty_state = ", loyalty_state)
+	end_anim_rect.visible = true
+	animation_player.play("fadeout")
 
 	dialogue_panel.gui_input.connect(_on_dialogue_panel_gui_input)
 	choice_1_button.pressed.connect(_on_choice_1_pressed)
