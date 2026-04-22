@@ -10,19 +10,20 @@ albedo_color = Color(0.29411766, 0.35686275, 1, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ek12y"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_y1lj5"]
+size = Vector3(2.4140625, 1, 2.9980469)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvhny"]
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_y1lj5"]
 size = Vector3(0.5, 0.5, 0.5)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_y1lj5"]
-size = Vector3(2.4140625, 1, 2.9980469)
-
 [node name="PlayerBody" type="CharacterBody3D" unique_id=516785971]
 collision_layer = 16
 collision_mask = 97
 script = ExtResource("1_y1lj5")
+vision_block_mask = 32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2012474206]
 shape = SubResource("CapsuleShape3D_qvhny")
@@ -38,11 +39,6 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2
 
 [node name="Camera3D" type="Camera3D" parent="Pivot/SpringArm3D" unique_id=2114406891]
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1136733924]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -5.532953, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_qvhny")
-mesh = SubResource("BoxMesh_y1lj5")
-
 [node name="InteractArea" type="Area3D" parent="." unique_id=1190170270]
 transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
 collision_layer = 0
@@ -54,6 +50,16 @@ shape = SubResource("BoxShape3D_y1lj5")
 [node name="InteractionKey" type="Sprite3D" parent="." unique_id=1190130451]
 transform = Transform3D(-2.0000002, 1.7484554e-07, 7.642743e-15, 0, -8.742277e-08, 2.0000002, 1.7484557e-07, 1.9999999, 8.7422784e-08, 0, 1.9623418, 2.5599995)
 texture = ExtResource("2_qvhny")
+
+[node name="VisualRoot" type="Node3D" parent="." unique_id=314913964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -5.532953, 0, 1, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="VisualRoot" unique_id=1136733924]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+material_override = SubResource("StandardMaterial3D_qvhny")
+mesh = SubResource("BoxMesh_y1lj5")
+
+[node name="VisionOrigin" type="Node3D" parent="VisualRoot" unique_id=1578773561]
 
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]

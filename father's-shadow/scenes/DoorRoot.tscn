@@ -29,6 +29,8 @@ shape = SubResource("BoxShape3D_flfdm")
 
 [node name="Frame" type="StaticBody3D" parent="." unique_id=661043717]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2822797, 0, 0)
+collision_layer = 32
+collision_mask = 16
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Frame" unique_id=729486929]
 mesh = SubResource("BoxMesh_flfdm")
@@ -41,5 +43,4 @@ transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, 
 node_a = NodePath("../PhysicsDoor")
 node_b = NodePath("../Frame")
 angular_limit/enable = true
-angular_limit/upper = 0.0
 angular_limit/lower = -1.9198622
