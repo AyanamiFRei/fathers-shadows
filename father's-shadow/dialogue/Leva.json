@@ -29,6 +29,7 @@
 		{
 		  "button": "choice_x",
 		  "text": "Да! Первый день на работу вышел.",
+		  "loyalty_change": 20,
 		  "next": "npc0_x_1"
 		},
 		{

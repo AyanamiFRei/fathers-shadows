@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://gjkdo63g7b21" path="res://art/Gregory_Engry.png" id="6_51prw"]
 [ext_resource type="Texture2D" uid="uid://cnhpck2smog78" path="res://art/Gregoryс_Base.png" id="7_3aohm"]
 [ext_resource type="Script" uid="uid://c0fm6o44k1vbo" path="res://scripts/loyalty_state.gd" id="7_re33w"]
+[ext_resource type="Script" uid="uid://cdsfefugj1n6i" path="res://scripts/loyalty_ui.gd" id="10_3aohm"]
+[ext_resource type="Texture2D" uid="uid://bsd1fv6bcmhsc" path="res://assets_interface/loyalty/loyalty_1.png" id="11_b6e3c"]
 
 [sub_resource type="Animation" id="Animation_w0ec4"]
 length = 0.001
@@ -299,10 +301,10 @@ show_percentage = false
 
 [node name="LoyaltyValueLabel" type="Label" parent="DialogueUI" unique_id=1956050865]
 layout_mode = 0
-offset_left = 1585.0
-offset_top = 38.0
-offset_right = 1863.0
-offset_bottom = 147.0
+offset_left = 1162.09
+offset_top = 48.0
+offset_right = 1440.09
+offset_bottom = 157.0
 theme_override_font_sizes/font_size = 79
 text = "---"
 horizontal_alignment = 1
@@ -358,3 +360,32 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("7_re33w")
+
+[node name="LoyaltyUI" type="Control" parent="." unique_id=547107443]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_3aohm")
+
+[node name="PanelContainer" type="Control" parent="LoyaltyUI" unique_id=400588531]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LoyaltyIcon" type="TextureRect" parent="LoyaltyUI/PanelContainer" unique_id=321191157]
+layout_mode = 0
+offset_left = 1792.0
+offset_top = 180.0
+offset_right = 2048.0
+offset_bottom = 436.0
+scale = Vector2(0.335, 0.335)
+texture = ExtResource("11_b6e3c")
+
+[node name="ChangeArrow" type="TextureRect" parent="LoyaltyUI/PanelContainer" unique_id=1506411371]
+layout_mode = 0
+offset_left = 1710.0001
+offset_top = 184.0
+offset_right = 1966.0001
+offset_bottom = 440.0
+scale = Vector2(0.3, 0.3)
