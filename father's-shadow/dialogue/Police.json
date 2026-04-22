@@ -1,0 +1,235 @@
+
+{
+  "npc_id": "police_call_1",
+  "start": "pol1_1",
+  "nodes": [
+
+{
+  "id": "pol1_1",
+  "type": "line",
+  "name": "ПОЛИЦИЯ",
+  "text": "Водитель, приём.",
+  "portrait_node": "Police/Police_Base",
+  "next": "pol1_2"
+},
+
+{
+  "id": "pol1_2",
+  "type": "line",
+  "name": "ПОЛИЦИЯ",
+  "text": "Ты сегодня подвозил одну женщину.",
+  "portrait_node": "Police/Police_Base",
+  "next": "pol1_3"
+},
+
+{
+  "id": "pol1_3",
+  "type": "line",
+  "name": "ПОЛИЦИЯ",
+  "text": "Строгая, в тёмном пальто.",
+  "portrait_node": "Police/Police_Base",
+  "next": "pol1_choice_1"
+},
+
+{
+  "id": "pol1_choice_1",
+  "type": "choice",
+  "portrait_node": "Alex/Alex_Base",
+  "options": [
+	{
+	  "button": "choice_x",
+	  "text": "Да",
+	  "next": "pol1_x1"
+	},
+	{
+	  "button": "choice_y",
+	  "text": "Не припоминаю",
+	  "next": "pol1_y1"
+	},
+	{
+	  "button": "choice_b",
+	  "text": "(Промолчать)",
+	  "next": "pol1_b1"
+	}
+  ]
+},
+
+{
+  "id": "pol1_x1",
+  "type": "line",
+  "name": "ПОЛИЦИЯ",
+  "text": "Хорошо.",
+  "portrait_node": "Police/Police_Base",
+  "next": "pol1_x1_2"
+},
+
+{
+  "id": "pol1_x1_2",
+  "type": "line",
+  "name": "ПОЛИЦИЯ",
+  "text": "Это Катерина Верховцева.",
+  "portrait_node": "Police/Police_Base",
+  "next": "pol1_common_1"
+},
+
+{
+  "id": "pol1_y1",
+  "type": "line",
+  "name": "ПОЛИЦИЯ",
+  "text": "Вспомнишь.",
+  "portrait_node": "Police/Police_Base",
+  "next": "pol1_y1_2"
+},
+
+{
+  "id": "pol1_y1_2",
+  "type": "line",
+  "name": "ПОЛИЦИЯ",
+  "text": "Такие не забываются.",
+  "portrait_node": "Police/Police_Base",
+  "next": "pol1_common_1"
+},
+
+{
+  "id": "pol1_b1",
+  "type": "line",
+  "name": "ПОЛИЦИЯ",
+  "text": "Ладно.",
+  "portrait_node": "Police/Police_Base",
+  "next": "pol1_b1_2"
+},
+
+{
+  "id": "pol1_b1_2",
+  "type": "line",
+  "name": "ПОЛИЦИЯ",
+  "text": "Слушай тогда внимательно.",
+  "portrait_node": "Police/Police_Base",
+  "next": "pol1_common_1"
+},
+
+{
+  "id": "pol1_common_1",
+  "type": "line",
+  "name": "ПОЛИЦИЯ",
+  "text": "Она проходит свидетелем по делу Карамазова.",
+  "portrait_node": "Police/Police_Base",
+  "next": "pol1_common_2"
+},
+
+{
+  "id": "pol1_common_2",
+  "type": "line",
+  "name": "ПОЛИЦИЯ",
+  "text": "И даёт… странные показания.",
+  "portrait_node": "Police/Police_Base",
+  "pause_after": 1.2,
+  "next": "pol1_common_3"
+},
+
+{
+  "id": "pol1_common_3",
+  "type": "line",
+  "name": "ПОЛИЦИЯ",
+  "text": "Слишком аккуратные.",
+  "portrait_node": "Police/Police_Base",
+  "next": "pol1_common_4"
+},
+
+{
+  "id": "pol1_common_4",
+  "type": "line",
+  "name": "ПОЛИЦИЯ",
+  "text": "Будто заранее подготовленные.",
+  "portrait_node": "Police/Police_Base",
+  "pause_after": 1.5,
+  "next": "pol1_choice_2"
+},
+
+{
+  "id": "pol1_choice_2",
+  "type": "choice",
+  "portrait_node": "Alex/Alex_Base",
+  "options": [
+	{
+	  "button": "choice_x",
+	  "text": "Думаете, она врёт?",
+	  "next": "pol1_x2"
+	},
+	{
+	  "button": "choice_y",
+	  "text": "Мне это зачем?",
+	  "next": "pol1_y2"
+	},
+	{
+	  "button": "choice_b",
+	  "text": "Понял",
+	  "next": "pol1_b2"
+	}
+  ]
+},
+
+{
+  "id": "pol1_x2",
+  "type": "line",
+  "name": "ПОЛИЦИЯ",
+  "text": "Мы думаем.",
+  "portrait_node": "Police/Police_Base",
+  "next": "pol1_x2_2"
+},
+
+{
+  "id": "pol1_x2_2",
+  "type": "line",
+  "name": "ПОЛИЦИЯ",
+  "text": "Но доказать — другое дело.",
+  "portrait_node": "Police/Police_Base",
+  "next": "pol1_end"
+},
+
+{
+  "id": "pol1_y2",
+  "type": "line",
+  "name": "ПОЛИЦИЯ",
+  "text": "Пока ни за чем.",
+  "portrait_node": "Police/Police_Base",
+  "next": "pol1_y2_2"
+},
+
+{
+  "id": "pol1_y2_2",
+  "type": "line",
+  "name": "ПОЛИЦИЯ",
+  "text": "Просто держи это в голове.",
+  "portrait_node": "Police/Police_Base",
+  "next": "pol1_end"
+},
+
+{
+  "id": "pol1_b2",
+  "type": "line",
+  "name": "ПОЛИЦИЯ",
+  "text": "Хорошо.",
+  "portrait_node": "Police/Police_Base",
+  "next": "pol1_b2_2"
+},
+
+{
+  "id": "pol1_b2_2",
+  "type": "line",
+  "name": "ПОЛИЦИЯ",
+  "text": "И смотри внимательнее.",
+  "portrait_node": "Police/Police_Base",
+  "next": "pol1_end"
+},
+
+{
+  "id": "pol1_end",
+  "type": "line",
+  "name": "ПОЛИЦИЯ",
+  "text": "Связь окончена.",
+  "portrait_node": "Police/Police_Base"
+}
+
+  ]
+}

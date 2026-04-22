@@ -10,8 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://cnhpck2smog78" path="res://art/Gregory_Base.png" id="7_3aohm"]
 [ext_resource type="Script" uid="uid://c0fm6o44k1vbo" path="res://scripts/loyalty_state.gd" id="7_re33w"]
 [ext_resource type="Script" uid="uid://cs2qx3rbwx3gn" path="res://scripts/hit_flash.gd" id="8_hflsh"]
+[ext_resource type="Texture2D" uid="uid://cpjp3f1n46tdf" path="res://art/Smerdyakov_Base.png" id="9_6cwu7"]
 [ext_resource type="Script" uid="uid://cdsfefugj1n6i" path="res://scripts/loyalty_ui.gd" id="10_3aohm"]
+[ext_resource type="Texture2D" uid="uid://cth0hl3do20xo" path="res://art/Telephone.png" id="10_mqx6s"]
 [ext_resource type="Texture2D" uid="uid://bsd1fv6bcmhsc" path="res://assets_interface/loyalty/loyalty_1.png" id="11_b6e3c"]
+[ext_resource type="Texture2D" uid="uid://cbbju30xmyceo" path="res://art/OldLady.png" id="11_u8o2i"]
+[ext_resource type="Texture2D" uid="uid://b7k7nldd5kua4" path="res://art/RadioSet.png" id="12_mqx6s"]
 
 [sub_resource type="Animation" id="Animation_w0ec4"]
 length = 0.001
@@ -362,15 +366,45 @@ texture = ExtResource("5_w0ec4")
 
 [node name="Grigory" type="Node2D" parent="DialogueUI/New_Portrait" unique_id=65312602]
 
-[node name="Grigory_Engry" type="Sprite2D" parent="DialogueUI/New_Portrait/Grigory" unique_id=1697568005]
+[node name="Grigory_Angry" type="Sprite2D" parent="DialogueUI/New_Portrait/Grigory" unique_id=1697568005]
 position = Vector2(34.367676, -6.2487793)
 scale = Vector2(0.7587496, 0.7587494)
 texture = ExtResource("6_51prw")
 
-[node name="Grigoryс_Base" type="Sprite2D" parent="DialogueUI/New_Portrait/Grigory" unique_id=1225773736]
+[node name="Grigory_Base" type="Sprite2D" parent="DialogueUI/New_Portrait/Grigory" unique_id=1225773736]
 position = Vector2(28.119154, -3.1243854)
 scale = Vector2(0.78118515, 0.78118515)
 texture = ExtResource("7_3aohm")
+
+[node name="Smerdyakov" type="Node2D" parent="DialogueUI/New_Portrait" unique_id=354287956]
+
+[node name="Smerdyakov_Base" type="Sprite2D" parent="DialogueUI/New_Portrait/Smerdyakov" unique_id=518272334]
+position = Vector2(-2.8431587, -37.49209)
+scale = Vector2(0.895935, 0.89593506)
+texture = ExtResource("9_6cwu7")
+
+[node name="Telephone" type="Node2D" parent="DialogueUI/New_Portrait" unique_id=1207969278]
+
+[node name="Telephone" type="Sprite2D" parent="DialogueUI/New_Portrait/Telephone" unique_id=1674368247]
+position = Vector2(-121.56787, -46.86499)
+scale = Vector2(0.9326692, 0.9326692)
+texture = ExtResource("10_mqx6s")
+
+[node name="Old" type="Node2D" parent="DialogueUI/New_Portrait" unique_id=692970319]
+
+[node name="Old_Base" type="Sprite2D" parent="DialogueUI/New_Portrait/Old" unique_id=1396594943]
+position = Vector2(5.9436913, -53.066074)
+scale = Vector2(0.7897856, 0.78978604)
+texture = ExtResource("11_u8o2i")
+
+[node name="Police" type="Node2D" parent="DialogueUI/New_Portrait" unique_id=2075515996]
+position = Vector2(53.395508, 78.10864)
+scale = Vector2(0.86003065, 0.86003065)
+
+[node name="Police_Base" type="Sprite2D" parent="DialogueUI/New_Portrait/Police" unique_id=1325028753]
+position = Vector2(-25.430708, -21.797287)
+scale = Vector2(1.0818181, 1.0818181)
+texture = ExtResource("12_mqx6s")
 
 [node name="DialogueState" type="Control" parent="." unique_id=756953163]
 layout_mode = 3

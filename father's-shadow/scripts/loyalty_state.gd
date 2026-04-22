@@ -13,9 +13,11 @@ const DIRECTION_UP := 1
 const DIRECTION_DOWN := -1
 
 var default_loyalty := {
-	"katerina": 35,
+	"katerina": 40,
 	"leva": 50,
-	"gregory": 10,
+	"grigory": 30,
+	"old": 30,
+	"smerdyakov": 45
 }
 
 var loyalty: Dictionary = {}

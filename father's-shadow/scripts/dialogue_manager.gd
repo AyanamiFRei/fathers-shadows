@@ -1,7 +1,17 @@
 extends Control
 
+const DIALOGUE_PATH := "res://dialogue/Telephone1.json"
+#const DIALOGUE_PATH := "res://dialogue/Leva.json"
+#const DIALOGUE_PATH := "res://dialogue/Police.json"
+#const DIALOGUE_PATH := "res://dialogue/Katerina.json"
 #const DIALOGUE_PATH := "res://dialogue/Grigory.json"
-const DIALOGUE_PATH := "res://dialogue/Leva.json"
+
+#const DIALOGUE_PATH := "res://dialogue/Telephone2.json"
+#const DIALOGUE_PATH := "res://dialogue/Leva2.json"
+#const DIALOGUE_PATH := "res://dialogue/Old_Lady.json"
+#const DIALOGUE_PATH := "res://dialogue/Police2.json"
+#const DIALOGUE_PATH := "res://dialogue/Smerdyakov.json"
+
 const LINE_TIME_LIMIT := 6.0
 const CHOICE_TIME_LIMIT := 8.0
 const CHOICE_TEXT_NORMAL_COLOR := Color(1, 1, 1, 1)

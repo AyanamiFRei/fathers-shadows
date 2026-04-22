@@ -1,0 +1,376 @@
+{
+"npc_id": "smerdyakov",
+"start": "sm1_1",
+"nodes": [
+
+{
+"id": "sm1_1",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Алексей Фёдорович…",
+"portrait_node": "Smerdyakov/Smerdyakov_Kind",
+"next": "sm1_2"
+},
+
+{
+"id": "sm1_2",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Не ожидал вас здесь увидеть.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"next": "sm1_3"
+},
+
+{
+"id": "sm1_3",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Но… так даже удобнее.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"next": "sm1_choice_1"
+},
+
+{
+"id": "sm1_choice_1",
+"type": "choice",
+"portrait_node": "Alex/Alex_Base",
+"options": [
+{
+"button": "choice_x",
+"text": "Куда едем?",
+"next": "sm1_x1"
+},
+{
+"button": "choice_y",
+"text": "Ты меня искал?",
+"next": "sm1_y1"
+},
+{
+"button": "choice_b",
+"text": "(Промолчать)",
+"next": "sm1_b1"
+}
+]
+},
+
+{
+"id": "sm1_x1",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Домой.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"next": "sm1_x1_2"
+},
+
+{
+"id": "sm1_x1_2",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Сегодня был длинный день.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"pause_after": 2.2,
+"next": "sm1_common_1"
+},
+
+{
+"id": "sm1_y1",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Нет.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"next": "sm1_y1_2"
+},
+
+{
+"id": "sm1_y1_2",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Но рад, что встретил.",
+"portrait_node": "Smerdyakov/Smerdyakov_Kind",
+"next": "sm1_common_1"
+},
+
+{
+"id": "sm1_b1",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "...Понимаю.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"next": "sm1_b1_2"
+},
+
+{
+"id": "sm1_b1_2",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Иногда слова только мешают.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"next": "sm1_common_1"
+},
+
+{
+"id": "sm1_common_1",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Вы изменились.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"next": "sm1_common_2"
+},
+
+{
+"id": "sm1_common_2",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Стали… спокойнее.",
+"portrait_node": "Smerdyakov/Smerdyakov_Kind",
+"next": "sm1_common_3"
+},
+
+{
+"id": "sm1_common_3",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Это не всегда хорошо. Хотя учитывая смерть вашего отца...",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"pause_after": 1.5,
+"next": "sm1_work_1"
+},
+
+{
+"id": "sm1_work_1",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "В порту теперь всё на мне.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"next": "sm1_work_2"
+},
+
+{
+"id": "sm1_work_2",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "После… случившегося.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"pause_after": 1.5,
+"next": "sm1_kar_1"
+},
+
+{
+"id": "sm1_kar_1",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Ваш отец был непростым человеком.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"next": "sm1_kar_2"
+},
+
+{
+"id": "sm1_kar_2",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Вы это лучше других знаете.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"next": "sm1_choice_2"
+},
+
+{
+"id": "sm1_choice_2",
+"type": "choice",
+"portrait_node": "Alex/Alex_Base",
+"options": [
+{
+"button": "choice_x",
+"text": "Знаю",
+"next": "sm1_x2"
+},
+{
+"button": "choice_y",
+"text": "Не всё",
+"next": "sm1_y2"
+},
+{
+"button": "choice_b",
+"text": "Не начинай",
+"next": "sm1_b2"
+}
+]
+},
+
+{
+"id": "sm1_x2",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Конечно.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"next": "sm1_x2_2"
+},
+
+{
+"id": "sm1_x2_2",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Каждый знал его по-своему.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"next": "sm1_common_4"
+},
+
+{
+"id": "sm1_y2",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Это верно.",
+"portrait_node": "Smerdyakov/Smerdyakov_Kind",
+"next": "sm1_y2_2"
+},
+
+{
+"id": "sm1_y2_2",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Он многое не показывал.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"next": "sm1_common_4"
+},
+
+{
+"id": "sm1_b2",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Как скажете.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"next": "sm1_b2_2"
+},
+
+{
+"id": "sm1_b2_2",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Но молчание не меняет сути.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"next": "sm1_common_4"
+},
+
+{
+"id": "sm1_common_4",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Такие люди не умирают случайно.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"pause_after": 1.5,
+"next": "sm1_common_5"
+},
+
+{
+"id": "sm1_common_5",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Вы ведь тоже это чувствуете.",
+"portrait_node": "Smerdyakov/Smerdyakov_Kind",
+"next": "sm1_choice_3"
+},
+
+{
+"id": "sm1_choice_3",
+"type": "choice",
+"portrait_node": "Alex/Alex_Base",
+"options": [
+{
+"button": "choice_x",
+"text": "Да",
+"next": "sm1_x3"
+},
+{
+"button": "choice_y",
+"text": "Не знаю",
+"next": "sm1_y3"
+},
+{
+"button": "choice_b",
+"text": "Мне всё равно",
+"next": "sm1_b3"
+}
+]
+},
+
+{
+"id": "sm1_x3",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Хорошо.",
+"portrait_node": "Smerdyakov/Smerdyakov_Kind",
+"next": "sm1_x3_2"
+},
+
+{
+"id": "sm1_x3_2",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Тогда вы понимаете больше, чем кажется.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"next": "sm1_end_1"
+},
+
+{
+"id": "sm1_y3",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Понимание приходит позже.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"next": "sm1_y3_2"
+},
+
+{
+"id": "sm1_y3_2",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Иногда слишком поздно.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"next": "sm1_end_1"
+},
+
+{
+"id": "sm1_b3",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Это тоже выбор.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"next": "sm1_b3_2"
+},
+
+{
+"id": "sm1_b3_2",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Не все хотят видеть.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"next": "sm1_end_1"
+},
+
+{
+"id": "sm1_end_1",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Здесь остановите.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base",
+"next": "sm1_end_2"
+},
+
+{
+"id": "sm1_end_2",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "Рад был вас увидеть, Алексей Фёдорович.",
+"portrait_node": "Smerdyakov/Smerdyakov_Kind",
+"next": "sm1_end_3"
+},
+
+{
+"id": "sm1_end_3",
+"type": "line",
+"name": "СМЕРДЯКОВ",
+"text": "...В таких обстоятельствах.",
+"portrait_node": "Smerdyakov/Smerdyakov_Base"
+}
+
+]
+}

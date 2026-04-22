@@ -2,18 +2,31 @@
 
 [ext_resource type="Script" uid="uid://chrm3wa08gm4b" path="res://scenes/cab.gd" id="1_spjk5"]
 [ext_resource type="PackedScene" uid="uid://dlt3hnurijvlv" path="res://assets/cab/cab.gltf" id="1_xat6g"]
+[ext_resource type="Texture2D" uid="uid://dt67ulvgyjp6t" path="res://assets/skyboxes/Deep Dusk Equirect.png" id="3_ysf7l"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_spjk5"]
+panorama = ExtResource("3_ysf7l")
+
+[sub_resource type="Sky" id="Sky_ysf7l"]
+resource_local_to_scene = true
+sky_material = SubResource("PanoramaSkyMaterial_spjk5")
+
+[sub_resource type="Environment" id="Environment_ph32c"]
+background_mode = 2
+sky = SubResource("Sky_ysf7l")
 
 [node name="Cab" type="Node3D" unique_id=311286431]
 script = ExtResource("1_spjk5")
 
 [node name="cab" parent="." unique_id=322439748 instance=ExtResource("1_xat6g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1834276, 0, 0.5203469)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1994264, -3.8146973e-06, 0.4132855)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1635521922]
 transform = Transform3D(0.04959937, 0, 0.9987693, 0, 1, 0, -0.9987693, 0, 0.04959937, 5.624544, 8.9137, 6.2082767)
 
 [node name="LampLight1" type="SpotLight3D" parent="." unique_id=2133249530]
 transform = Transform3D(1, 0, 0, 0, 0.007033604, 0.99997526, 0, -0.99997526, 0.007033604, -5.6903057, 14.78953, 11.447178)
+visible = false
 light_color = Color(0.94377536, 0.71978, 0.33939496, 1)
 light_energy = 16.0
 light_indirect_energy = 3.815
@@ -25,6 +38,7 @@ spot_angle = 57.270782
 
 [node name="LampLight2" type="SpotLight3D" parent="." unique_id=1518196723]
 transform = Transform3D(0.8572212, 0.46452522, -0.22223432, 0, 0.43156627, 0.90208125, 0.5149483, -0.7732832, 0.36994776, -2.3248422, 8.633298, 3.8434913)
+visible = false
 light_color = Color(0.8540143, 0.5983811, 0.15543553, 1)
 light_energy = 9.889
 light_indirect_energy = 5.0
@@ -32,3 +46,11 @@ light_volumetric_fog_energy = 1.07
 light_size = 0.389
 spot_range = 8.707891
 spot_angle = 43.02695
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=423499477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.587444, 27.916107, 10.414631)
+light_color = Color(0.99999815, 0.63583195, 0.42387107, 1)
+light_energy = 11.63
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=430050813]
+environment = SubResource("Environment_ph32c")

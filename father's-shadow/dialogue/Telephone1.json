@@ -1,0 +1,185 @@
+{
+  "npc_id": "ivan_call_day1",
+  "start": "call1_1",
+  "nodes": [
+
+{
+  "id": "call1_1",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Алексей, ты на связи?",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call1_2"
+},
+
+{
+  "id": "call1_2",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Слушай внимательно. Времени у нас немного.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call1_3"
+},
+
+{
+  "id": "call1_3",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "После смерти отца всё слишком быстро начали заминать.",
+  "portrait_node": "Telephone/Telephone",
+  "pause_after": 1.2,
+  "next": "call1_4"
+},
+
+{
+  "id": "call1_4",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Но есть один человек, который мог видеть больше остальных.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call1_5"
+},
+
+{
+  "id": "call1_5",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Григорий.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call1_6"
+},
+
+{
+  "id": "call1_6",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Он работал на отца. Долго.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call1_7"
+},
+
+{
+  "id": "call1_7",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "И знал, чем тот занимался на самом деле.",
+  "portrait_node": "Telephone/Telephone",
+  "pause_after": 1.2,
+  "next": "call1_choice_1"
+},
+
+{
+  "id": "call1_choice_1",
+  "type": "choice",
+  "portrait_node": "Alex/Alex_Base",
+  "options": [
+	{
+	  "button": "choice_x",
+	  "text": "Думаешь, он причастен?",
+	  "next": "call1_x1"
+	},
+	{
+	  "button": "choice_y",
+	  "text": "Он будет говорить?",
+	  "next": "call1_y1"
+	},
+	{
+	  "button": "choice_b",
+	  "text": "Понял",
+	  "next": "call1_b1"
+	}
+  ]
+},
+
+{
+  "id": "call1_x1",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Не знаю.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call1_common_1"
+},
+
+{
+  "id": "call1_x1_2",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Но он точно что-то скрывает.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call1_common_1"
+},
+
+{
+  "id": "call1_y1",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Нет.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call1_y1_2"
+},
+
+{
+  "id": "call1_y1_2",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Такие как он не говорят добровольно.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call1_common_1"
+},
+
+{
+  "id": "call1_b1",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Хорошо.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call1_b1_2"
+},
+
+{
+  "id": "call1_b1_2",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Тогда действуй аккуратно.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call1_common_1"
+},
+
+{
+  "id": "call1_common_1",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Днём попробуй его разговорить.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call1_common_2"
+},
+
+{
+  "id": "call1_common_2",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "А ночью — проверь его квартиру.",
+  "portrait_node": "Telephone/Telephone",
+  "pause_after": 1.5,
+  "next": "call1_common_3"
+},
+
+{
+  "id": "call1_common_3",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Если там что-то есть — это и будет наша первая зацепка.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call1_end"
+},
+
+{
+  "id": "call1_end",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "И Алексей… не доверяй никому.",
+  "portrait_node": "Telephone/Telephone"
+}
+
+  ]
+}
