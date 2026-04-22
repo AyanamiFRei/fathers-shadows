@@ -564,18 +564,15 @@
 						]
 					}
 				},
-				"index":14,
-				"texCoord":1
+				"index":14
 			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":15,
-					"texCoord":1
+					"index":15
 				},
 				"metallicFactor":0.15000000596046448,
 				"metallicRoughnessTexture":{
-					"index":16,
-					"texCoord":1
+					"index":16
 				}
 			}
 		},
@@ -610,30 +607,22 @@
 		},
 		{
 			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_specular":{
-					"specularFactor":0.4000000059604645
-				},
-				"KHR_materials_ior":{
-					"ior":1.4500000476837158
-				}
-			},
-			"name":"Wallpaper Anaglypta Olive Green",
+			"name":"Sage Green Venetian Plaster",
 			"normalTexture":{
 				"extensions":{
 					"KHR_texture_transform":{
 						"offset":[
-							-9.99999999999999,
-							1.0000004371139
+							0,
+							-1.5
 						],
-						"rotation":1.5707963705062866,
 						"scale":[
-							10,
-							10
+							2.5,
+							2.5
 						]
 					}
 				},
 				"index":22,
+				"scale":0.6000000238418579,
 				"texCoord":1
 			},
 			"pbrMetallicRoughness":{
@@ -642,28 +631,28 @@
 						"KHR_texture_transform":{
 							"offset":[
 								0,
-								-2
+								-1.5
 							],
 							"scale":[
-								3,
-								3
+								2.5,
+								2.5
 							]
 						}
 					},
 					"index":23,
 					"texCoord":1
 				},
-				"metallicFactor":0.20000000298023224,
+				"metallicFactor":0,
 				"metallicRoughnessTexture":{
 					"extensions":{
 						"KHR_texture_transform":{
 							"offset":[
 								0,
-								-2
+								-1.5
 							],
 							"scale":[
-								3,
-								3
+								2.5,
+								2.5
 							]
 						}
 					},
@@ -1175,18 +1164,18 @@
 		},
 		{
 			"mimeType":"image/jpeg",
-			"name":"bump_reticular_05k",
-			"uri":"bump_reticular_05k.jpg"
+			"name":"Normal",
+			"uri":"Normal.jpg"
 		},
 		{
 			"mimeType":"image/jpeg",
-			"name":"wallpaper-1_ao",
-			"uri":"wallpaper-1_ao.jpg"
+			"name":"imgonline-com-ua-TextureSeamless-ICRVKDpacqVCx",
+			"uri":"imgonline-com-ua-TextureSeamless-ICRVKDpacqVCx.jpg"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"wallpaper-1_smoothness",
-			"uri":"wallpaper-1_smoothness.png"
+			"name":"Roug",
+			"uri":"Roug.png"
 		},
 		{
 			"mimeType":"image/png",

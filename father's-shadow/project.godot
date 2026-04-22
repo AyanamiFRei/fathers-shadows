@@ -81,6 +81,7 @@ night_zoom_out={
 
 [layer_names]
 
+3d_physics/layer_1="solid_object"
 3d_physics/layer_2="traffic"
 3d_physics/layer_3="interactable_object"
 3d_physics/layer_4="camerabox"

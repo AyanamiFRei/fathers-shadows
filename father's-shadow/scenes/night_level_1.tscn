@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://bnh3h381k8ouc"]
+
+[ext_resource type="PackedScene" uid="uid://ccrjob2i600au" path="res://assets/rooms/room1.gltf" id="1_26qk8"]
+[ext_resource type="PackedScene" uid="uid://do7d5didp6ldi" path="res://scenes/vision_block+solid_object.tscn" id="2_bkg6e"]
+[ext_resource type="PackedScene" uid="uid://hr0j5h7tc20m" path="res://scenes/solid_object.tscn" id="3_uog5t"]
+
+[node name="night_level1" type="Node3D" unique_id=224379011]
+
+[node name="room1" parent="." unique_id=983722822 instance=ExtResource("1_26qk8")]
+
+[node name="vision_block+solid_object" parent="." unique_id=7879097 instance=ExtResource("2_bkg6e")]
+transform = Transform3D(10.265749, 0, 0, 0, 5.965618, 0, 0, 0, 0.6997185, -6.0110693, 3.107667, 7.2972536)
+visible = false
+
+[node name="vision_block+solid_object2" parent="." unique_id=2034292645 instance=ExtResource("2_bkg6e")]
+transform = Transform3D(10.265749, 0, 0, 0, 5.965618, 0, 0, 0, 0.6997185, 6.918049, 3.107667, 7.4825974)
+visible = false
+
+[node name="vision_block+solid_object3" parent="." unique_id=2011987883 instance=ExtResource("2_bkg6e")]
+transform = Transform3D(-6.700121e-07, 0, -0.6997185, 0, 5.965618, 0, 15.328091, 0, -3.0585667e-08, 10.222636, 3.107667, -0.1670351)
+visible = false
+
+[node name="vision_block+solid_object5" parent="." unique_id=460634298 instance=ExtResource("2_bkg6e")]
+transform = Transform3D(6.6543903, 0, 0, 0, 5.965618, 0, 0, 0, 0.6997185, 7.3724575, 3.107667, 1.6750517)
+visible = false
+
+[node name="vision_block+solid_object6" parent="." unique_id=1137373556 instance=ExtResource("2_bkg6e")]
+transform = Transform3D(-9.331333e-08, 0, 0.7169206, 0, 5.965617, 0, -2.1347601, 0, -3.1337596e-08, 4.3724117, 3.107667, 2.8917243)
+visible = false
+
+[node name="vision_block+solid_object7" parent="." unique_id=1341016004 instance=ExtResource("2_bkg6e")]
+transform = Transform3D(-9.331333e-08, 0, 0.7169206, 0, 5.965617, 0, -2.1347601, 0, -3.1337596e-08, 4.3724117, 3.107667, 6.9461174)
+visible = false
+
+[node name="vision_block+solid_object8" parent="." unique_id=1832354281 instance=ExtResource("2_bkg6e")]
+transform = Transform3D(-2.585287e-07, 0, 0.670975, 0, 5.965617, 0, -5.9144473, 0, -2.932925e-08, -2.94106, 3.107667, 4.8834753)
+visible = false
+
+[node name="vision_block+solid_object9" parent="." unique_id=286404186 instance=ExtResource("2_bkg6e")]
+transform = Transform3D(-3.818729e-07, 0, 0.670975, 0, 5.965617, 0, -8.736234, 0, -2.932925e-08, -2.94106, 3.107667, -4.8356)
+visible = false
+
+[node name="vision_block+solid_object10" parent="." unique_id=1588085425 instance=ExtResource("2_bkg6e")]
+transform = Transform3D(-7.29471e-07, 0, 0.670975, 0, 5.965617, 0, -16.688353, 0, -2.932925e-08, -10.351464, 3.107667, -0.19375563)
+visible = false
+
+[node name="vision_block+solid_object11" parent="." unique_id=752498772 instance=ExtResource("2_bkg6e")]
+transform = Transform3D(15.347069, 0, 0, 0, 5.965618, 0, 0, 0, 0.6997185, 4.38218, 3.107667, -7.5759277)
+visible = false
+
+[node name="vision_block+solid_object12" parent="." unique_id=940736209 instance=ExtResource("2_bkg6e")]
+transform = Transform3D(6.8825755, 0, 0, 0, 5.965618, 0, 0, 0, 0.6997185, -6.6635785, 3.107667, -5.1181207)
+visible = false
+
+[node name="solid_object" parent="." unique_id=1060861014 instance=ExtResource("3_uog5t")]
+transform = Transform3D(3.5843885, 0, 0, 0, 3.3831542, 0, 0, 0, 1.6860502, 3.381394, 1.821074, -1.9261372)
+visible = false
+
+[node name="solid_object2" parent="." unique_id=1832341030 instance=ExtResource("3_uog5t")]
+transform = Transform3D(1.3709707, 0, 0, 0, 2.8299818, 0, 0, 0, 1.2668635, 4.3556466, 1.3609488, -3.431379)
+visible = false
+
+[node name="solid_object3" parent="." unique_id=1248567303 instance=ExtResource("3_uog5t")]
+transform = Transform3D(1.3709707, 0, 0, 0, 2.5870957, 0, 0, 0, 0.7742337, 2.4483094, 1.3105507, -3.1295698)
+visible = false
+
+[node name="solid_object4" parent="." unique_id=266254041 instance=ExtResource("3_uog5t")]
+transform = Transform3D(2.2563043, 0, 0, 0, 4.9189534, 0, 0, 0, 6.57338, -1.9820831, 1.821074, -4.371912)
+visible = false
+
+[node name="solid_object5" parent="." unique_id=785327192 instance=ExtResource("3_uog5t")]
+transform = Transform3D(-9.8626195e-08, 0, -6.57338, 0, 4.9189534, 0, 2.2563043, 0, -2.8733157e-07, 0.9471946, 1.821074, -6.5950193)
+visible = false
+
+[node name="solid_object6" parent="." unique_id=2100645225 instance=ExtResource("3_uog5t")]
+transform = Transform3D(2.2563043, 0, 0, 0, 4.0226674, 0, 0, 0, 4.0414486, 9.401556, 1.821074, -2.1553113)
+visible = false
+
+[node name="solid_object7" parent="." unique_id=845822203 instance=ExtResource("3_uog5t")]
+transform = Transform3D(1.4128572, 0, 0, 0, 3.7048976, 0, 0, 0, 1.4158226, 3.2788043, 0.035174847, 3.0115125)
+visible = false
+
+[node name="solid_object8" parent="." unique_id=934561209 instance=ExtResource("3_uog5t")]
+transform = Transform3D(1.4215691, 0, 0.58081347, 0, 3.7048976, 0, -0.5762859, 0, 1.432738, -4.198298, 0.035174847, 6.1975536)
+visible = false
+
+[node name="solid_object9" parent="." unique_id=797122731 instance=ExtResource("3_uog5t")]
+transform = Transform3D(1.1129369, 0, 1.0639145, 0, 3.7048976, 0, -1.0556209, 0, 1.1216809, -5.669753, 0.035174847, 5.7063513)
+visible = false
+
+[node name="solid_object10" parent="." unique_id=1455368385 instance=ExtResource("3_uog5t")]
+transform = Transform3D(2.3929777, 0, 0, 0, 4.9189534, 0, 0, 0, 5.2362375, -8.819144, 1.821074, -3.0054445)
+visible = false
+
+[node name="solid_object11" parent="." unique_id=469730266 instance=ExtResource("3_uog5t")]
+transform = Transform3D(1.435635, 0, 0, 0, -2.8868394, 0, 0, 0, 0.5350547, -6.9632764, 1.3988111, -4.1655993)
+visible = false
+
+[node name="solid_object12" parent="." unique_id=1116180886 instance=ExtResource("3_uog5t")]
+transform = Transform3D(2.7846322, 0, 0, 0, 3.7048976, 0, 0, 0, 5.3538547, 8.88276, 0.035174847, 4.8841352)
+visible = false
+
+[node name="solid_object13" parent="." unique_id=495037229 instance=ExtResource("3_uog5t")]
+transform = Transform3D(2.059537, 0, 0, 0, 6.0647016, 0, 0, 0, 2.9650805, -8.819144, 1.821074, 3.5327115)
+visible = false
