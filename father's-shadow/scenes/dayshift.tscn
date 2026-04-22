@@ -6,10 +6,10 @@
 [ext_resource type="Script" uid="uid://busyighmmy4t6" path="res://scripts/traffic_gen.gd" id="3_lmeyo"]
 [ext_resource type="PackedScene" uid="uid://xgx06gl307mw" path="res://scenes/Radio.tscn" id="4_hji44"]
 [ext_resource type="PackedScene" uid="uid://0rxo47rrvsuq" path="res://scenes/road_manager.tscn" id="5_lmeyo"]
-[ext_resource type="Script" uid="uid://clvsghiw73bmt" path="res://scenes/camera_3d.gd" id="6_w141n"]
+[ext_resource type="Script" uid="uid://clvsghiw73bmt" path="res://scripts/camera_3d.gd" id="6_w141n"]
 [ext_resource type="PackedScene" uid="uid://cr7hgcg41k7se" path="res://scenes/car_pov.tscn" id="7_mef3m"]
 [ext_resource type="Texture2D" uid="uid://chcovfv6rn3b3" path="res://assets/skyboxes/AllSky_Overcast4_Low.png" id="8_df7mf"]
-[ext_resource type="Script" path="res://scenes/radio_container.gd" id="9_radio"]
+[ext_resource type="Script" uid="uid://bbkf5spd5tksl" path="res://scripts/radio_container.gd" id="9_radio"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_hji44"]
 panorama = ExtResource("8_df7mf")
@@ -67,6 +67,7 @@ layout_mode = 2
 script = ExtResource("9_radio")
 
 [node name="SubViewport" type="SubViewport" parent="Control/HBoxContainer/VBoxContainer/SubViewportContainer3" unique_id=2080641507]
+handle_input_locally = false
 physics_object_picking = true
 size = Vector2i(960, 540)
 render_target_update_mode = 4
