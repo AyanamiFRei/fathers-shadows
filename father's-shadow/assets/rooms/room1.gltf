@@ -18282,7 +18282,12 @@
 	"materials":[
 		{
 			"doubleSided":true,
-			"name":"Beige wallpaper flowers",
+			"extensions":{
+				"KHR_materials_specular":{
+					"specularFactor":0.20000000298023224
+				}
+			},
+			"name":"Wallpaper",
 			"normalTexture":{
 				"index":0
 			},
@@ -18290,7 +18295,7 @@
 				"baseColorTexture":{
 					"index":1
 				},
-				"metallicFactor":0.05000000074505806,
+				"metallicFactor":0,
 				"metallicRoughnessTexture":{
 					"index":2
 				}
@@ -31435,10 +31440,6 @@
 		},
 		{
 			"sampler":0,
-			"source":0
-		},
-		{
-			"sampler":0,
 			"source":1
 		},
 		{
@@ -31567,11 +31568,11 @@
 		},
 		{
 			"sampler":0,
-			"source":27
+			"source":33
 		},
 		{
 			"sampler":0,
-			"source":33
+			"source":28
 		},
 		{
 			"sampler":0,
@@ -31615,7 +31616,7 @@
 		},
 		{
 			"sampler":0,
-			"source":42
+			"source":44
 		},
 		{
 			"sampler":0,
@@ -31623,7 +31624,7 @@
 		},
 		{
 			"sampler":0,
-			"source":42
+			"source":44
 		},
 		{
 			"sampler":0,
@@ -31631,7 +31632,7 @@
 		},
 		{
 			"sampler":0,
-			"source":42
+			"source":44
 		},
 		{
 			"sampler":0,
@@ -31679,11 +31680,11 @@
 		},
 		{
 			"sampler":0,
-			"source":51
+			"source":54
 		},
 		{
 			"sampler":0,
-			"source":54
+			"source":52
 		},
 		{
 			"sampler":0,
@@ -31707,7 +31708,7 @@
 		},
 		{
 			"sampler":0,
-			"source":54
+			"source":60
 		},
 		{
 			"sampler":0,
@@ -31764,18 +31765,27 @@
 		{
 			"sampler":0,
 			"source":68
+		},
+		{
+			"sampler":0,
+			"source":69
 		}
 	],
 	"images":[
 		{
 			"mimeType":"image/jpeg",
-			"name":"wallpaper-modern-class",
-			"uri":"wallpaper-modern-class.jpg"
+			"name":"wallpaper_11_normal",
+			"uri":"wallpaper_11_normal.jpg"
+		},
+		{
+			"mimeType":"image/jpeg",
+			"name":"wallpaper_11_color",
+			"uri":"wallpaper_11_color.jpg"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"wallpaper-modern-class",
-			"uri":"wallpaper-modern-class.png"
+			"name":"wallpaper_11_roughness",
+			"uri":"wallpaper_11_roughness.png"
 		},
 		{
 			"mimeType":"image/jpeg",
