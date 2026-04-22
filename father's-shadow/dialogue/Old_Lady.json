@@ -1,0 +1,277 @@
+{
+"npc_id": "old_lady",
+"start": "old1_1",
+"nodes": [
+
+{
+"id": "old1_1",
+"type": "line",
+"name": "СТАРУХА",
+"text": "Ты водитель?",
+"portrait_node": "Old/Old_Base",
+"next": "old1_2"
+},
+
+{
+"id": "old1_2",
+"type": "line",
+"name": "СТАРУХА",
+"text": "Ну слава богу, а то я уж думала, опять кого попало прислали.",
+"portrait_node": "Old/Old_Base",
+"next": "old1_3"
+},
+
+{
+"id": "old1_3",
+"type": "line",
+"name": "СТАРУХА",
+"text": "Поехали. Только аккуратно.",
+"portrait_node": "Old/Old_Base",
+"next": "old1_music_1"
+},
+
+{
+"id": "old1_music_1",
+"type": "line",
+"name": "СТАРУХА",
+"text": "Это что у тебя играет?",
+"portrait_node": "Old/Old_Angry",
+"next": "old1_music_2"
+},
+
+{
+"id": "old1_music_2",
+"type": "line",
+"name": "СТАРУХА",
+"text": "Выключи это немедленно.",
+"portrait_node": "Old/Old_Angry",
+"next": "old1_music_choice"
+},
+
+{
+"id": "old1_music_choice",
+"type": "choice",
+"portrait_node": "Alex/Alex_Base",
+"options": [
+{
+"button": "choice_x",
+"text": "Хорошо",
+"loyalty_target": "old_lady",
+"loyalty_change": 5,
+"next": "old1_music_x"
+},
+{
+"button": "choice_y",
+"text": "А что не так?",
+"loyalty_target": "old_lady",
+"loyalty_change": -5,
+"next": "old1_music_y"
+},
+{
+"button": "choice_b",
+"text": "(Игнорировать)",
+"loyalty_target": "old_lady",
+"loyalty_change": -10,
+"next": "old1_music_b"
+}
+]
+},
+
+{
+"id": "old1_music_x",
+"type": "line",
+"name": "СТАРУХА",
+"text": "Вот. Другое дело.",
+"portrait_node": "Old/Old_Base",
+"next": "old1_music_3"
+},
+
+{
+"id": "old1_music_y",
+"type": "line",
+"name": "СТАРУХА",
+"text": "Музыка должна быть музыкой, а не этим шумом.",
+"portrait_node": "Old/Old_Angry",
+"next": "old1_music_3"
+},
+
+{
+"id": "old1_music_b",
+"type": "line",
+"name": "СТАРУХА",
+"text": "Ты что, не слышишь меня?",
+"portrait_node": "Old/Old_Angry",
+"next": "old1_music_3"
+},
+
+{
+"id": "old1_music_3",
+"type": "line",
+"name": "СТАРУХА",
+"text": "Включи что-нибудь нормальное. Классику.",
+"portrait_node": "Old/Old_Base",
+"pause_after": 1.0,
+"next": "old1_small_1"
+},
+
+{
+"id": "old1_small_1",
+"type": "line",
+"name": "СТАРУХА",
+"text": "Погода, конечно…",
+"portrait_node": "Old/Old_Base",
+"next": "old1_small_2"
+},
+
+{
+"id": "old1_small_2",
+"type": "line",
+"name": "СТАРУХА",
+"text": "То дождь, то ветер.",
+"portrait_node": "Old/Old_Base",
+"next": "old1_small_3"
+},
+
+{
+"id": "old1_small_3",
+"type": "line",
+"name": "СТАРУХА",
+"text": "У меня сразу суставы ломит.",
+"portrait_node": "Old/Old_Base",
+"next": "old1_small_4"
+},
+
+{
+"id": "old1_small_4",
+"type": "line",
+"name": "СТАРУХА",
+"text": "Ты молодой, тебе не понять.",
+"portrait_node": "Old/Old_Base",
+"pause_after": 1.0,
+"next": "old1_small_5"
+},
+
+{
+"id": "old1_small_5",
+"type": "line",
+"name": "СТАРУХА",
+"text": "А потом удивляются, почему люди злые.",
+"portrait_node": "Old/Old_Base",
+"next": "old1_small_6"
+},
+
+{
+"id": "old1_small_6",
+"type": "line",
+"name": "СТАРУХА",
+"text": "Да потому что жить невозможно.",
+"portrait_node": "Old/Old_Angry",
+"next": "old1_small_7"
+},
+
+{
+"id": "old1_small_7",
+"type": "line",
+"name": "СТАРУХА",
+"text": "Ты в магазин ходишь вообще?",
+"portrait_node": "Old/Old_Base",
+"next": "old1_choice_2"
+},
+
+{
+"id": "old1_choice_2",
+"type": "choice",
+"portrait_node": "Alex/Alex_Base",
+"options": [
+{
+"button": "choice_x",
+"text": "Иногда",
+"next": "old1_x2"
+},
+{
+"button": "choice_y",
+"text": "Редко",
+"next": "old1_y2"
+},
+{
+"button": "choice_b",
+"text": "Нет",
+"next": "old1_b2"
+}
+]
+},
+
+{
+"id": "old1_x2",
+"type": "line",
+"name": "СТАРУХА",
+"text": "Вот и я думаю — иногда.",
+"portrait_node": "Old/Old_Base",
+"next": "old1_prices"
+},
+
+{
+"id": "old1_y2",
+"type": "line",
+"name": "СТАРУХА",
+"text": "Правильно делаешь.",
+"portrait_node": "Old/Old_Base",
+"next": "old1_prices"
+},
+
+{
+"id": "old1_b2",
+"type": "line",
+"name": "СТАРУХА",
+"text": "Ну конечно.",
+"portrait_node": "Old/Old_Angry",
+"next": "old1_prices"
+},
+
+{
+"id": "old1_prices",
+"type": "line",
+"name": "СТАРУХА",
+"text": "Цены такие, что страшно смотреть.",
+"portrait_node": "Old/Old_Base",
+"next": "old1_prices_2"
+},
+
+{
+"id": "old1_prices_2",
+"type": "line",
+"name": "СТАРУХА",
+"text": "Раньше всё было проще.",
+"portrait_node": "Old/Old_Base",
+"next": "old1_prices_3"
+},
+
+{
+"id": "old1_prices_3",
+"type": "line",
+"name": "СТАРУХА",
+"text": "А сейчас… одни торгаши-обманщики.",
+"portrait_node": "Old/Old_Angry",
+"pause_after": 1.2,
+"next": "old1_end_1"
+},
+
+{
+"id": "old1_end_1",
+"type": "line",
+"name": "СТАРУХА",
+"text": "Останови тут.",
+"portrait_node": "Old/Old_Base",
+"next": "old1_end_2"
+},
+
+{
+"id": "old1_end_2",
+"type": "line",
+"name": "СТАРУХА",
+"text": "И смотри, езди аккуратнее.",
+"portrait_node": "Old/Old_Base"
+}
+
+]
+}

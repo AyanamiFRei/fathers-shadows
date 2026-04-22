@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnhpck2smog78"
-path="res://.godot/imported/Gregoryс_Base.png-c97930f3693c95be4bbe8bd6fd124124.ctex"
+uid="uid://b7k7nldd5kua4"
+path="res://.godot/imported/RadioSet.png-babf00251264981121057825f62efc77.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Gregoryс_Base.png"
-dest_files=["res://.godot/imported/Gregoryс_Base.png-c97930f3693c95be4bbe8bd6fd124124.ctex"]
+source_file="res://art/RadioSet.png"
+dest_files=["res://.godot/imported/RadioSet.png-babf00251264981121057825f62efc77.ctex"]
 
 [params]
 

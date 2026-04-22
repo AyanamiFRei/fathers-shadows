@@ -1,0 +1,401 @@
+{
+"npc_id": "leva",
+"start": "leva2_1",
+"nodes": [
+
+{
+"id": "leva2_1",
+"type": "line",
+"name": "ЛЁВА",
+"text": "О, снова ты.",
+"portrait_node": "Leva/Leva_Kind",
+"next": "leva2_2"
+},
+
+{
+"id": "leva2_2",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Слушай, как тебя зовут?",
+"portrait_node": "Leva/Leva_Base",
+"next": "leva2_name_choice"
+},
+
+{
+"id": "leva2_name_choice",
+"type": "choice",
+"portrait_node": "Alex/Alex_Base",
+"options": [
+{
+"button": "choice_x",
+"text": "Алекс",
+"loyalty_target": "leva",
+"loyalty_change": 5,
+"next": "leva2_name_x"
+},
+{
+"button": "choice_y",
+"text": "Не важно",
+"loyalty_target": "leva",
+"loyalty_change": -5,
+"next": "leva2_name_y"
+},
+{
+"button": "choice_b",
+"text": "(Промолчать)",
+"loyalty_target": "leva",
+"loyalty_change": -5,
+"next": "leva2_name_b"
+}
+]
+},
+
+{
+"id": "leva2_name_x",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Алекс… нормально.",
+"portrait_node": "Leva/Leva_Kind",
+"next": "leva2_music_1"
+},
+
+{
+"id": "leva2_name_y",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Ну как хочешь.",
+"portrait_node": "Leva/Leva_Base",
+"next": "leva2_music_1"
+},
+
+{
+"id": "leva2_name_b",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Опять молчишь… ладно.",
+"portrait_node": "Leva/Leva_Base",
+"next": "leva2_music_1"
+},
+
+{
+"id": "leva2_music_1",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Слушай, у меня тут кассета есть.",
+"portrait_node": "Leva/Leva_Kind",
+"next": "leva2_music_2"
+},
+
+{
+"id": "leva2_music_2",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Родственники привезли.",
+"portrait_node": "Leva/Leva_Base",
+"next": "leva2_music_3"
+},
+
+{
+"id": "leva2_music_3",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Говорят, сейчас в России это слушают.",
+"portrait_node": "Leva/Leva_Kind",
+"next": "leva2_music_choice"
+},
+
+{
+"id": "leva2_music_choice",
+"type": "choice",
+"portrait_node": "Alex/Alex_Base",
+"options": [
+{
+"button": "choice_x",
+"text": "Давай включим",
+"loyalty_target": "leva",
+"loyalty_change": 10,
+"next": "leva2_music_x"
+},
+{
+"button": "choice_y",
+"text": "Потом",
+"next": "leva2_music_y"
+},
+{
+"button": "choice_b",
+"text": "Не надо",
+"loyalty_target": "leva",
+"loyalty_change": -5,
+"next": "leva2_music_b"
+}
+]
+},
+
+{
+"id": "leva2_music_x",
+"type": "line",
+"name": "ЛЁВА",
+"text": "О, сейчас заиграет.",
+"portrait_node": "Leva/Leva_Kind",
+"pause_after": 1.5,
+"next": "leva2_smalltalk_1"
+},
+
+{
+"id": "leva2_music_y",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Ладно, потом так потом.",
+"portrait_node": "Leva/Leva_Base",
+"next": "leva2_smalltalk_1"
+},
+
+{
+"id": "leva2_music_b",
+"type": "line",
+"name": "ЛЁВА",
+"text": "...Ну как хочешь.",
+"portrait_node": "Leva/Leva_Base",
+"next": "leva2_smalltalk_1"
+},
+
+{
+"id": "leva2_smalltalk_1",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Вообще день сегодня странный.",
+"portrait_node": "Leva/Leva_Base",
+"next": "leva2_smalltalk_2"
+},
+
+{
+"id": "leva2_smalltalk_2",
+"type": "line",
+"name": "ЛЁВА",
+"text": "С утра люди какие-то нервные.",
+"portrait_node": "Leva/Leva_Base",
+"next": "leva2_smalltalk_3"
+},
+
+{
+"id": "leva2_smalltalk_3",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Даже те, кто обычно спокойный.",
+"portrait_node": "Leva/Leva_Base",
+"pause_after": 1.0,
+"next": "leva2_grigory_1"
+},
+
+{
+"id": "leva2_grigory_1",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Слышал, кстати?",
+"portrait_node": "Leva/Leva_Base",
+"next": "leva2_grigory_2"
+},
+
+{
+"id": "leva2_grigory_2",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Говорят, ночью Григория обчистили.",
+"portrait_node": "Leva/Leva_Base",
+"next": "leva2_grigory_3"
+},
+
+{
+"id": "leva2_grigory_3",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Прямо дома.",
+"portrait_node": "Leva/Leva_Base",
+"pause_after": 1.2,
+"next": "leva2_choice_2"
+},
+
+{
+"id": "leva2_choice_2",
+"type": "choice",
+"portrait_node": "Alex/Alex_Base",
+"options": [
+{
+"button": "choice_x",
+"text": "Серьёзно?",
+"next": "leva2_x2"
+},
+{
+"button": "choice_y",
+"text": "Кто это?",
+"next": "leva2_y2"
+},
+{
+"button": "choice_b",
+"text": "Не удивлён",
+"next": "leva2_b2"
+}
+]
+},
+
+{
+"id": "leva2_x2",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Ага.",
+"portrait_node": "Leva/Leva_Base",
+"next": "leva2_common_1"
+},
+
+{
+"id": "leva2_y2",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Да работяга один.",
+"portrait_node": "Leva/Leva_Base",
+"next": "leva2_common_1"
+},
+
+{
+"id": "leva2_b2",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Вот и я так думаю.",
+"portrait_node": "Leva/Leva_Base",
+"next": "leva2_common_1"
+},
+
+{
+"id": "leva2_common_1",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Он с Карамазовым раньше крутился.",
+"portrait_node": "Leva/Leva_Base",
+"next": "leva2_common_2"
+},
+
+{
+"id": "leva2_common_2",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Так что… сам понимаешь.",
+"portrait_node": "Leva/Leva_Base",
+"pause_after": 1.0,
+"next": "leva2_kat_1"
+},
+
+{
+"id": "leva2_kat_1",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Кстати…",
+"portrait_node": "Leva/Leva_Base",
+"next": "leva2_kat_2"
+},
+
+{
+"id": "leva2_kat_2",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Ты Катерину не подвозил?",
+"portrait_node": "Leva/Leva_Base",
+"next": "leva2_kat_choice"
+},
+
+{
+"id": "leva2_kat_choice",
+"type": "choice",
+"portrait_node": "Alex/Alex_Base",
+"options": [
+{
+"button": "choice_x",
+"text": "Подвозил",
+"next": "leva2_kat_x"
+},
+{
+"button": "choice_y",
+"text": "Нет",
+"next": "leva2_kat_y"
+},
+{
+"button": "choice_b",
+"text": "Не помню",
+"next": "leva2_kat_b"
+}
+]
+},
+
+{
+"id": "leva2_kat_x",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Понял…",
+"portrait_node": "Leva/Leva_Base",
+"next": "leva2_kat_common"
+},
+
+{
+"id": "leva2_kat_y",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Повезло.",
+"portrait_node": "Leva/Leva_Base",
+"next": "leva2_kat_common"
+},
+
+{
+"id": "leva2_kat_b",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Угу.",
+"portrait_node": "Leva/Leva_Base",
+"next": "leva2_kat_common"
+},
+
+{
+"id": "leva2_kat_common",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Она странная.",
+"portrait_node": "Leva/Leva_Base",
+"next": "leva2_kat_common2"
+},
+
+{
+"id": "leva2_kat_common2",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Слишком спокойная.",
+"portrait_node": "Leva/Leva_Base",
+"next": "leva2_kat_common3"
+},
+
+{
+"id": "leva2_kat_common3",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Как будто всё заранее продумано.",
+"portrait_node": "Leva/Leva_Base",
+"pause_after": 1.2,
+"next": "leva2_kat_common4"
+},
+
+{
+"id": "leva2_kat_common4",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Такие люди просто так в истории не попадают.",
+"portrait_node": "Leva/Leva_Base",
+"next": "leva2_end"
+},
+
+{
+"id": "leva2_end",
+"type": "line",
+"name": "ЛЁВА",
+"text": "Ладно, приехали.",
+"portrait_node": "Leva/Leva_Base"
+}
+
+]
+}

@@ -1,0 +1,186 @@
+
+{
+  "npc_id": "ivan_call_day2",
+  "start": "call2_1",
+  "nodes": [
+
+{
+  "id": "call2_1",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Алексей, это я.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call2_2"
+},
+
+{
+  "id": "call2_2",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Я просмотрел то, что ты нашёл у Григория.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call2_3"
+},
+
+{
+  "id": "call2_3",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Документы интересные.",
+  "portrait_node": "Telephone/Telephone",
+  "pause_after": 1.2,
+  "next": "call2_4"
+},
+
+{
+  "id": "call2_4",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Все они ведут к одному человеку.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call2_5"
+},
+
+{
+  "id": "call2_5",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Смердяков.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call2_choice_1"
+},
+
+{
+  "id": "call2_choice_1",
+  "type": "choice",
+  "portrait_node": "Alex/Alex_Base",
+  "options": [
+	{
+	  "button": "choice_x",
+	  "text": "Он работал на отца",
+	  "next": "call2_x1"
+	},
+	{
+	  "button": "choice_y",
+	  "text": "Ты уверен?",
+	  "next": "call2_y1"
+	},
+	{
+	  "button": "choice_b",
+	  "text": "Понял",
+	  "next": "call2_b1"
+	}
+  ]
+},
+
+{
+  "id": "call2_x1",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Да.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call2_x1_2"
+},
+
+{
+  "id": "call2_x1_2",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "И, возможно, знал больше всех.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call2_common_1"
+},
+
+{
+  "id": "call2_y1",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Настолько, насколько это вообще возможно.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call2_y1_2"
+},
+
+{
+  "id": "call2_y1_2",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Связи слишком явные, чтобы игнорировать.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call2_common_1"
+},
+
+{
+  "id": "call2_b1",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Хорошо.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call2_b1_2"
+},
+
+{
+  "id": "call2_b1_2",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Тогда слушай дальше.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call2_common_1"
+},
+
+{
+  "id": "call2_common_1",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Он не похож на Григория.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call2_common_2"
+},
+
+{
+  "id": "call2_common_2",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "С ним придётся действовать иначе.",
+  "portrait_node": "Telephone/Telephone",
+  "pause_after": 1.2,
+  "next": "call2_common_3"
+},
+
+{
+  "id": "call2_common_3",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Этой ночью обязательно попади к нему в квартиру.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call2_common_4"
+},
+
+{
+  "id": "call2_common_4",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "У Смердякова точно должны быть какие-то зецепки.",
+  "portrait_node": "Telephone/Telephone",
+  "pause_after": 1.5,
+  "next": "call2_common_5"
+},
+
+{
+  "id": "call2_common_5",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "Если Григорий что-то скрывал, Смердяков — точно знает почему.",
+  "portrait_node": "Telephone/Telephone",
+  "next": "call2_end"
+},
+
+{
+  "id": "call2_end",
+  "type": "line",
+  "name": "ИВАН",
+  "text": "И будь осторожен. Он не так прост, как кажется.",
+  "portrait_node": "Telephone/Telephone"
+}
+
+  ]
+}
