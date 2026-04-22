@@ -59,6 +59,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 material_override = SubResource("StandardMaterial3D_qvhny")
 mesh = SubResource("BoxMesh_y1lj5")
 
+[node name="SpotLight3D" type="SpotLight3D" parent="VisualRoot/MeshInstance3D2" unique_id=858731580]
+light_energy = 17.835
+light_volumetric_fog_energy = 2.895
+spot_angle = 30.483286
+
 [node name="VisionOrigin" type="Node3D" parent="VisualRoot" unique_id=1578773561]
 
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
