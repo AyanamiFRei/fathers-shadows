@@ -9,12 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://gjkdo63g7b21" path="res://art/Gregory_Engry.png" id="6_51prw"]
 [ext_resource type="Texture2D" uid="uid://cnhpck2smog78" path="res://art/Gregoryс_Base.png" id="7_3aohm"]
 [ext_resource type="Script" uid="uid://c0fm6o44k1vbo" path="res://scripts/loyalty_state.gd" id="7_re33w"]
-<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://cs2qx3rbwx3gn" path="res://scripts/hit_flash.gd" id="8_hflsh"]
-=======
 [ext_resource type="Script" uid="uid://cdsfefugj1n6i" path="res://scripts/loyalty_ui.gd" id="10_3aohm"]
 [ext_resource type="Texture2D" uid="uid://bsd1fv6bcmhsc" path="res://assets_interface/loyalty/loyalty_1.png" id="11_b6e3c"]
->>>>>>> 83b3dd86dad182ed564aa929764dc69c817ec711
 
 [sub_resource type="Animation" id="Animation_w0ec4"]
 length = 0.001
