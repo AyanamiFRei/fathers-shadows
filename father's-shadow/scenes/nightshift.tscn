@@ -4,10 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dbmog8fj8cw4k" path="res://scenes/ItemToPickUp.tscn" id="2_l8gjh"]
 [ext_resource type="PackedScene" uid="uid://cdf0d488negb5" path="res://scenes/DoorRoot.tscn" id="3_tplju"]
 [ext_resource type="PackedScene" uid="uid://wbqv270qhw0n" path="res://scenes/NoiseObject.tscn" id="4_uowwx"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_e2xr4"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_l8gjh"]
+[ext_resource type="PackedScene" uid="uid://bnh3h381k8ouc" path="res://scenes/night_level_1.tscn" id="5_x6jny"]
 
 [node name="Nightshift" type="Node3D" unique_id=1076303024]
 
@@ -17,26 +14,16 @@ transform = Transform3D(1, 0, 0, 0, 0.7478446, 0.6638741, 0, -0.6638741, 0.74784
 [node name="PlayerBody" parent="." unique_id=516785971 instance=ExtResource("1_e2xr4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0363688, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2020609323]
-collision_layer = 0
-collision_mask = 4
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=557142432]
-transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
-mesh = SubResource("PlaneMesh_e2xr4")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1234482078]
-transform = Transform3D(10, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0)
-shape = SubResource("BoxShape3D_l8gjh")
-
 [node name="ItemToPickUp" parent="." unique_id=1961857898 instance=ExtResource("2_l8gjh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.256146)
 
 [node name="DoorRoot" parent="." unique_id=526019147 instance=ExtResource("3_tplju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.538574, 1.7822299, 0)
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -3.0401006, 1.7822299, 0.6693039)
 
 [node name="NoiseObject" parent="." unique_id=1689373546 instance=ExtResource("4_uowwx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8837976, 0.5642719, -5.512945)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3637505, 0.5642719, 6.964814)
 
 [node name="DoorRoot2" parent="." unique_id=1282474158 instance=ExtResource("3_tplju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.36774, 1.7822299, -3.372096)
+transform = Transform3D(-3.287822e-08, 0, -1, 0, 1, 0, 0.7521659, 0, -4.371139e-08, 3.9937882, 1.5761445, 4.77607)
+
+[node name="night_level1" parent="." unique_id=224379011 instance=ExtResource("5_x6jny")]

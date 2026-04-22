@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://dmfww4nnkmfov" path="res://scripts/physics_door.gd" id="1_flfdm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_b6yt8"]
-size = Vector3(2, 3, 0.1)
+size = Vector3(2.2, 3, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_flfdm"]
-size = Vector3(2, 3, 0.1)
+size = Vector3(2.2, 3, 0.1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_flfdm"]
-size = Vector3(0.5, 3, 0.5)
+size = Vector3(0.2, 3, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_23hmp"]
 size = Vector3(0.5, 3, 0.5)
@@ -17,8 +17,9 @@ size = Vector3(0.5, 3, 0.5)
 [node name="DoorRoot" type="Node3D" unique_id=526019147]
 
 [node name="PhysicsDoor" type="RigidBody3D" parent="." unique_id=2128114904]
-collision_layer = 32
-collision_mask = 16
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07306242, 0, 0)
+collision_layer = 33
+collision_mask = 17
 script = ExtResource("1_flfdm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PhysicsDoor" unique_id=572213733]

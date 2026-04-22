@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://p52xlrlxyuwu"]
 
-[ext_resource type="Script" uid="uid://chrm3wa08gm4b" path="res://scenes/cab.gd" id="1_spjk5"]
+[ext_resource type="Script" uid="uid://chrm3wa08gm4b" path="res://scripts/cab.gd" id="1_spjk5"]
 [ext_resource type="PackedScene" uid="uid://dlt3hnurijvlv" path="res://assets/cab/cab.gltf" id="1_xat6g"]
 
 [node name="Cab" type="Node3D" unique_id=311286431]
