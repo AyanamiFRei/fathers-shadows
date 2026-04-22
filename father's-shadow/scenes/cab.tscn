@@ -6,7 +6,7 @@
 [node name="Cab" type="Node3D" unique_id=311286431]
 script = ExtResource("1_spjk5")
 
-[node name="cab" parent="." unique_id=322439748 instance=ExtResource("1_xat6g")]
+[node name="cab" parent="." unique_id=2073643422 instance=ExtResource("1_xat6g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1834276, 0, 0.5203469)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1635521922]
@@ -32,3 +32,9 @@ light_volumetric_fog_energy = 1.07
 light_size = 0.389
 spot_range = 8.707891
 spot_angle = 43.02695
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=215142500]
+transform = Transform3D(0.22505286, -0.6130174, 0.7573381, 0.17461924, 0.79006946, 0.587621, -0.9585715, 1.5444506e-08, 0.28485203, -111.98483, 17.517637, 21.262348)
+light_color = Color(1, 0.88235295, 0.24705882, 1)
+light_energy = 0.02
+light_angular_distance = 34.11
