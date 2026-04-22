@@ -1,0 +1,303 @@
+{
+"npc_id": "grigory",
+"start": "gr_1",
+"nodes": [
+
+{
+"id": "gr_1",
+"type": "line",
+"name": "Григорий",
+"text": "Куда ехать.",
+"portrait_node": "Grigory/Grigory_Base",
+"next": "gr_2"
+},
+
+{
+"id": "gr_2",
+"type": "line",
+"name": "Григорий",
+"text": "Без разговоров. День тяжёлый.",
+"portrait_node": "Grigory/Grigory_Base",
+"pause_after": 1.0,
+"next": "gr_choice_1"
+},
+
+{
+"id": "gr_choice_1",
+"type": "choice",
+"portrait_node": "Alex/Alex_Base",
+"options": [
+{
+"button": "choice_x",
+"text": "Понял, без разговоров",
+"loyalty_target": "grigory",
+"loyalty_change": 10,
+"next": "gr_x1"
+},
+{
+"button": "choice_y",
+"text": "Долго работаешь сегодня?",
+"next": "gr_y1"
+},
+{
+"button": "choice_b",
+"text": "Как скажешь",
+"loyalty_target": "grigory",
+"loyalty_change": -5,
+"next": "gr_b1"
+}
+]
+},
+
+{
+"id": "gr_x1",
+"type": "line",
+"name": "Григорий",
+"text": "...Хорошо.",
+"portrait_node": "Grigory/Grigory_Base",
+"next": "gr_common_1"
+},
+
+{
+"id": "gr_y1",
+"type": "line",
+"name": "Григорий",
+"text": "Работаю я теперь всегда. После этого… случая.",
+"portrait_node": "Grigory/Grigory_Base",
+"next": "gr_common_1"
+},
+
+{
+"id": "gr_b1",
+"type": "line",
+"name": "Григорий",
+"text": "Вот и славно.",
+"portrait_node": "Grigory/Grigory_Base",
+"next": "gr_common_1"
+},
+
+{
+"id": "gr_common_1",
+"type": "line",
+"name": "Григорий",
+"text": "Раньше хоть по расписанию было.",
+"portrait_node": "Grigory/Grigory_Base",
+"next": "gr_common_2"
+},
+
+{
+"id": "gr_common_2",
+"type": "line",
+"name": "Григорий",
+"text": "А теперь — днём бегай, ночью бегай.",
+"portrait_node": "Grigory/Grigory_Base",
+"next": "gr_choice_2"
+},
+
+{
+"id": "gr_choice_2",
+"type": "choice",
+"portrait_node": "Alex/Alex_Base",
+"options": [
+{
+"button": "choice_x",
+"text": "Что изменилось?",
+"next": "gr_x2"
+},
+{
+"button": "choice_y",
+"text": "Порт теперь загружен?",
+"loyalty_target": "grigory",
+"loyalty_change": 5,
+"next": "gr_y2"
+},
+{
+"button": "choice_b",
+"text": "Не завидую",
+"next": "gr_b2"
+}
+]
+},
+
+{
+"id": "gr_x2",
+"type": "line",
+"name": "Григорий",
+"text": "Да всё изменилось.",
+"portrait_node": "Grigory/Grigory_Base",
+"next": "gr_common_3"
+},
+
+{
+"id": "gr_y2",
+"type": "line",
+"name": "Григорий",
+"text": "Он теперь не закрывается.",
+"portrait_node": "Grigory/Grigory_Base",
+"next": "gr_common_3"
+},
+
+{
+"id": "gr_b2",
+"type": "line",
+"name": "Григорий",
+"text": "И правильно не завидуешь.",
+"portrait_node": "Grigory/Grigory_Base",
+"next": "gr_common_3"
+},
+
+{
+"id": "gr_common_3",
+"type": "line",
+"name": "Григорий",
+"text": "После смерти старика всё на мне держится.",
+"portrait_node": "Grigory/Grigory_Base",
+"next": "gr_common_4"
+},
+
+{
+"id": "gr_common_4",
+"type": "line",
+"name": "Григорий",
+"text": "Ночами теперь в порту сижу.",
+"portrait_node": "Grigory/Grigory_Base",
+"pause_after": 1.5,
+"next": "gr_choice_3"
+},
+
+{
+"id": "gr_choice_3",
+"type": "choice",
+"portrait_node": "Alex/Alex_Base",
+"options": [
+{
+"button": "choice_x",
+"text": "Каждую ночь?",
+"loyalty_target": "grigory",
+"loyalty_change": 10,
+"next": "gr_loyalty_check"
+},
+{
+"button": "choice_y",
+"text": "Опасное место",
+"next": "gr_y3"
+},
+{
+"button": "choice_b",
+"text": "Сам выбрал",
+"loyalty_target": "grigory",
+"loyalty_change": -10,
+"next": "gr_b3"
+}
+]
+},
+
+{
+"id": "gr_loyalty_check",
+"type": "line",
+"name": "ГРИГОРИЙ",
+"text": "Да почти. Там сейчас всё и происходит.",
+"portrait_node": "Grigory/Grigory_Base",
+"required_loyalty_target": "grigory",
+"required_loyalty_min": 30,
+"else_next": "gr_y3",
+"next": "gr_common_5"
+},
+
+{
+"id": "gr_y3",
+"type": "line",
+"name": "Григорий",
+"text": "Ты ещё не видел, что там творится.",
+"portrait_node": "Grigory/Grigory_Base",
+"next": "gr_common_5"
+},
+
+{
+"id": "gr_b3",
+"type": "line",
+"name": "Григорий",
+"text": "Выбрал… ага.",
+"portrait_node": "Grigory/Grigory_Angry",
+"next": "gr_common_5"
+},
+
+{
+"id": "gr_common_5",
+"type": "line",
+"name": "Григорий",
+"text": "Дом его теперь пустой стоит.",
+"portrait_node": "Grigory/Grigory_Base",
+"next": "gr_choice_4"
+},
+
+{
+"id": "gr_choice_4",
+"type": "choice",
+"portrait_node": "Alex/Alex_Base",
+"options": [
+{
+"button": "choice_x",
+"text": "Пустой?",
+"next": "gr_x4"
+},
+{
+"button": "choice_y",
+"text": "Уже проверяли?",
+"next": "gr_y4"
+},
+{
+"button": "choice_b",
+"text": "И хорошо",
+"next": "gr_b4"
+}
+]
+},
+
+{
+"id": "gr_x4",
+"type": "line",
+"name": "Григорий",
+"text": "Слишком тихо там.",
+"portrait_node": "Grigory/Grigory_Base",
+"next": "gr_end_1"
+},
+
+{
+"id": "gr_y4",
+"type": "line",
+"name": "Григорий",
+"text": "Кто проверял — те не вернулись.",
+"portrait_node": "Grigory/Grigory_Base",
+"pause_after": 1.5,
+"next": "gr_end_1"
+},
+
+{
+"id": "gr_b4",
+"type": "line",
+"name": "Григорий",
+"text": "Ты так думаешь.",
+"portrait_node": "Grigory/Grigory_Angry",
+"next": "gr_end_1"
+},
+
+{
+"id": "gr_end_1",
+"type": "line",
+"name": "Григорий",
+"text": "Всё. Приехали.",
+"portrait_node": "Grigory/Grigory_Base",
+"next": "gr_end_2"
+},
+
+{
+"id": "gr_end_2",
+"type": "line",
+"name": "Григорий",
+"text": "Лучше не задавай лишних вопросов.",
+"portrait_node": "Grigory/Grigory_Base"
+}
+
+]
+}

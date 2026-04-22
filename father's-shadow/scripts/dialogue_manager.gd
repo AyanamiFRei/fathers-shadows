@@ -1,5 +1,6 @@
 extends Control
 
+#const DIALOGUE_PATH := "res://dialogue/Grigory.json"
 const DIALOGUE_PATH := "res://dialogue/Leva.json"
 const LINE_TIME_LIMIT := 6.0
 const CHOICE_TIME_LIMIT := 8.0
