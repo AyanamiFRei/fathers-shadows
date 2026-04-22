@@ -34,13 +34,28 @@ var current_item = null
 # -------------------------
 
 @export var max_noise: float = 100.0
-@export var noise_decay_delay: float = 3.0      # Через сколько секунд после последнего шума начнется спад
-@export var noise_decay_duration: float = 30.0  # За сколько секунд шум упадет с max до 0
-@export var noise_immunity_time: float = 2.0    # Защита от повторного шума на короткое время
+@export var noise_decay_delay: float = 3.0
+@export var noise_decay_duration: float = 30.0
+@export var noise_immunity_time: float = 2.0
 
 var current_noise: float = 0.0
 var last_noise_time: float = -999.0
 var noise_immunity_timer: float = 0.0
+
+# -------------------------
+# ЗРЕНИЕ
+# -------------------------
+
+@export var vision_circle_radius: float = 2.3
+@export var vision_cone_radius: float = 30.0
+@export var vision_cone_angle_deg: float = 70.0
+@export var vision_update_interval: float = 0.08
+
+# маска слоев, которые блокируют обзор
+# выставишь в инспекторе
+@export_flags_3d_physics var vision_block_mask: int = 1
+
+var vision_timer: float = 0.0
 
 # -------------------------
 # ССЫЛКИ НА НОДЫ
@@ -49,7 +64,8 @@ var noise_immunity_timer: float = 0.0
 @onready var pivot: Node3D = $Pivot
 @onready var spring_arm: SpringArm3D = $Pivot/SpringArm3D
 @onready var camera: Camera3D = $Pivot/SpringArm3D/Camera3D
-@onready var mesh: MeshInstance3D = $MeshInstance3D2
+@onready var visual_root: Node3D = $VisualRoot
+@onready var vision_origin: Node3D =$VisualRoot/VisionOrigin
 
 
 func _ready() -> void:
@@ -58,7 +74,11 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if current_item != null and Input.is_action_just_pressed("interact"):
-		current_item.interact()
+		if current_item.has_method("can_interact"):
+			if current_item.can_interact():
+				current_item.interact()
+		else:
+			current_item.interact()
 
 
 func _physics_process(delta: float) -> void:
@@ -67,6 +87,8 @@ func _physics_process(delta: float) -> void:
 	handle_camera_zoom(delta)
 	handle_camera_offset(delta)
 	update_noise_system(delta)
+	update_vision_system(delta)
+	update_current_item_state()
 
 	var push_dir := velocity
 	push_dir.y = 0.0
@@ -84,6 +106,9 @@ func _physics_process(delta: float) -> void:
 
 func _on_interact_area_body_entered(body) -> void:
 	if body.has_method("interact"):
+		if body.has_method("can_interact") and not body.can_interact():
+			return
+
 		current_item = body
 		interact_key.show()
 		print("зашел в зону: ", body.name)
@@ -133,7 +158,7 @@ func rotate_to_mouse(delta: float) -> void:
 		return
 
 	var target_angle: float = atan2(look_dir.x, look_dir.z)
-	mesh.rotation.y = lerp_angle(mesh.rotation.y, target_angle, rotation_speed * delta)
+	visual_root.rotation.y = lerp_angle(visual_root.rotation.y, target_angle, rotation_speed * delta)
 
 
 # -------------------------
@@ -232,3 +257,124 @@ func update_noise_system(delta: float) -> void:
 	if time_since_last_noise >= noise_decay_delay and current_noise > 0.0:
 		var decay_per_second := max_noise / noise_decay_duration
 		current_noise = max(current_noise - decay_per_second * delta, 0.0)
+
+
+# -------------------------
+# СИСТЕМА ЗРЕНИЯ
+# -------------------------
+
+func update_vision_system(delta: float) -> void:
+	vision_timer -= delta
+	if vision_timer > 0.0:
+		return
+
+	vision_timer = vision_update_interval
+
+	var interactables := get_tree().get_nodes_in_group("interactable_object")
+	var noise_objects := get_tree().get_nodes_in_group("noise_object")
+
+	for obj in interactables:
+		if obj is Node3D and is_instance_valid(obj):
+			var visible_for_player := can_see_target(obj)
+			apply_visibility_to_target(obj, visible_for_player)
+
+	for obj in noise_objects:
+		if obj is Node3D and is_instance_valid(obj):
+			var visible_for_player := can_see_target(obj)
+			apply_visibility_to_target(obj, visible_for_player)
+
+
+func can_see_target(target: Node3D) -> bool:
+	var from_pos := vision_origin.global_position
+	var to_pos := get_target_point(target)
+
+	var flat_to_target := to_pos - from_pos
+	flat_to_target.y = 0.0
+
+	var distance := flat_to_target.length()
+
+	# очень близко
+	if distance <= vision_circle_radius:
+		return has_line_of_sight(from_pos, to_pos, target)
+
+	# слишком далеко
+	if distance > vision_cone_radius:
+		return false
+
+	# проверка угла конуса
+	var forward := -visual_root.global_transform.basis.z
+	forward.y = 0.0
+	forward = forward.normalized()
+
+	if forward.length() < 0.001:
+		return false
+
+	var dir_to_target := flat_to_target.normalized()
+	var dot_value := forward.dot(dir_to_target)
+	var half_angle_rad := deg_to_rad(vision_cone_angle_deg * 0.5)
+	var min_dot := cos(half_angle_rad)
+
+	if dot_value < min_dot:
+		return false
+
+	# проверка стены/двери между игроком и объектом
+	return has_line_of_sight(from_pos, to_pos, target)
+
+
+func get_target_point(target: Node3D) -> Vector3:
+	if target.has_node("VisionPoint"):
+		var point := target.get_node("VisionPoint")
+		if point is Node3D:
+			return point.global_position
+
+	var pos := target.global_position
+	pos.y += 0.5
+	return pos
+
+
+func has_line_of_sight(from_pos: Vector3, to_pos: Vector3, target: Node3D) -> bool:
+	var space_state := get_world_3d().direct_space_state
+
+	var query := PhysicsRayQueryParameters3D.create(from_pos, to_pos)
+	query.collision_mask = vision_block_mask
+	query.exclude = [self.get_rid()]
+
+	var result := space_state.intersect_ray(query)
+
+	if result.is_empty():
+		return true
+
+	var collider = result["collider"]
+
+	if collider == target:
+		return true
+
+	if collider is Node and target.is_ancestor_of(collider):
+		return true
+
+	return false
+
+
+func apply_visibility_to_target(target: Node3D, visible_for_player: bool) -> void:
+	if target.has_method("set_visible_for_player"):
+		target.set_visible_for_player(visible_for_player)
+	else:
+		target.visible = visible_for_player
+
+
+func update_current_item_state() -> void:
+	if current_item == null:
+		interact_key.hide()
+		return
+
+	if not is_instance_valid(current_item):
+		current_item = null
+		interact_key.hide()
+		return
+
+	if current_item.has_method("can_interact") and not current_item.can_interact():
+		current_item = null
+		interact_key.hide()
+		return
+
+	interact_key.show()

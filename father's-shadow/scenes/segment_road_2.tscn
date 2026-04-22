@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://baigcy2wphxv7" path="res://scenes/road2.tscn" id="1_lroew"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lroew"]
-size = Vector3(1, 1, 68.779434)
+size = Vector3(1, 1, 77.73172)
 
 [sub_resource type="Curve3D" id="Curve3D_lroew"]
 _data = {
@@ -18,7 +18,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.895752, 0, 0)
 [node name="Road2" parent="." unique_id=315762777 instance=ExtResource("1_lroew")]
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Road2" unique_id=2007929992]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3343067, 0, 74.628456)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4408627, 0, 71.459366)
 shape = SubResource("BoxShape3D_lroew")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Road2" unique_id=1855083118]
@@ -26,11 +26,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.119527, 0, 70.22773)
 shape = SubResource("BoxShape3D_lroew")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Road2" unique_id=1621167278]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3804522, 0, -6.273346)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3394632, 0, -6.273346)
 shape = SubResource("BoxShape3D_lroew")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Road2" unique_id=24885679]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.130391, 0, -5.851589)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.458556, 0, -5.851589)
 shape = SubResource("BoxShape3D_lroew")
 
 [node name="EndMarker" type="Marker3D" parent="." unique_id=1212715053]

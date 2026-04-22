@@ -2,12 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://cth5p2sw3s7uk" path="res://scenes/player_car.tscn" id="1_v8rv7"]
 [ext_resource type="Script" uid="uid://o44bx6yw0hbq" path="res://scripts/traffic_car_back.gd" id="1_vgchw"]
-[ext_resource type="PackedScene" uid="uid://dytsp4lm1fj7d" path="res://scenes/dialogues.tscn" id="2_w141n"]
+[ext_resource type="PackedScene" uid="uid://ovd370ienpj7" path="res://scenes/dialogues.tscn" id="2_w141n"]
 [ext_resource type="Script" uid="uid://busyighmmy4t6" path="res://scripts/traffic_gen.gd" id="3_lmeyo"]
+[ext_resource type="PackedScene" uid="uid://xgx06gl307mw" path="res://scenes/Radio.tscn" id="4_hji44"]
 [ext_resource type="PackedScene" uid="uid://0rxo47rrvsuq" path="res://scenes/road_manager.tscn" id="5_lmeyo"]
 [ext_resource type="Script" uid="uid://clvsghiw73bmt" path="res://scenes/camera_3d.gd" id="6_w141n"]
 [ext_resource type="PackedScene" uid="uid://cr7hgcg41k7se" path="res://scenes/car_pov.tscn" id="7_mef3m"]
 [ext_resource type="Texture2D" uid="uid://chcovfv6rn3b3" path="res://assets/skyboxes/AllSky_Overcast4_Low.png" id="8_df7mf"]
+[ext_resource type="Script" path="res://scenes/radio_container.gd" id="9_radio"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_hji44"]
 panorama = ExtResource("8_df7mf")
@@ -32,17 +34,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=28830251]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_right = 968.0
+offset_bottom = 1080.0
+mouse_filter = 2
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Control/HBoxContainer" unique_id=113709548]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="SubViewport" type="SubViewport" parent="Control/HBoxContainer/SubViewportContainer" unique_id=383923868]
 handle_input_locally = false
@@ -51,19 +54,37 @@ render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="Control/HBoxContainer/SubViewportContainer/SubViewport" unique_id=1718996158]
 transform = Transform3D(-1, -8.742278e-08, 0, -3.821371e-15, 4.371139e-08, 1, -8.742278e-08, 1, -4.371139e-08, -0.0008098781, 11.715581, 92.919716)
-near = 0.125
+fov = 85.0
+near = 0.13
 script = ExtResource("6_w141n")
 player_path = NodePath("../../../../../Player")
 
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="Control/HBoxContainer" unique_id=1701473389]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer" unique_id=1286296902]
 layout_mode = 2
 
-[node name="SubViewport" type="SubViewport" parent="Control/HBoxContainer/SubViewportContainer2" unique_id=645727132]
-handle_input_locally = false
-size = Vector2i(960, 1080)
+[node name="SubViewportContainer3" type="SubViewportContainer" parent="Control/HBoxContainer/VBoxContainer" unique_id=1019069028]
+layout_mode = 2
+script = ExtResource("9_radio")
+
+[node name="SubViewport" type="SubViewport" parent="Control/HBoxContainer/VBoxContainer/SubViewportContainer3" unique_id=2080641507]
+physics_object_picking = true
+size = Vector2i(960, 540)
 render_target_update_mode = 4
 
-[node name="CarPov" parent="Control/HBoxContainer/SubViewportContainer2/SubViewport" unique_id=123706610 instance=ExtResource("7_mef3m")]
+[node name="Radio" parent="Control/HBoxContainer/VBoxContainer/SubViewportContainer3/SubViewport" unique_id=1685087177 instance=ExtResource("4_hji44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -341.60718, 0, 0)
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="Control/HBoxContainer/VBoxContainer" unique_id=1701473389]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SubViewport" type="SubViewport" parent="Control/HBoxContainer/VBoxContainer/SubViewportContainer2" unique_id=645727132]
+handle_input_locally = false
+size = Vector2i(960, 540)
+render_target_update_mode = 4
+
+[node name="CarPov" parent="Control/HBoxContainer/VBoxContainer/SubViewportContainer2/SubViewport" unique_id=123706610 instance=ExtResource("7_mef3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1071.4183, 253.40372, 1051.0355)
 
 [node name="RoadManager" parent="." unique_id=933467709 node_paths=PackedStringArray("player") instance=ExtResource("5_lmeyo")]

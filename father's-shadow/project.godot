@@ -20,6 +20,12 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 
+[global_group]
+
+interactable_object=""
+vision_blocking_object=""
+noise_object=""
+
 [input]
 
 Car_W={
@@ -79,6 +85,7 @@ night_zoom_out={
 3d_physics/layer_3="interactable_object"
 3d_physics/layer_4="camerabox"
 3d_physics/layer_5="player_body"
+3d_physics/layer_6="vision_block"
 3d_physics/layer_7="noise_object"
 
 [physics]
