@@ -6,6 +6,17 @@ var current_item = null
 @onready var interact_key: Sprite3D = $InteractionKey
 
 # -------------------------
+# ССЫЛКИ НА НОДЫ
+# -------------------------
+
+@onready var pivot: Node3D = $Pivot
+@onready var spring_arm: SpringArm3D = $Pivot/SpringArm3D
+@onready var camera: Camera3D = $Pivot/SpringArm3D/Camera3D
+@onready var visual_root: Node3D = $VisualRoot
+@onready var vision_origin: Node3D = $VisualRoot/VisionOrigin
+@onready var player_sprite: Sprite3D = $Sprite3D
+
+# -------------------------
 # ДВИЖЕНИЕ
 # -------------------------
 
@@ -51,23 +62,12 @@ var noise_immunity_timer: float = 0.0
 @export var vision_cone_angle_deg: float = 70.0
 @export var vision_update_interval: float = 0.08
 
-# маска слоев, которые блокируют обзор
-# выставишь в инспекторе
 @export_flags_3d_physics var vision_block_mask: int = 1
 
 var vision_timer: float = 0.0
 
-# -------------------------
-# ССЫЛКИ НА НОДЫ
-# -------------------------
-
-@onready var pivot: Node3D = $Pivot
-@onready var spring_arm: SpringArm3D = $Pivot/SpringArm3D
-@onready var camera: Camera3D = $Pivot/SpringArm3D/Camera3D
-@onready var visual_root: Node3D = $VisualRoot
-@onready var vision_origin: Node3D =$VisualRoot/VisionOrigin
-
 signal noise_changed(value: float, max_value: float)
+
 func _ready() -> void:
 	add_to_group("player")
 	interact_key.hide()
@@ -159,7 +159,20 @@ func rotate_to_mouse(delta: float) -> void:
 		return
 
 	var target_angle: float = atan2(look_dir.x, look_dir.z)
-	visual_root.rotation.y = lerp_angle(visual_root.rotation.y, target_angle, rotation_speed * delta)
+
+	# Поворот основного визуала
+	visual_root.rotation.y = lerp_angle(
+		visual_root.rotation.y,
+		target_angle,
+		rotation_speed * delta
+	)
+
+	# Поворот Sprite3D
+	player_sprite.rotation.y = lerp_angle(
+		player_sprite.rotation.y,
+		target_angle,
+		rotation_speed * delta
+	)
 
 
 # -------------------------
@@ -268,6 +281,7 @@ func update_noise_system(delta: float) -> void:
 	#     print("Игрок проиграл!")
 	#     get_tree().reload_current_scene()
 
+
 # -------------------------
 # СИСТЕМА ЗРЕНИЯ
 # -------------------------
@@ -302,15 +316,12 @@ func can_see_target(target: Node3D) -> bool:
 
 	var distance := flat_to_target.length()
 
-	# очень близко
 	if distance <= vision_circle_radius:
 		return has_line_of_sight(from_pos, to_pos, target)
 
-	# слишком далеко
 	if distance > vision_cone_radius:
 		return false
 
-	# проверка угла конуса
 	var forward := -visual_root.global_transform.basis.z
 	forward.y = 0.0
 	forward = forward.normalized()
@@ -326,7 +337,6 @@ func can_see_target(target: Node3D) -> bool:
 	if dot_value < min_dot:
 		return false
 
-	# проверка стены/двери между игроком и объектом
 	return has_line_of_sight(from_pos, to_pos, target)
 
 

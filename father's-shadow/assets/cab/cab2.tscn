@@ -97,7 +97,6 @@ texture = ExtResource("5_cvr4t")
 [node name="Area3D" type="Area3D" parent="BoardArea/Photo2/Sprite3D" unique_id=2125881555]
 transform = Transform3D(1.005959, 0, -4.656613e-10, 0, 1.0000001, 0, 2.3283064e-10, 0, -1.2223821, 0, 0, 0)
 script = ExtResource("7_0em7x")
-label_text = "Григорий. Работал с отцом. Первый подозреваемый."
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BoardArea/Photo2/Sprite3D/Area3D" unique_id=2027152358]
 transform = Transform3D(1.0028085, 0, 0, 0, 1, 0, -4.656613e-10, 0, 1.86975, 0.018676758, 0.058265686, -0.25344086)
@@ -113,8 +112,6 @@ texture = ExtResource("6_0em7x")
 [node name="Area3D" type="Area3D" parent="BoardArea/Photo3/Sprite3D" unique_id=1386500774]
 transform = Transform3D(1.005959, 0, -4.656613e-10, 0, 1.0000001, 0, 2.3283064e-10, 0, -1.2223821, 0, 0, 0)
 script = ExtResource("8_4qird")
-label_text = "Катерина. Давала лжесвидетельства на суде.
-Нужно еще раз с ней поговорить."
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BoardArea/Photo3/Sprite3D/Area3D" unique_id=1549982085]
 transform = Transform3D(1.0028085, 0, 0, 0, 1, 0, -4.656613e-10, 0, 1.86975, 0.018676758, 0.058265686, -0.25344086)
@@ -156,7 +153,7 @@ offset_top = 54.0
 offset_right = 1917.0
 offset_bottom = 197.0
 theme_override_fonts/font = ExtResource("7_xo7xa")
-theme_override_font_sizes/font_size = 53
+theme_override_font_sizes/font_size = 40
 text = "Григорий. Работал с отцом. Главный подоздевамый."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -170,7 +167,7 @@ offset_top = 54.0
 offset_right = 1917.0
 offset_bottom = 197.0
 theme_override_fonts/font = ExtResource("7_xo7xa")
-theme_override_font_sizes/font_size = 53
+theme_override_font_sizes/font_size = 40
 text = "Катерина. Давала лжесвидетельства на суде.
 Нужно еще раз с ней поговорить."
 horizontal_alignment = 1
@@ -185,7 +182,7 @@ offset_top = 54.0
 offset_right = 1917.0
 offset_bottom = 197.0
 theme_override_fonts/font = ExtResource("7_xo7xa")
-theme_override_font_sizes/font_size = 53
+theme_override_font_sizes/font_size = 40
 text = "Найденные документы в квартире Григория ведут на Смердякова."
 horizontal_alignment = 1
 vertical_alignment = 1

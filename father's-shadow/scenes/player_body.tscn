@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cwb131167bnq3" path="res://scripts/player_body.gd" id="1_y1lj5"]
 [ext_resource type="Texture2D" uid="uid://c6srelgfe4os" path="res://assets/sprites/icons8-e-key-48.png" id="2_qvhny"]
+[ext_resource type="Texture2D" uid="uid://lvbhnr0xqt86" path="res://assets/night_shift/GG.png" id="3_ek12y"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qvhny"]
 
@@ -26,9 +27,11 @@ script = ExtResource("1_y1lj5")
 vision_block_mask = 32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2012474206]
+visible = false
 shape = SubResource("CapsuleShape3D_qvhny")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1469389534]
+visible = false
 material_override = SubResource("StandardMaterial3D_y1lj5")
 mesh = SubResource("CapsuleMesh_ek12y")
 
@@ -56,6 +59,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -5.532953, 0, 1, 0)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="VisualRoot" unique_id=1136733924]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+visible = false
 material_override = SubResource("StandardMaterial3D_qvhny")
 mesh = SubResource("BoxMesh_y1lj5")
 
@@ -73,6 +77,10 @@ spot_angle = 30.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03422451, 0)
 light_energy = 8.0
 omni_range = 3.0665026
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1533259661]
+transform = Transform3D(-0.2, 0, 0, 0, -8.742278e-09, -0.2, 0, 0.2, -8.742278e-09, 0, 0, 0)
+texture = ExtResource("3_ek12y")
 
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]
