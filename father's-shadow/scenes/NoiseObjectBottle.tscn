@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://b7k16w8or67c0"]
+
+[ext_resource type="Script" uid="uid://c3fgi584wx1dx" path="res://scripts/noise_object.gd" id="1_fjax7"]
+[ext_resource type="AudioStream" uid="uid://jnj7bjp15tb0" path="res://music/NightSfx/bottle.wav" id="2_p34gw"]
+[ext_resource type="PackedScene" uid="uid://bl5yx3rivi58p" path="res://assets/interactable/broken_bottle/bottle.gltf" id="3_p34gw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qu1os"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r6yvt"]
+material = SubResource("StandardMaterial3D_qu1os")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_praay"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n4kpc"]
+size = Vector3(1.0769262, 1.1064453, 0.8450012)
+
+[node name="NoiseObject" type="StaticBody3D" unique_id=1689373546]
+collision_layer = 64
+collision_mask = 16
+script = ExtResource("1_fjax7")
+noise_amount = 30.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1580479669]
+visible = false
+mesh = SubResource("BoxMesh_r6yvt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=279704730]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.49133715, 0.19163936, 0.28459656)
+shape = SubResource("BoxShape3D_praay")
+
+[node name="NoiseArea" type="Area3D" parent="." unique_id=1019860710]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.50454086, 0.27366385, 0.3086361)
+collision_layer = 64
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NoiseArea" unique_id=664813756]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.024981022, 0.075680494, 0.1613698)
+shape = SubResource("BoxShape3D_n4kpc")
+
+[node name="NoiseSound" type="AudioStreamPlayer3D" parent="." unique_id=1094831550]
+stream = ExtResource("2_p34gw")
+
+[node name="bottle" parent="." unique_id=1891255900 instance=ExtResource("3_p34gw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.342754, 0, -4.078625)
+
+[connection signal="body_entered" from="NoiseArea" to="." method="_on_noise_area_body_entered"]

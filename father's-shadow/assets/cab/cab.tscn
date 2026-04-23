@@ -4,9 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://dlt3hnurijvlv" path="res://assets/cab/cab.gltf" id="2_g1ge1"]
 [ext_resource type="PackedScene" uid="uid://d3gx1i40uvuix" path="res://scenes/pause_menu.tscn" id="3_g1ge1"]
 [ext_resource type="PackedScene" uid="uid://ovd370ienpj7" path="res://scenes/dialogues.tscn" id="4_lbji7"]
+[ext_resource type="Texture2D" uid="uid://dr7sad4yyraj6" path="res://assets/photo/Gre_Photo.png" id="5_nokk2"]
+[ext_resource type="Script" uid="uid://duqvwxg157ix2" path="res://assets/cab/photo.gd" id="6_40pt8"]
+[ext_resource type="FontFile" uid="uid://d3p0rdtn5l510" path="res://fonts/Montserrat-Bold.ttf" id="7_63q5i"]
+[ext_resource type="Script" uid="uid://d0dcewm37n4ch" path="res://assets/cab/photo_button.gd" id="8_mkkjt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_spjk5"]
 size = Vector3(1.5336914, 9.035034, 13.319519)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_63q5i"]
+size = Vector3(15.889038, 18.680939, 1.482666)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ysf7l"]
 size = Vector3(6.6312866, 1.2752686, 6.5163574)
@@ -62,11 +69,19 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.818193, 8.540161, 11.334552)
 shape = SubResource("BoxShape3D_spjk5")
 
-[node name="BoardArea2" type="Area3D" parent="." unique_id=229069147]
+[node name="Photo1" type="Node3D" parent="BoardArea" unique_id=70065291]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BoardArea2" unique_id=31668300]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.818193, 8.540161, 11.334552)
-shape = SubResource("BoxShape3D_spjk5")
+[node name="Sprite3D" type="Sprite3D" parent="BoardArea/Photo1" unique_id=861161718]
+transform = Transform3D(-0.00027444985, 0, 0.08499956, 0, 0.085, 0, -0.08499956, 0, -0.00027444985, -7.728234, 10.555021, 13.562642)
+texture = ExtResource("5_nokk2")
+
+[node name="Area3D" type="Area3D" parent="BoardArea/Photo1/Sprite3D" unique_id=1119717187]
+transform = Transform3D(1.005959, 0, -4.656613e-10, 0, 1.0000001, 0, 2.3283064e-10, 0, -1.2223821, 0, 0, 0)
+script = ExtResource("6_40pt8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoardArea/Photo1/Sprite3D/Area3D" unique_id=649901839]
+transform = Transform3D(1.0028085, 0, 0, 0, 1, 0, -4.656613e-10, 0, 1.86975, 0.018676758, 0.058265686, -0.25344086)
+shape = SubResource("BoxShape3D_63q5i")
 
 [node name="PhoneCamera" type="Camera3D" parent="." unique_id=1080629008]
 transform = Transform3D(-3.2769723e-08, -0.6617961, 0.74968386, -2.8928028e-08, 0.74968386, 0.6617961, -1, -1.7763568e-15, -4.371139e-08, -0.17132354, 8.678093, 2.876288)
@@ -84,10 +99,10 @@ menu_type = 0
 
 [node name="ReturnButton" type="Button" parent="CanvasLayer" unique_id=1149972542]
 visible = false
-offset_left = 126.0
-offset_top = 960.0
-offset_right = 1792.0
-offset_bottom = 1039.0
+offset_left = 69.0
+offset_top = 951.0
+offset_right = 584.0
+offset_bottom = 1030.0
 theme_override_fonts/font = SubResource("SystemFont_myx47")
 theme_override_font_sizes/font_size = 39
 text = "НАЗАД"
@@ -95,12 +110,34 @@ text = "НАЗАД"
 [node name="UI Textboard" parent="CanvasLayer" unique_id=267544843 instance=ExtResource("4_lbji7")]
 layer = 0
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=516308007]
+
+[node name="PhotoLabel" type="Label" parent="CanvasLayer2" unique_id=1608568754]
+visible = false
+offset_left = 2.0
+offset_top = 54.0
+offset_right = 1917.0
+offset_bottom = 197.0
+theme_override_fonts/font = ExtResource("7_63q5i")
+theme_override_font_sizes/font_size = 53
+text = "Григорий. Работал с отцом. Главный подоздевамый."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PhotoButton" type="Button" parent="CanvasLayer2" unique_id=1927228265]
+visible = false
+offset_left = 1201.0
+offset_top = 875.0
+offset_right = 1814.0
+offset_bottom = 1028.0
+theme_override_fonts/font = ExtResource("7_63q5i")
+theme_override_font_sizes/font_size = 53
+text = "НАЧАТЬ МИССИЮ"
+script = ExtResource("8_mkkjt")
+
 [connection signal="input_event" from="BoardArea" to="." method="_on_board_area_input_event"]
 [connection signal="mouse_entered" from="BoardArea" to="." method="_on_board_area_mouse_entered"]
 [connection signal="mouse_exited" from="BoardArea" to="." method="_on_board_area_mouse_exited"]
-[connection signal="input_event" from="BoardArea2" to="." method="_on_board_area_input_event"]
-[connection signal="mouse_entered" from="BoardArea2" to="." method="_on_board_area_mouse_entered"]
-[connection signal="mouse_exited" from="BoardArea2" to="." method="_on_board_area_mouse_exited"]
 [connection signal="input_event" from="PhoneArea" to="." method="_on_phone_area_input_event"]
 [connection signal="mouse_entered" from="PhoneArea" to="." method="_on_phone_area_mouse_entered"]
 [connection signal="mouse_exited" from="PhoneArea" to="." method="_on_phone_area_mouse_exited"]
