@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dw7tquiax8y62" path="res://scenes/inrectables/ItemToPickUp3.tscn" id="9_qf4xf"]
 [ext_resource type="PackedScene" uid="uid://c56d1wa50knrg" path="res://scenes/NoiseObjectThrash.tscn" id="10_riaya"]
 [ext_resource type="AudioStream" uid="uid://bjfalfdg4loqd" path="res://music/NIghtatmosphere.wav" id="11_b8dns"]
+[ext_resource type="AudioStream" uid="uid://o73ls27t5ea" path="res://music/NigthTheme.wav" id="12_5p465"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qjcnp"]
 panorama = ExtResource("6_by846")
@@ -42,6 +43,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.4453611)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=251204181]
 transform = Transform3D(1, 0, 0, 0, 0.7478446, 0.6638741, 0, -0.6638741, 0.7478446, 0, 330.95477, 474.00726)
+visible = false
 
 [node name="PlayerBody" parent="." unique_id=516785971 instance=ExtResource("1_e2xr4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0363688, 0)
@@ -69,6 +71,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8286662, 1.3545294, 0)
 [node name="NoiseObject2" parent="." unique_id=1779446898 instance=ExtResource("10_riaya")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4831595, 0, -6.448798)
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=912805405]
+[node name="Atmosphere" type="AudioStreamPlayer3D" parent="." unique_id=912805405]
 stream = ExtResource("11_b8dns")
+autoplay = true
+
+[node name="Theme" type="AudioStreamPlayer3D" parent="." unique_id=1467141952]
+stream = ExtResource("12_5p465")
+volume_db = -10.0
 autoplay = true
