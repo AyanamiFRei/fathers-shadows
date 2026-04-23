@@ -1,7 +1,13 @@
 [gd_scene format=3 uid="uid://xe6ikh5gc1pd"]
 
-[ext_resource type="Script" path="res://scenes/cab.gd" id="1_spjk5"]
+[ext_resource type="Script" uid="uid://chrm3wa08gm4b" path="res://scenes/cab.gd" id="1_spjk5"]
 [ext_resource type="PackedScene" uid="uid://dlt3hnurijvlv" path="res://assets/cab/cab.gltf" id="1_xat6g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_spjk5"]
+size = Vector3(1.5336914, 9.035034, 13.319519)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ysf7l"]
+size = Vector3(6.6312866, 1.2752686, 6.5163574)
 
 [node name="Cab" type="Node3D" unique_id=311286431]
 script = ExtResource("1_spjk5")
@@ -38,3 +44,28 @@ transform = Transform3D(0.22505286, -0.6130174, 0.7573381, 0.17461924, 0.7900694
 light_color = Color(1, 0.88235295, 0.24705882, 1)
 light_energy = 0.02
 light_angular_distance = 34.11
+
+[node name="BoardCamera" type="Camera3D" parent="." unique_id=1209751779]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.2309995, 9.362275, 11.643303)
+
+[node name="BoardArea" type="Area3D" parent="." unique_id=1819893643]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoardArea" unique_id=1631663509]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.818193, 8.540161, 11.334552)
+shape = SubResource("BoxShape3D_spjk5")
+
+[node name="PhoneCamera" type="Camera3D" parent="." unique_id=1080629008]
+transform = Transform3D(-3.2769723e-08, -0.6617961, 0.74968386, -2.8928028e-08, 0.74968386, 0.6617961, -1, -1.7763568e-15, -4.371139e-08, -0.17132354, 8.678093, 2.876288)
+
+[node name="PhoneArea" type="Area3D" parent="." unique_id=456420352]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PhoneArea" unique_id=1461381420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6224196, 6.9386997, 0.8014717)
+shape = SubResource("BoxShape3D_ysf7l")
+
+[connection signal="input_event" from="BoardArea" to="." method="_on_board_area_input_event"]
+[connection signal="mouse_entered" from="BoardArea" to="." method="_on_board_area_mouse_entered"]
+[connection signal="mouse_exited" from="BoardArea" to="." method="_on_board_area_mouse_exited"]
+[connection signal="input_event" from="PhoneArea" to="." method="_on_phone_area_input_event"]
+[connection signal="mouse_entered" from="PhoneArea" to="." method="_on_phone_area_mouse_entered"]
+[connection signal="mouse_exited" from="PhoneArea" to="." method="_on_phone_area_mouse_exited"]

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://1ruwys0jtnuq"]
 
 [ext_resource type="PackedScene" uid="uid://ccrjob2i600au" path="res://assets/rooms/room1.gltf" id="1_26qk8"]
-[ext_resource type="PackedScene" path="res://scenes/vision_block+solid_object.tscn" id="2_bkg6e"]
-[ext_resource type="PackedScene" path="res://scenes/solid_object.tscn" id="3_uog5t"]
+[ext_resource type="PackedScene" uid="uid://do7d5didp6ldi" path="res://scenes/vision_block+solid_object.tscn" id="2_bkg6e"]
+[ext_resource type="PackedScene" uid="uid://hr0j5h7tc20m" path="res://scenes/solid_object.tscn" id="3_uog5t"]
 
 [node name="night_level1" type="Node3D" unique_id=224379011]
 
