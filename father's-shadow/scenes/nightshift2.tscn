@@ -2,11 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://m0vf3nbmb0p5" path="res://scenes/player_body.tscn" id="1_f2ffg"]
 [ext_resource type="PackedScene" uid="uid://dbmog8fj8cw4k" path="res://scenes/inrectables/ItemToPickUp1.tscn" id="2_hnvvc"]
-[ext_resource type="PackedScene" uid="uid://wbqv270qhw0n" path="res://scenes/NoiseObject1.tscn" id="4_gluhk"]
+[ext_resource type="PackedScene" uid="uid://wbqv270qhw0n" path="res://scenes/NoiseObjectWater.tscn" id="4_gluhk"]
 [ext_resource type="Texture2D" uid="uid://dkbv8vmteyg3u" path="res://assets/skyboxes/AllSky_Night_MoonBurst Equirect.png" id="6_c1l2i"]
 [ext_resource type="PackedScene" uid="uid://cmnki4krev78y" path="res://scenes/night_level_2.tscn" id="6_f2ffg"]
 [ext_resource type="PackedScene" uid="uid://dcy6jr1m6610p" path="res://scenes/DoorRoot2.tscn" id="6_hnvvc"]
 [ext_resource type="PackedScene" uid="uid://bvg52vrxfp1f5" path="res://scenes/DoorRoot3.tscn" id="7_hnvvc"]
+[ext_resource type="PackedScene" uid="uid://b7k16w8or67c0" path="res://scenes/NoiseObjectBottle.tscn" id="8_gluhk"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qjcnp"]
 panorama = ExtResource("6_c1l2i")
@@ -33,6 +34,9 @@ volumetric_fog_ambient_inject = 2.14
 
 [node name="Nightshift" type="Node3D" unique_id=1076303024]
 
+[node name="NoiseObject3" parent="." unique_id=1689373546 instance=ExtResource("8_gluhk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.487506, -0.06053233, 0)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=251204181]
 transform = Transform3D(1, 0, 0, 0, 0.7478446, 0.6638741, 0, -0.6638741, 0.7478446, 0, 330.95477, 474.00726)
 visible = false
@@ -43,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0363688, 0)
 [node name="ItemToPickUp" parent="." unique_id=1961857898 instance=ExtResource("2_hnvvc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.256146)
 
-[node name="NoiseObject" parent="." unique_id=1689373546 instance=ExtResource("4_gluhk")]
+[node name="NoiseObject" parent="." unique_id=977658463 instance=ExtResource("4_gluhk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3637505, 0.5642719, 6.964814)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=731481238]
@@ -62,3 +66,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.7
 
 [node name="DoorRoot4" parent="." unique_id=258571946 instance=ExtResource("7_hnvvc")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.7926764, 2.2314155, 8.929039)
+
+[node name="NoiseObject2" parent="." unique_id=1882780903 instance=ExtResource("8_gluhk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24599624, 3.1537423)
