@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdeysrkjuxpg8"
-path.s3tc="res://.godot/imported/Epic_GloriousPink_EquiRect.png-93259d6d51cbdc391223a9d1d5338feb.s3tc.ctex"
+uid="uid://dx2sv7luosi8k"
+path.s3tc="res://.godot/imported/Cesto_Poly_01_occlusion-Cesto_Poly_01_specularGlossiness.png.png-3304cb590c844215a719ee17f9001a91.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/skyboxes/Epic_GloriousPink_EquiRect.png"
-dest_files=["res://.godot/imported/Epic_GloriousPink_EquiRect.png-93259d6d51cbdc391223a9d1d5338feb.s3tc.ctex"]
+source_file="res://assets/interactable/korzinochkav2/Cesto_Poly_01_occlusion-Cesto_Poly_01_specularGlossiness.png.png"
+dest_files=["res://.godot/imported/Cesto_Poly_01_occlusion-Cesto_Poly_01_specularGlossiness.png.png-3304cb590c844215a719ee17f9001a91.s3tc.ctex"]
 
 [params]
 
@@ -26,8 +26,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=8
+roughness/src_normal="res://assets/interactable/korzinochkav2/Cesto_Poly_01_normal.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

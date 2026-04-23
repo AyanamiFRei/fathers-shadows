@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdeysrkjuxpg8"
-path.s3tc="res://.godot/imported/Epic_GloriousPink_EquiRect.png-93259d6d51cbdc391223a9d1d5338feb.s3tc.ctex"
+uid="uid://bc4pdwk1gw8ge"
+path.s3tc="res://.godot/imported/Meshpart5Mtl_baseColor.png-f5a077498f983d870b1c7eae2270cae3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/skyboxes/Epic_GloriousPink_EquiRect.png"
-dest_files=["res://.godot/imported/Epic_GloriousPink_EquiRect.png-93259d6d51cbdc391223a9d1d5338feb.s3tc.ctex"]
+source_file="res://assets/cars/victoria/Meshpart5Mtl_baseColor.png"
+dest_files=["res://.godot/imported/Meshpart5Mtl_baseColor.png-f5a077498f983d870b1c7eae2270cae3.s3tc.ctex"]
 
 [params]
 

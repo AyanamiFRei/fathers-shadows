@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdeysrkjuxpg8"
-path.s3tc="res://.godot/imported/Epic_GloriousPink_EquiRect.png-93259d6d51cbdc391223a9d1d5338feb.s3tc.ctex"
+uid="uid://clt4utqqkpe7h"
+path.s3tc="res://.godot/imported/Shadow1Mtl_emissive.png-d28ac1cb076c8324d180571d5b1ad2f1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/skyboxes/Epic_GloriousPink_EquiRect.png"
-dest_files=["res://.godot/imported/Epic_GloriousPink_EquiRect.png-93259d6d51cbdc391223a9d1d5338feb.s3tc.ctex"]
+source_file="res://assets/cars/victoria/Shadow1Mtl_emissive.png"
+dest_files=["res://.godot/imported/Shadow1Mtl_emissive.png-d28ac1cb076c8324d180571d5b1ad2f1.s3tc.ctex"]
 
 [params]
 

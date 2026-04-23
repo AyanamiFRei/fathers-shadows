@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdeysrkjuxpg8"
-path.s3tc="res://.godot/imported/Epic_GloriousPink_EquiRect.png-93259d6d51cbdc391223a9d1d5338feb.s3tc.ctex"
+uid="uid://co3mo7dpans5r"
+path.s3tc="res://.godot/imported/Long Trash Bag Pile Diffuse.png-05870cc98ca45e66b2636f65cc94d407.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/skyboxes/Epic_GloriousPink_EquiRect.png"
-dest_files=["res://.godot/imported/Epic_GloriousPink_EquiRect.png-93259d6d51cbdc391223a9d1d5338feb.s3tc.ctex"]
+source_file="res://assets/interactable/trash/Long Trash Bag Pile Diffuse.png"
+dest_files=["res://.godot/imported/Long Trash Bag Pile Diffuse.png-05870cc98ca45e66b2636f65cc94d407.s3tc.ctex"]
 
 [params]
 

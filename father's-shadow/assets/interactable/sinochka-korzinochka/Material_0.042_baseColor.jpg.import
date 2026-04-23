@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdeysrkjuxpg8"
-path.s3tc="res://.godot/imported/Epic_GloriousPink_EquiRect.png-93259d6d51cbdc391223a9d1d5338feb.s3tc.ctex"
+uid="uid://b4wjaqttaoiwk"
+path.s3tc="res://.godot/imported/Material_0.042_baseColor.jpg-0c939a694c793e8d9b8e3edd41deb614.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/skyboxes/Epic_GloriousPink_EquiRect.png"
-dest_files=["res://.godot/imported/Epic_GloriousPink_EquiRect.png-93259d6d51cbdc391223a9d1d5338feb.s3tc.ctex"]
+source_file="res://assets/interactable/sinochka-korzinochka/Material_0.042_baseColor.jpg"
+dest_files=["res://.godot/imported/Material_0.042_baseColor.jpg-0c939a694c793e8d9b8e3edd41deb614.s3tc.ctex"]
 
 [params]
 

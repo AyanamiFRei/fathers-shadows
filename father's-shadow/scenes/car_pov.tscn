@@ -1,6 +1,17 @@
 [gd_scene format=3 uid="uid://cr7hgcg41k7se"]
 
 [ext_resource type="PackedScene" uid="uid://dgp24jyc8ur3q" path="res://assets/cars/car_cab/car_pov.gltf" id="1_t4rml"]
+[ext_resource type="Texture2D" uid="uid://bdeysrkjuxpg8" path="res://assets/skyboxes/Epic_GloriousPink_EquiRect.png" id="2_2o7vo"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3myq3"]
+panorama = ExtResource("2_2o7vo")
+
+[sub_resource type="Sky" id="Sky_so351"]
+sky_material = SubResource("PanoramaSkyMaterial_3myq3")
+
+[sub_resource type="Environment" id="Environment_fmgf1"]
+background_mode = 2
+sky = SubResource("Sky_so351")
 
 [node name="CarPov" type="Node3D" unique_id=123706610]
 
@@ -8,4 +19,7 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8061366, 0, 0.26109695)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=17370916]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.090949, 6.278938, 0.9253268)
+transform = Transform3D(-4.1628915e-08, -0.30498067, 0.9523586, -1.3331127e-08, 0.9523586, 0.30498067, -1, 0, -4.3711392e-08, 1.7526951, 5.9441304, 0.9253268)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1433846020]
+environment = SubResource("Environment_fmgf1")
