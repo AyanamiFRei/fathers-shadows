@@ -1,12 +1,13 @@
 extends Area3D
 
 @onready var sprite: Sprite3D = get_parent()
-@onready var photo_label: Label = get_tree().current_scene.get_node("CanvasLayer2/PhotoLabel")
-@onready var photo_button: Button = get_tree().current_scene.get_node("CanvasLayer2/PhotoButton")
+@onready var photo_label: Label = $"../../../../CanvasLayer3/PhotoLabel"
+@onready var photo_button: Button = get_tree().current_scene.get_node("CanvasLayer3/PhotoButton")
 
 @export var hover_color: Color = Color(1.25, 1.25, 1.25, 1.0)
 @export var normal_color: Color = Color(1.0, 1.0, 1.0, 1.0)
-@export var label_text: String = "Григорий. Работал с отцом. Первый подозреваемый."
+@export var label_text: String = "Катерина. Давала лжесвидетельства на суде.
+Нужно еще раз с ней поговорить."
 
 func _ready() -> void:
 	mouse_entered.connect(_on_mouse_entered)

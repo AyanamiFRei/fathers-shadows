@@ -1,16 +1,17 @@
 extends Area3D
 
 @onready var sprite: Sprite3D = get_parent()
-@onready var photo_label: Label = get_tree().current_scene.get_node("CanvasLayer2/PhotoLabel")
-@onready var photo_button: Button = get_tree().current_scene.get_node("CanvasLayer2/PhotoButton")
+@onready var photo_label: Label = get_tree().current_scene.get_node("CanvasLayer4/PhotoLabel")
+@onready var photo_button: Button = get_tree().current_scene.get_node("CanvasLayer4/PhotoButton")
 
 @export var hover_color: Color = Color(1.25, 1.25, 1.25, 1.0)
 @export var normal_color: Color = Color(1.0, 1.0, 1.0, 1.0)
-@export var label_text: String = "Григорий. Работал с отцом. Первый подозреваемый."
+@export var label_text: String = "Найденные документы в квартире Григория ведут на Смердякова."
 
 func _ready() -> void:
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
+	input_event.connect(_on_input_event)
 
 	if sprite == null:
 		push_error("Sprite3D not found")
@@ -38,3 +39,11 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	sprite.modulate = normal_color
 	photo_label.visible = false
+
+
+func _on_input_event(camera, event, position, normal, shape_idx) -> void:
+	if event is InputEventMouseButton \
+	and event.button_index == MOUSE_BUTTON_LEFT \
+	and event.pressed:
+		photo_button.visible = true
+		print("PHOTO CLICKED")
