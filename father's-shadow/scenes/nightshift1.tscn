@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://dcd887p65gk7l"]
 
+[ext_resource type="PackedScene" uid="uid://dnh8bi7dt7iyv" path="res://scenes/inrectables/ItemToPickUp2.tscn" id="1_8dqoc"]
 [ext_resource type="PackedScene" uid="uid://m0vf3nbmb0p5" path="res://scenes/player_body.tscn" id="1_e2xr4"]
-[ext_resource type="PackedScene" uid="uid://dbmog8fj8cw4k" path="res://scenes/ItemToPickUp.tscn" id="2_l8gjh"]
+[ext_resource type="PackedScene" uid="uid://dbmog8fj8cw4k" path="res://scenes/inrectables/ItemToPickUp1.tscn" id="2_l8gjh"]
 [ext_resource type="PackedScene" uid="uid://cdf0d488negb5" path="res://scenes/DoorRoot1.tscn" id="3_tplju"]
-[ext_resource type="PackedScene" uid="uid://wbqv270qhw0n" path="res://scenes/NoiseObject.tscn" id="4_uowwx"]
+[ext_resource type="PackedScene" uid="uid://wbqv270qhw0n" path="res://scenes/NoiseObject1.tscn" id="4_uowwx"]
 [ext_resource type="PackedScene" uid="uid://1ruwys0jtnuq" path="res://scenes/night_level_1.tscn" id="5_x6jny"]
 [ext_resource type="Texture2D" uid="uid://dkbv8vmteyg3u" path="res://assets/skyboxes/AllSky_Night_MoonBurst Equirect.png" id="6_by846"]
 [ext_resource type="PackedScene" uid="uid://dcy6jr1m6610p" path="res://scenes/DoorRoot2.tscn" id="7_bubsr"]
+[ext_resource type="PackedScene" uid="uid://dw7tquiax8y62" path="res://scenes/inrectables/ItemToPickUp3.tscn" id="9_qf4xf"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qjcnp"]
 panorama = ExtResource("6_by846")
@@ -33,6 +35,9 @@ volumetric_fog_ambient_inject = 2.14
 
 [node name="Nightshift" type="Node3D" unique_id=1076303024]
 
+[node name="ItemToPickUp2" parent="." unique_id=1961857898 instance=ExtResource("1_8dqoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.4453611)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=251204181]
 transform = Transform3D(1, 0, 0, 0, 0.7478446, 0.6638741, 0, -0.6638741, 0.7478446, 0, 330.95477, 474.00726)
 visible = false
@@ -40,14 +45,8 @@ visible = false
 [node name="PlayerBody" parent="." unique_id=516785971 instance=ExtResource("1_e2xr4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0363688, 0)
 
-[node name="ItemToPickUp" parent="." unique_id=1961857898 instance=ExtResource("2_l8gjh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.256146)
-
 [node name="DoorRoot" parent="." unique_id=526019147 instance=ExtResource("3_tplju")]
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -3.0401006, 1.8414357, 0.6693039)
-
-[node name="NoiseObject" parent="." unique_id=1689373546 instance=ExtResource("4_uowwx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3637505, 0.5642719, 6.964814)
 
 [node name="night_level1" parent="." unique_id=224379011 instance=ExtResource("5_x6jny")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024128914, 0, 0.0019416809)
@@ -57,3 +56,11 @@ environment = SubResource("Environment_nrtb7")
 
 [node name="DoorRoot2" parent="." unique_id=1939135105 instance=ExtResource("7_bubsr")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.4441833, 2.150796, 5.0613008)
+
+[node name="ItemToPickUp1" parent="." unique_id=753873377 instance=ExtResource("2_l8gjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.990335, 0, 0)
+
+[node name="ItemToPickUp3" parent="." unique_id=1195195973 instance=ExtResource("9_qf4xf")]
+
+[node name="NoiseObject" parent="." unique_id=1689373546 instance=ExtResource("4_uowwx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8286662, 0, 0)
