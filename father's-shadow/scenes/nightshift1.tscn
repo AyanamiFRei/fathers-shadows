@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dcd887p65gk7l"]
 
 [ext_resource type="PackedScene" uid="uid://dnh8bi7dt7iyv" path="res://scenes/inrectables/ItemToPickUp2.tscn" id="1_8dqoc"]
+[ext_resource type="Script" uid="uid://b60om5kqxyte0" path="res://scenes/nightshift.gd" id="1_708v7"]
 [ext_resource type="PackedScene" uid="uid://m0vf3nbmb0p5" path="res://scenes/player_body.tscn" id="1_e2xr4"]
 [ext_resource type="PackedScene" uid="uid://dbmog8fj8cw4k" path="res://scenes/inrectables/ItemToPickUp1.tscn" id="2_l8gjh"]
 [ext_resource type="PackedScene" uid="uid://cdf0d488negb5" path="res://scenes/DoorRoot1.tscn" id="3_tplju"]
@@ -10,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dcy6jr1m6610p" path="res://scenes/DoorRoot2.tscn" id="7_bubsr"]
 [ext_resource type="PackedScene" uid="uid://dw7tquiax8y62" path="res://scenes/inrectables/ItemToPickUp3.tscn" id="9_qf4xf"]
 [ext_resource type="PackedScene" uid="uid://c56d1wa50knrg" path="res://scenes/NoiseObjectThrash.tscn" id="10_riaya"]
-[ext_resource type="AudioStream" uid="uid://bjfalfdg4loqd" path="res://music/NIghtatmosphere.wav" id="11_b8dns"]
+[ext_resource type="AudioStream" uid="uid://djtf4th6x6aqh" path="res://music/NIghtatmosphere.wav" id="11_b8dns"]
 [ext_resource type="AudioStream" uid="uid://o73ls27t5ea" path="res://music/NigthTheme.wav" id="12_5p465"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qjcnp"]
@@ -37,6 +38,7 @@ volumetric_fog_length = 84.17
 volumetric_fog_ambient_inject = 2.14
 
 [node name="Nightshift" type="Node3D" unique_id=1076303024]
+script = ExtResource("1_708v7")
 
 [node name="ItemToPickUp2" parent="." unique_id=1961857898 instance=ExtResource("1_8dqoc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.4453611)

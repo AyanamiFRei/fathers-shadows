@@ -1,14 +1,18 @@
 [gd_scene format=3 uid="uid://3wwb1mbewkxb"]
 
+[ext_resource type="Script" uid="uid://b60om5kqxyte0" path="res://scenes/nightshift.gd" id="1_c1l2i"]
 [ext_resource type="PackedScene" uid="uid://m0vf3nbmb0p5" path="res://scenes/player_body.tscn" id="1_f2ffg"]
 [ext_resource type="PackedScene" uid="uid://dbmog8fj8cw4k" path="res://scenes/inrectables/ItemToPickUp1.tscn" id="2_hnvvc"]
-[ext_resource type="PackedScene" uid="uid://wbqv270qhw0n" path="res://scenes/NoiseObjectWater.tscn" id="4_gluhk"]
 [ext_resource type="Texture2D" uid="uid://dkbv8vmteyg3u" path="res://assets/skyboxes/AllSky_Night_MoonBurst Equirect.png" id="6_c1l2i"]
 [ext_resource type="PackedScene" uid="uid://cmnki4krev78y" path="res://scenes/night_level_2.tscn" id="6_f2ffg"]
 [ext_resource type="PackedScene" uid="uid://dcy6jr1m6610p" path="res://scenes/DoorRoot2.tscn" id="6_hnvvc"]
 [ext_resource type="PackedScene" uid="uid://bvg52vrxfp1f5" path="res://scenes/DoorRoot3.tscn" id="7_hnvvc"]
 [ext_resource type="PackedScene" uid="uid://b7k16w8or67c0" path="res://scenes/NoiseObjectBottle.tscn" id="8_gluhk"]
 [ext_resource type="PackedScene" uid="uid://dmcwcj7or5l0q" path="res://scenes/ui_noise.tscn" id="9_gluhk"]
+[ext_resource type="PackedScene" uid="uid://dnh8bi7dt7iyv" path="res://scenes/inrectables/ItemToPickUp2.tscn" id="9_gqhg1"]
+[ext_resource type="PackedScene" uid="uid://dw7tquiax8y62" path="res://scenes/inrectables/ItemToPickUp3.tscn" id="10_c1l2i"]
+[ext_resource type="AudioStream" uid="uid://o73ls27t5ea" path="res://music/NigthTheme.wav" id="12_ep1cr"]
+[ext_resource type="AudioStream" uid="uid://djtf4th6x6aqh" path="res://music/NIghtatmosphere.wav" id="13_2p5fa"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qjcnp"]
 panorama = ExtResource("6_c1l2i")
@@ -34,6 +38,7 @@ volumetric_fog_length = 84.17
 volumetric_fog_ambient_inject = 2.14
 
 [node name="Nightshift" type="Node3D" unique_id=1076303024]
+script = ExtResource("1_c1l2i")
 
 [node name="NoiseObject3" parent="." unique_id=1689373546 instance=ExtResource("8_gluhk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.487506, -0.06053233, 0)
@@ -44,12 +49,6 @@ visible = false
 
 [node name="PlayerBody" parent="." unique_id=516785971 instance=ExtResource("1_f2ffg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0363688, 0)
-
-[node name="ItemToPickUp" parent="." unique_id=1961857898 instance=ExtResource("2_hnvvc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.256146)
-
-[node name="NoiseObject" parent="." unique_id=977658463 instance=ExtResource("4_gluhk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3637505, 0.5642719, 6.964814)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=731481238]
 environment = SubResource("Environment_nrtb7")
@@ -68,8 +67,20 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.7
 [node name="DoorRoot4" parent="." unique_id=258571946 instance=ExtResource("7_hnvvc")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.7926764, 2.2314155, 8.929039)
 
-[node name="NoiseObject2" parent="." unique_id=1882780903 instance=ExtResource("8_gluhk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24599624, 3.1537423)
-
 [node name="CanvasLayer" parent="." unique_id=1059494603 instance=ExtResource("9_gluhk")]
 follow_viewport_enabled = true
+
+[node name="ItemToPickUp1" parent="." unique_id=1961857898 instance=ExtResource("2_hnvvc")]
+
+[node name="ItemToPickUp2" parent="." unique_id=595164459 instance=ExtResource("9_gqhg1")]
+
+[node name="ItemToPickUp3" parent="." unique_id=245213291 instance=ExtResource("10_c1l2i")]
+
+[node name="Theme" type="AudioStreamPlayer3D" parent="." unique_id=69567696]
+stream = ExtResource("12_ep1cr")
+max_db = -10.0
+autoplay = true
+
+[node name="Atmosphere" type="AudioStreamPlayer3D" parent="." unique_id=1776341146]
+stream = ExtResource("13_2p5fa")
+autoplay = true

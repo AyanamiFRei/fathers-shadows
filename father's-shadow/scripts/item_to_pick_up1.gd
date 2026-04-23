@@ -1,5 +1,7 @@
 extends StaticBody3D
 
+signal collected
+
 var visible_for_player: bool = false
 
 func _ready() -> void:
@@ -12,7 +14,9 @@ func set_visible_for_player(value: bool) -> void:
 func can_interact() -> bool:
 	return visible_for_player
 
-func interact():
+func interact() -> void:
+	collected.emit()
+
 	$PickupSound.play()
 	await $PickupSound.finished
 	queue_free()
