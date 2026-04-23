@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dbmog8fj8cw4k"]
+
+[ext_resource type="Script" uid="uid://dth5htvlktdi4" path="res://scripts/item_to_pick_up1.gd" id="1_hgqor"]
+[ext_resource type="AudioStream" uid="uid://qtxirdjfi5gr" path="res://music/NightSfx/pickDocs1.wav" id="2_m3iae"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v7dte"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hgqor"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hgqor"]
+
+[node name="ItemToPickUp1" type="StaticBody3D" unique_id=1961857898]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_hgqor")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=112250804]
+shape = SubResource("BoxShape3D_v7dte")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=138216784]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_hgqor")
+mesh = SubResource("BoxMesh_hgqor")
+
+[node name="PickupSound" type="AudioStreamPlayer3D" parent="." unique_id=1984950815]
+stream = ExtResource("2_m3iae")
+volume_db = -1.5

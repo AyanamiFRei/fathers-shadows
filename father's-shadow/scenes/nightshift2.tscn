@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://3wwb1mbewkxb"]
 
 [ext_resource type="PackedScene" uid="uid://m0vf3nbmb0p5" path="res://scenes/player_body.tscn" id="1_f2ffg"]
-[ext_resource type="PackedScene" uid="uid://dbmog8fj8cw4k" path="res://scenes/ItemToPickUp.tscn" id="2_hnvvc"]
-[ext_resource type="PackedScene" uid="uid://wbqv270qhw0n" path="res://scenes/NoiseObject.tscn" id="4_gluhk"]
+[ext_resource type="PackedScene" uid="uid://dbmog8fj8cw4k" path="res://scenes/inrectables/ItemToPickUp1.tscn" id="2_hnvvc"]
+[ext_resource type="PackedScene" uid="uid://wbqv270qhw0n" path="res://scenes/NoiseObject1.tscn" id="4_gluhk"]
 [ext_resource type="Texture2D" uid="uid://dkbv8vmteyg3u" path="res://assets/skyboxes/AllSky_Night_MoonBurst Equirect.png" id="6_c1l2i"]
 [ext_resource type="PackedScene" uid="uid://cmnki4krev78y" path="res://scenes/night_level_2.tscn" id="6_f2ffg"]
 [ext_resource type="PackedScene" uid="uid://dcy6jr1m6610p" path="res://scenes/DoorRoot2.tscn" id="6_hnvvc"]

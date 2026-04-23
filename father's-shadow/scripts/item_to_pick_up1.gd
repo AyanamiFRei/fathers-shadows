@@ -13,8 +13,6 @@ func can_interact() -> bool:
 	return visible_for_player
 
 func interact():
-	if not visible_for_player:
-		return
-
-	print("даров")
+	$PickupSound.play()
+	await $PickupSound.finished
 	queue_free()
