@@ -2,10 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://m0vf3nbmb0p5" path="res://scenes/player_body.tscn" id="1_f2ffg"]
 [ext_resource type="PackedScene" uid="uid://dbmog8fj8cw4k" path="res://scenes/ItemToPickUp.tscn" id="2_hnvvc"]
-[ext_resource type="PackedScene" uid="uid://cdf0d488negb5" path="res://scenes/DoorRoot.tscn" id="3_2ncms"]
 [ext_resource type="PackedScene" uid="uid://wbqv270qhw0n" path="res://scenes/NoiseObject.tscn" id="4_gluhk"]
 [ext_resource type="Texture2D" uid="uid://dkbv8vmteyg3u" path="res://assets/skyboxes/AllSky_Night_MoonBurst Equirect.png" id="6_c1l2i"]
 [ext_resource type="PackedScene" uid="uid://cmnki4krev78y" path="res://scenes/night_level_2.tscn" id="6_f2ffg"]
+[ext_resource type="PackedScene" uid="uid://dcy6jr1m6610p" path="res://scenes/DoorRoot2.tscn" id="6_hnvvc"]
+[ext_resource type="PackedScene" uid="uid://bvg52vrxfp1f5" path="res://scenes/DoorRoot3.tscn" id="7_hnvvc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qjcnp"]
 panorama = ExtResource("6_c1l2i")
@@ -45,10 +46,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.256146)
 [node name="NoiseObject" parent="." unique_id=1689373546 instance=ExtResource("4_gluhk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3637505, 0.5642719, 6.964814)
 
-[node name="DoorRoot2" parent="." unique_id=1282474158 instance=ExtResource("3_2ncms")]
-transform = Transform3D(-3.287822e-08, 0, -1, 0, 1, 0, 0.7521659, 0, -4.371139e-08, 1.3113799, 1.3592904, 2.5908515)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=731481238]
 environment = SubResource("Environment_nrtb7")
 
 [node name="night_level2" parent="." unique_id=224379011 instance=ExtResource("6_f2ffg")]
+
+[node name="DoorRoot" parent="." unique_id=526019147 instance=ExtResource("6_hnvvc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7365172, 2.0998836, -4.817424)
+
+[node name="DoorRoot2" parent="." unique_id=617478260 instance=ExtResource("6_hnvvc")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.4971156, 2.1351814, 2.9026911)
+
+[node name="DoorRoot3" parent="." unique_id=71029131 instance=ExtResource("6_hnvvc")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.7634983, 2.1351814, 3.9380956)
+
+[node name="DoorRoot4" parent="." unique_id=258571946 instance=ExtResource("7_hnvvc")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.7926764, 2.2314155, 8.929039)

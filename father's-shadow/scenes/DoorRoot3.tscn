@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bvg52vrxfp1f5"]
+
+[ext_resource type="Script" uid="uid://dmfww4nnkmfov" path="res://scripts/physics_door.gd" id="1_d3m8m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_b6yt8"]
+size = Vector3(1.2, 4, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_flfdm"]
+size = Vector3(1.2, 4, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_flfdm"]
+size = Vector3(0.2, 4, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_23hmp"]
+size = Vector3(0.2, 4, 0.2)
+
+[node name="DoorRoot" type="Node3D" unique_id=526019147]
+
+[node name="PhysicsDoor" type="RigidBody3D" parent="." unique_id=2128114904]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2637843, 0, 0)
+collision_layer = 33
+collision_mask = 17
+script = ExtResource("1_d3m8m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PhysicsDoor" unique_id=572213733]
+mesh = SubResource("BoxMesh_b6yt8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PhysicsDoor" unique_id=1218755976]
+shape = SubResource("BoxShape3D_flfdm")
+
+[node name="Frame" type="StaticBody3D" parent="." unique_id=661043717]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2822797, 0, 0)
+collision_layer = 32
+collision_mask = 16
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Frame" unique_id=729486929]
+mesh = SubResource("BoxMesh_flfdm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Frame" unique_id=133150609]
+shape = SubResource("BoxShape3D_23hmp")
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="." unique_id=1042183007]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, -1.0035162, 0, 0)
+node_a = NodePath("../PhysicsDoor")
+node_b = NodePath("../Frame")
+angular_limit/enable = true
+angular_limit/lower = -1.9198622
