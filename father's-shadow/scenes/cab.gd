@@ -30,7 +30,7 @@ func _ready() -> void:
 	pause_menu.exit_to_menu_requested.connect(_on_exit_to_menu_requested)
 	pause_menu.pause_opened.connect(_on_pause_opened)
 	pause_menu.pause_closed.connect(_on_pause_closed)
-	CycleManager.start_day()
+	# CycleManager.start_hub()
 
 
 func _on_return_button_pressed() -> void:
