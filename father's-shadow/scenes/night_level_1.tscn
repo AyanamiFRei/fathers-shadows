@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bnh3h381k8ouc"]
+[gd_scene format=3 uid="uid://1ruwys0jtnuq"]
 
 [ext_resource type="PackedScene" uid="uid://ccrjob2i600au" path="res://assets/rooms/room1.gltf" id="1_26qk8"]
 [ext_resource type="PackedScene" uid="uid://do7d5didp6ldi" path="res://scenes/vision_block+solid_object.tscn" id="2_bkg6e"]
@@ -6,7 +6,7 @@
 
 [node name="night_level1" type="Node3D" unique_id=224379011]
 
-[node name="room1" parent="." unique_id=983722822 instance=ExtResource("1_26qk8")]
+[node name="room1" parent="." unique_id=504937034 instance=ExtResource("1_26qk8")]
 
 [node name="vision_block+solid_object" parent="." unique_id=7879097 instance=ExtResource("2_bkg6e")]
 transform = Transform3D(10.265749, 0, 0, 0, 5.965618, 0, 0, 0, 0.6997185, -6.0110693, 3.107667, 7.2972536)
