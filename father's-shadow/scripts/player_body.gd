@@ -67,8 +67,9 @@ var vision_timer: float = 0.0
 @onready var visual_root: Node3D = $VisualRoot
 @onready var vision_origin: Node3D =$VisualRoot/VisionOrigin
 
-
+signal noise_changed(value: float, max_value: float)
 func _ready() -> void:
+	add_to_group("player")
 	interact_key.hide()
 
 
@@ -244,6 +245,8 @@ func add_noise(amount: float) -> void:
 	last_noise_time = Time.get_ticks_msec() / 1000.0
 	noise_immunity_timer = noise_immunity_time
 
+	emit_signal("noise_changed", current_noise, max_noise)
+
 	print("Шум добавлен: ", amount, " | Текущий шум: ", current_noise)
 
 
@@ -258,6 +261,12 @@ func update_noise_system(delta: float) -> void:
 		var decay_per_second := max_noise / noise_decay_duration
 		current_noise = max(current_noise - decay_per_second * delta, 0.0)
 
+		emit_signal("noise_changed", current_noise, max_noise)
+
+	# проигрыш (пока отключён)
+	# if current_noise >= max_noise:
+	#     print("Игрок проиграл!")
+	#     get_tree().reload_current_scene()
 
 # -------------------------
 # СИСТЕМА ЗРЕНИЯ

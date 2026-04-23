@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dcy6jr1m6610p" path="res://scenes/DoorRoot2.tscn" id="6_hnvvc"]
 [ext_resource type="PackedScene" uid="uid://bvg52vrxfp1f5" path="res://scenes/DoorRoot3.tscn" id="7_hnvvc"]
 [ext_resource type="PackedScene" uid="uid://b7k16w8or67c0" path="res://scenes/NoiseObjectBottle.tscn" id="8_gluhk"]
+[ext_resource type="PackedScene" uid="uid://dmcwcj7or5l0q" path="res://scenes/ui_noise.tscn" id="9_gluhk"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qjcnp"]
 panorama = ExtResource("6_c1l2i")
@@ -69,3 +70,6 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.7
 
 [node name="NoiseObject2" parent="." unique_id=1882780903 instance=ExtResource("8_gluhk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24599624, 3.1537423)
+
+[node name="CanvasLayer" parent="." unique_id=1059494603 instance=ExtResource("9_gluhk")]
+follow_viewport_enabled = true

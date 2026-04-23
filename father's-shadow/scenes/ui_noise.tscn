@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dmcwcj7or5l0q"]
+
+[ext_resource type="Script" uid="uid://b6ywq03aoho6n" path="res://noise_bar.gd" id="1_fof2n"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1059494603]
+
+[node name="Control" type="Control" parent="." unique_id=1811618758]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NoiseBar" type="ProgressBar" parent="Control" unique_id=988277933]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -2.0
+offset_right = 98.0
+offset_bottom = 40.0
+grow_horizontal = 2
+scale = Vector2(9.620714, 1)
+show_percentage = false
+script = ExtResource("1_fof2n")
