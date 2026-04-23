@@ -2,10 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://m0vf3nbmb0p5" path="res://scenes/player_body.tscn" id="1_e2xr4"]
 [ext_resource type="PackedScene" uid="uid://dbmog8fj8cw4k" path="res://scenes/ItemToPickUp.tscn" id="2_l8gjh"]
-[ext_resource type="PackedScene" uid="uid://cdf0d488negb5" path="res://scenes/DoorRoot.tscn" id="3_tplju"]
+[ext_resource type="PackedScene" uid="uid://cdf0d488negb5" path="res://scenes/DoorRoot1.tscn" id="3_tplju"]
 [ext_resource type="PackedScene" uid="uid://wbqv270qhw0n" path="res://scenes/NoiseObject.tscn" id="4_uowwx"]
 [ext_resource type="PackedScene" uid="uid://1ruwys0jtnuq" path="res://scenes/night_level_1.tscn" id="5_x6jny"]
 [ext_resource type="Texture2D" uid="uid://dkbv8vmteyg3u" path="res://assets/skyboxes/AllSky_Night_MoonBurst Equirect.png" id="6_by846"]
+[ext_resource type="PackedScene" uid="uid://dcy6jr1m6610p" path="res://scenes/DoorRoot2.tscn" id="7_bubsr"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qjcnp"]
 panorama = ExtResource("6_by846")
@@ -43,15 +44,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0363688, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.256146)
 
 [node name="DoorRoot" parent="." unique_id=526019147 instance=ExtResource("3_tplju")]
-transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -3.0401006, 1.7822299, 0.6693039)
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -3.0401006, 1.8414357, 0.6693039)
 
 [node name="NoiseObject" parent="." unique_id=1689373546 instance=ExtResource("4_uowwx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3637505, 0.5642719, 6.964814)
 
-[node name="DoorRoot2" parent="." unique_id=1282474158 instance=ExtResource("3_tplju")]
-transform = Transform3D(-3.287822e-08, 0, -1, 0, 1, 0, 0.7521659, 0, -4.371139e-08, 3.9937882, 1.5761445, 4.77607)
-
 [node name="night_level1" parent="." unique_id=224379011 instance=ExtResource("5_x6jny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024128914, 0, 0.0019416809)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=731481238]
 environment = SubResource("Environment_nrtb7")
+
+[node name="DoorRoot2" parent="." unique_id=1939135105 instance=ExtResource("7_bubsr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.4441833, 2.150796, 5.0613008)

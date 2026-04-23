@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cr7hgcg41k7se" path="res://scenes/car_pov.tscn" id="7_mef3m"]
 [ext_resource type="Texture2D" uid="uid://chcovfv6rn3b3" path="res://assets/skyboxes/AllSky_Overcast4_Low.png" id="8_df7mf"]
 [ext_resource type="Script" uid="uid://bbkf5spd5tksl" path="res://scripts/radio_container.gd" id="9_radio"]
+[ext_resource type="PackedScene" uid="uid://d3gx1i40uvuix" path="res://scenes/pause_menu.tscn" id="11_5nr44"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_hji44"]
 panorama = ExtResource("8_df7mf")
@@ -73,6 +74,7 @@ size = Vector2i(960, 540)
 render_target_update_mode = 4
 
 [node name="Radio" parent="Control/HBoxContainer/VBoxContainer/SubViewportContainer3/SubViewport" unique_id=1685087177 instance=ExtResource("4_hji44")]
+process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -341.60718, 0, 0)
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="Control/HBoxContainer/VBoxContainer" unique_id=1701473389]
@@ -103,3 +105,5 @@ player_path = NodePath("../Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=969520399]
 environment = SubResource("Environment_5nr44")
+
+[node name="PauseMenu" parent="." unique_id=98752847 instance=ExtResource("11_5nr44")]

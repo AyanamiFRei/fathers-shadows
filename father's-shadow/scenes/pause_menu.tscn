@@ -24,6 +24,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n87rw")
+menu_type = 1
 
 [node name="Background" type="ColorRect" parent="." unique_id=685323815]
 layout_mode = 1

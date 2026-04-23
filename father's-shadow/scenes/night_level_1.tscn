@@ -7,6 +7,7 @@
 [node name="night_level1" type="Node3D" unique_id=224379011]
 
 [node name="room1" parent="." unique_id=504937034 instance=ExtResource("1_26qk8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0064091682, 0.019173145, -0.0434103)
 
 [node name="vision_block+solid_object" parent="." unique_id=7879097 instance=ExtResource("2_bkg6e")]
 transform = Transform3D(10.265749, 0, 0, 0, 5.965618, 0, 0, 0, 0.6997185, -6.0110693, 3.107667, 7.2972536)
@@ -25,7 +26,7 @@ transform = Transform3D(6.6543903, 0, 0, 0, 5.965618, 0, 0, 0, 0.6997185, 7.3724
 visible = false
 
 [node name="vision_block+solid_object6" parent="." unique_id=1137373556 instance=ExtResource("2_bkg6e")]
-transform = Transform3D(-9.331333e-08, 0, 0.7169206, 0, 5.965617, 0, -2.1347601, 0, -3.1337596e-08, 4.3724117, 3.107667, 2.8917243)
+transform = Transform3D(-9.331333e-08, 0, 0.50197995, 0, 5.965617, 0, -2.1347601, 0, -2.1942242e-08, 4.3724117, 3.107667, 2.8917243)
 visible = false
 
 [node name="vision_block+solid_object7" parent="." unique_id=1341016004 instance=ExtResource("2_bkg6e")]

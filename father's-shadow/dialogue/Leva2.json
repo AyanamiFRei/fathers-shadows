@@ -16,7 +16,7 @@
 "id": "leva2_2",
 "type": "line",
 "name": "ЛЁВА",
-"text": "Слушай, как тебя зовут?",
+"text": "Слушай, а как тебя зовут?",
 "portrait_node": "Leva/Leva_Base",
 "next": "leva2_name_choice"
 },
@@ -81,7 +81,7 @@
 "id": "leva2_music_1",
 "type": "line",
 "name": "ЛЁВА",
-"text": "Слушай, у меня тут кассета есть.",
+"text": "Слушай, а поставь другую музыку...",
 "portrait_node": "Leva/Leva_Kind",
 "next": "leva2_music_2"
 },
@@ -90,7 +90,7 @@
 "id": "leva2_music_2",
 "type": "line",
 "name": "ЛЁВА",
-"text": "Родственники привезли.",
+"text": "Какую-нибудь родную.",
 "portrait_node": "Leva/Leva_Base",
 "next": "leva2_music_3"
 },
@@ -99,7 +99,7 @@
 "id": "leva2_music_3",
 "type": "line",
 "name": "ЛЁВА",
-"text": "Говорят, сейчас в России это слушают.",
+"text": "О! Вижу тебя есть касета Граждаской Обороны! Давай её!",
 "portrait_node": "Leva/Leva_Kind",
 "next": "leva2_music_choice"
 },

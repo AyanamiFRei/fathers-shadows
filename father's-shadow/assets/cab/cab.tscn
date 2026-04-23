@@ -78,6 +78,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6224196, 6.9386997, 0.8014
 shape = SubResource("BoxShape3D_ysf7l")
 
 [node name="PauseMenu" parent="." unique_id=98752847 instance=ExtResource("3_g1ge1")]
+menu_type = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1384039602]
 
