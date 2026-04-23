@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dr7sad4yyraj6" path="res://assets/photo/Gre_Photo.png" id="5_nokk2"]
 [ext_resource type="Script" uid="uid://duqvwxg157ix2" path="res://assets/cab/photo.gd" id="6_40pt8"]
 [ext_resource type="FontFile" uid="uid://d3p0rdtn5l510" path="res://fonts/Montserrat-Bold.ttf" id="7_63q5i"]
+[ext_resource type="Script" uid="uid://d0dcewm37n4ch" path="res://assets/cab/photo_button.gd" id="8_mkkjt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_spjk5"]
 size = Vector3(1.5336914, 9.035034, 13.319519)
@@ -112,6 +113,7 @@ layer = 0
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=516308007]
 
 [node name="PhotoLabel" type="Label" parent="CanvasLayer2" unique_id=1608568754]
+visible = false
 offset_left = 2.0
 offset_top = 54.0
 offset_right = 1917.0
@@ -131,6 +133,7 @@ offset_bottom = 1028.0
 theme_override_fonts/font = ExtResource("7_63q5i")
 theme_override_font_sizes/font_size = 53
 text = "НАЧАТЬ МИССИЮ"
+script = ExtResource("8_mkkjt")
 
 [connection signal="input_event" from="BoardArea" to="." method="_on_board_area_input_event"]
 [connection signal="mouse_entered" from="BoardArea" to="." method="_on_board_area_mouse_entered"]
