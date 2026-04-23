@@ -3,12 +3,7 @@
 [ext_resource type="Script" uid="uid://syqu27avp4ui" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://cv8wu8ve8u5f" path="res://assets/menu/Untitled.png" id="2_bqqt6"]
 [ext_resource type="AudioStream" uid="uid://bacdixhi65q7a" path="res://music/menu/Hub(Pinboard) Theme.wav" id="3_bqqt6"]
-
-[sub_resource type="SystemFont" id="SystemFont_ekxnf"]
-font_names = PackedStringArray("Montserrat")
-font_weight = 825
-hinting = 2
-multichannel_signed_distance_field = true
+[ext_resource type="FontFile" uid="uid://d3p0rdtn5l510" path="res://fonts/Montserrat-Bold.ttf" id="4_wu84c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
 content_margin_left = 4.0
@@ -30,6 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ekxnf")
+menu_music = ExtResource("3_bqqt6")
 metadata/_edit_vertical_guides_ = [975.0]
 
 [node name="BackgroundImage" type="TextureRect" parent="." unique_id=580480414]
@@ -66,42 +62,42 @@ alignment = 1
 
 [node name="Title" type="Label" parent="CenterContainer/MenuBox" unique_id=1211584725]
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_ekxnf")
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 135
 text = "FATHER’S SHADOWS"
 
 [node name="PlayButton" type="Button" parent="CenterContainer/MenuBox" unique_id=629083679]
 custom_minimum_size = Vector2(280, 60)
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_ekxnf")
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 75
 theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
 text = "Играть"
 
 [node name="TutorialButton" type="Button" parent="CenterContainer/MenuBox" unique_id=2092074395]
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_ekxnf")
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 75
 theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
 text = "Обучение"
 
 [node name="SettingsButton" type="Button" parent="CenterContainer/MenuBox" unique_id=1629173794]
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_ekxnf")
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 75
 theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
 text = "Настройки"
 
 [node name="AuthorsButton" type="Button" parent="CenterContainer/MenuBox" unique_id=680335799]
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_ekxnf")
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 75
 theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
 text = "Авторы"
 
 [node name="ExitButton" type="Button" parent="CenterContainer/MenuBox" unique_id=800457946]
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_ekxnf")
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 75
 theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
 text = "Выйти"
@@ -122,7 +118,7 @@ offset_left = 91.0
 offset_top = 68.5
 offset_right = 1829.0
 offset_bottom = 162.25
-theme_override_fonts/font = SubResource("SystemFont_ekxnf")
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 91
 text = "ОБУЧЕНИЕ"
 horizontal_alignment = 1
@@ -140,7 +136,7 @@ offset_right = 219.0
 offset_bottom = -54.92395
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = SubResource("SystemFont_ekxnf")
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 54
 text = "закрыть"
 
@@ -160,7 +156,7 @@ offset_left = 579.0
 offset_top = 68.0
 offset_right = 1376.0
 offset_bottom = 185.5
-theme_override_fonts/font = SubResource("SystemFont_ekxnf")
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 94
 text = "НАСТРОЙКИ"
 horizontal_alignment = 1
@@ -187,7 +183,7 @@ offset_left = 628.0
 offset_top = 279.0
 offset_right = 1325.0
 offset_bottom = 341.5
-theme_override_fonts/font = SubResource("SystemFont_ekxnf")
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 50
 text = "100%"
 
@@ -204,7 +200,7 @@ offset_right = 219.0
 offset_bottom = -55.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = SubResource("SystemFont_ekxnf")
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 54
 text = "закрыть"
 
@@ -226,7 +222,7 @@ offset_bottom = 1029.0
 
 [node name="AuthorsTitle" type="Label" parent="AuthorsPanel/AuthorsPanel" unique_id=1452524336]
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_ekxnf")
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 91
 text = "АВТОРЫ"
 horizontal_alignment = 1
@@ -237,7 +233,7 @@ offset_left = 774.0
 offset_top = 949.0
 offset_right = 1179.0
 offset_bottom = 1025.0
-theme_override_fonts/font = SubResource("SystemFont_ekxnf")
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 54
 text = "закрыть"
 
@@ -247,7 +243,7 @@ offset_left = 379.0
 offset_top = 223.0
 offset_right = 1588.0
 offset_bottom = 781.0
-theme_override_fonts/font = SubResource("SystemFont_ekxnf")
+theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 35
 text = "Игра разработана командой Kill la Kill  
 в рамках хакатона CarX Technologies × Московский Политех (2026)
@@ -261,8 +257,3 @@ UI-дизайн: BIHBI
 Музыка: iGore333"
 horizontal_alignment = 1
 autowrap_mode = 2
-
-[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=1513030568]
-stream = ExtResource("3_bqqt6")
-volume_db = -10.0
-autoplay = true

@@ -7,6 +7,9 @@ extends Node3D
 @onready var board_camera: Camera3D = $BoardCamera
 @onready var phone_camera: Camera3D = $PhoneCamera
 
+@onready var pause_menu: PauseMenu = $PauseMenu
+@onready var return_button: Button = $CanvasLayer/ReturnButton
+
 var default_camera_transform: Transform3D
 var current_view := "default"
 var is_camera_moving := false
@@ -15,9 +18,22 @@ var board_blink_id := 0
 var phone_blink_id := 0
 
 func _ready() -> void:
+	if pause_menu == null:
+		push_error("PauseMenu не найден в сцене Cab")
+		return
+	
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	default_camera_transform = main_camera.global_transform
+	return_button.visible = false
+	return_button.pressed.connect(_on_return_button_pressed)
+	
+	pause_menu.exit_to_menu_requested.connect(_on_exit_to_menu_requested)
+	pause_menu.pause_opened.connect(_on_pause_opened)
+	pause_menu.pause_closed.connect(_on_pause_closed)
 
+
+func _on_return_button_pressed() -> void:
+	return_camera()
 
 func toggle_light() -> void:
 	lamp_light_1.visible = !lamp_light_1.visible
@@ -29,7 +45,7 @@ func move_camera_to_transform(target_transform: Transform3D, view_name: String, 
 
 	is_camera_moving = true
 
-	var tween = create_tween()
+	var tween: Tween = create_tween()
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(main_camera, "global_transform", target_transform, duration)
@@ -38,6 +54,8 @@ func move_camera_to_transform(target_transform: Transform3D, view_name: String, 
 
 	current_view = view_name
 	is_camera_moving = false
+
+	return_button.visible = current_view != "default"
 
 
 func move_camera_to_camera(target_camera: Camera3D, view_name: String, duration: float = 0.8) -> void:
@@ -51,6 +69,7 @@ func return_camera() -> void:
 		return
 
 	stop_all_blinking()
+	return_button.visible = false
 	move_camera_to_transform(default_camera_transform, "default")
 
 
@@ -131,5 +150,36 @@ func _on_phone_area_mouse_exited() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		stop_all_blinking()
-		return_camera()
+		if get_tree().paused:
+			return
+
+		if current_view == "default":
+			return_button.visible = false
+			pause_menu.open_pause()
+			
+	#if event.is_action_pressed("ui_cancel"):
+		#stop_all_blinking()
+		#return_camera()
+		#
+	#if event.is_action_pressed("ui_cancel"):
+		#if pause_menu.is_open:
+			#pause_menu.close_pause()
+		#else:
+			#pause_menu.open_pause()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		if pause_menu == null:
+			return
+
+		pause_menu.toggle_pause()
+
+func _on_exit_to_menu_requested() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+func _on_pause_opened() -> void:
+	return_button.visible = false
+
+func _on_pause_closed() -> void:
+	if current_view != "default":
+		return_button.visible = true

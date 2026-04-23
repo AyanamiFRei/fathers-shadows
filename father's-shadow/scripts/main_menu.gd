@@ -22,6 +22,8 @@ extends Control
 @export var hover_color: Color = Color(0.65, 0.85, 1.0, 1)
 @export var pressed_color: Color = Color(0.55, 1.0, 0.7, 1)
 
+@export var menu_music: AudioStream
+
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
@@ -50,6 +52,7 @@ func _ready() -> void:
 	authors_close_button.pressed.connect(_on_authors_close_pressed)
 
 	_setup_audio()
+	MusicManager.play_music(menu_music)
 
 func _connect_button_fx(button: Button) -> void:
 	button.modulate = normal_color
@@ -73,10 +76,11 @@ func _connect_button_fx(button: Button) -> void:
 			button.modulate = normal_color
 	)
 
+
+
 func _on_play_pressed() -> void:
 	print("Нажата кнопка Играть")
-	# Здесь потом можно сделать переход в игровую сцену:
-	# get_tree().change_scene_to_file("res://Scenes/Game.tscn")
+	get_tree().change_scene_to_file("res://assets/cab/cab.tscn")
 
 func _on_tutorial_pressed() -> void:
 	tutorial_panel.visible = true
