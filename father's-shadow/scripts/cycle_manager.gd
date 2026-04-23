@@ -25,7 +25,9 @@ extends Node
 
 enum Cycle { HUB, DAY, NIGHT }
 
-const SCENE_HUB  := "res://assets/cab/cab.tscn"
+var cur_hub = 1
+
+var SCENE_HUB  = "res://assets/cab/cab" + str(cur_hub) + ".tscn"
 const SCENE_DAY  := "res://scenes/dayshift.tscn"
 
 ## Ночные сцены перебираются по очереди с каждым новым циклом.
@@ -36,15 +38,23 @@ const NIGHT_SCENES: Array = [
 
 const HUB_DIALOGUES: Array = [
 	"res://dialogue/Telephone1.json",
+	"res://dialogue/Telephone2.json"
 ]
 
 ## Диалоги дневной смены — строго по порядку.
 ## Замените и дополните пути под актуальную структуру проекта.
-const DAY_DIALOGUES: Array = [
+var DAY_DIALOGUES: Array = [
 	"res://dialogue/Leva.json",
 	"res://dialogue/Katerina.json",
 	"res://dialogue/Police.json",
 	"res://dialogue/Grigory.json",
+]
+
+var DAY_DIALOGUES_NEW: Array = [
+	"res://dialogue/Leva2.json",
+	"res://dialogue/Old_Lady.json",
+	"res://dialogue/Police2.json",
+	"res://dialogue/Smerdyakov.json",
 ]
 
 
@@ -128,6 +138,9 @@ func finish_night() -> void:
 		return
 
 	current_cycle = Cycle.HUB
+	cur_hub += 1
+	var SCENE_HUB  = "res://assets/cab/cab" + str(cur_hub) + ".tscn"
+	DAY_DIALOGUES = DAY_DIALOGUES_NEW
 	get_tree().change_scene_to_file(SCENE_HUB)
 
 

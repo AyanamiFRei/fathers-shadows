@@ -31,4 +31,4 @@ func complete_level() -> void:
 	print("Уровень пройден!")
 
 	# если хочешь просто остановить игру:
-	get_tree().paused = true
+	CycleManager.finish_night()

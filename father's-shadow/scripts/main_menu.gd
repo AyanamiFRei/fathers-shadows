@@ -80,7 +80,7 @@ func _connect_button_fx(button: Button) -> void:
 
 func _on_play_pressed() -> void:
 	print("Нажата кнопка Играть")
-	get_tree().change_scene_to_file("res://assets/cab/cab.tscn")
+	get_tree().change_scene_to_file("res://assets/cab/cab1.tscn")
 
 func _on_tutorial_pressed() -> void:
 	tutorial_panel.visible = true
