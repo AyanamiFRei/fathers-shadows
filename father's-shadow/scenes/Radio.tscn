@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://3ewsylwu67io" path="res://assets/cassets/cas5/cas_5.gd" id="11_aj7ea"]
 [ext_resource type="Script" uid="uid://ckmv42esc8dwv" path="res://assets/cassets/cas6/cas_6.gd" id="13_umdqk"]
 [ext_resource type="AudioStream" uid="uid://d0mjvygp6ukn8" path="res://music/radio/rodina.wav" id="15_d7w74"]
+[ext_resource type="AudioStream" uid="uid://0bflrxl1rvsk" path="res://music/radio/classsic.wav" id="16_tjokb"]
 [ext_resource type="AudioStream" uid="uid://brw6xhdip0owj" path="res://music/radio/сс.wav" id="18_0814m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q712h"]
@@ -69,6 +70,7 @@ shape = SubResource("BoxShape3D_q712h")
 [node name="cas4" parent="Cas" unique_id=1658331338 instance=ExtResource("4_a6664")]
 transform = Transform3D(-1, 8.742277e-08, -8.742278e-08, 8.742278e-08, 1, -8.742278e-08, 8.742277e-08, -8.7422784e-08, -1, 6.228939, 0.0017712116, -3.7131486)
 script = ExtResource("9_1enmr")
+music = ExtResource("16_tjokb")
 
 [node name="Area3D" type="Area3D" parent="Cas/cas4" unique_id=1391173647]
 transform = Transform3D(1, -5.373145e-16, 0, -5.373145e-16, 1, 0, 0, 0, 1, -0.021541119, 1.5944469, -4.155709)

@@ -2,20 +2,31 @@
 
 [ext_resource type="Script" uid="uid://sae2us05g6h" path="res://scripts/dialogue_manager.gd" id="1_w0ec4"]
 [ext_resource type="Texture2D" uid="uid://dra3k0m23mcow" path="res://assets_interface/xbox_buttons/button_xbox_digital_x_8.png" id="3_51prw"]
+[ext_resource type="FontFile" uid="uid://dbfd5dpb64k3k" path="res://fonts/Bebas Neue Cyrillic.ttf" id="3_ya6jm"]
 [ext_resource type="Texture2D" uid="uid://co6tjfco2tr0a" path="res://assets_interface/xbox_buttons/button_xbox_digital_y_8.png" id="4_3aohm"]
+[ext_resource type="FontFile" uid="uid://cj6hjasbanjic" path="res://fonts/Inter-Medium.ttf" id="4_evemy"]
 [ext_resource type="Texture2D" uid="uid://b610s5tevkt8g" path="res://assets_interface/xbox_buttons/button_xbox_digital_b_8.png" id="5_b6e3c"]
 [ext_resource type="Texture2D" uid="uid://jdybi51l1rt0" path="res://assets/art/Alex.png" id="5_w0ec4"]
 [ext_resource type="Script" uid="uid://dqxwt0fimvroh" path="res://scripts/dialogue_state.gd" id="6_7htrt"]
 [ext_resource type="Texture2D" uid="uid://gjkdo63g7b21" path="res://art/Gregory_Engry.png" id="6_51prw"]
+[ext_resource type="Texture2D" uid="uid://de5nu1bo2jyy8" path="res://art/Katerina_Angry.png" id="6_otpxi"]
 [ext_resource type="Texture2D" uid="uid://cnhpck2smog78" path="res://art/Gregory_Base.png" id="7_3aohm"]
+[ext_resource type="Texture2D" uid="uid://dbgsd5qn1nk4d" path="res://art/Katerina_Kind.png" id="7_fiamw"]
 [ext_resource type="Script" uid="uid://c0fm6o44k1vbo" path="res://scripts/loyalty_state.gd" id="7_re33w"]
 [ext_resource type="Script" uid="uid://cs2qx3rbwx3gn" path="res://scripts/hit_flash.gd" id="8_hflsh"]
+[ext_resource type="Texture2D" uid="uid://cpawrf17vga3p" path="res://art/Leva_Angry.png" id="8_ya6jm"]
 [ext_resource type="Texture2D" uid="uid://cpjp3f1n46tdf" path="res://art/Smerdyakov_Base.png" id="9_6cwu7"]
+[ext_resource type="Texture2D" uid="uid://dklduw21glx0o" path="res://art/Leva_Kind.png" id="9_evemy"]
 [ext_resource type="Script" uid="uid://cdsfefugj1n6i" path="res://scripts/loyalty_ui.gd" id="10_3aohm"]
 [ext_resource type="Texture2D" uid="uid://cth0hl3do20xo" path="res://art/Telephone.png" id="10_mqx6s"]
 [ext_resource type="Texture2D" uid="uid://bsd1fv6bcmhsc" path="res://assets_interface/loyalty/loyalty_1.png" id="11_b6e3c"]
 [ext_resource type="Texture2D" uid="uid://cbbju30xmyceo" path="res://art/OldLady.png" id="11_u8o2i"]
 [ext_resource type="Texture2D" uid="uid://b7k7nldd5kua4" path="res://art/RadioSet.png" id="12_mqx6s"]
+[ext_resource type="Texture2D" uid="uid://hpf4l54cwqim" path="res://art/Smerdyakov_Angry.png" id="14_jss5g"]
+[ext_resource type="Texture2D" uid="uid://b3lmmpmn5vq44" path="res://art/Smerdyakov_Kind.png" id="15_6yx3a"]
+[ext_resource type="Texture2D" uid="uid://bw54t65ydv2k0" path="res://art/Gregory_Kind.png" id="15_evemy"]
+[ext_resource type="Texture2D" uid="uid://crottf7hlmmcm" path="res://art/Old_Angry.png" id="18_7ph3j"]
+[ext_resource type="Texture2D" uid="uid://ddjrd7eejahti" path="res://art/Old_Kind.png" id="19_s56er"]
 
 [sub_resource type="Animation" id="Animation_w0ec4"]
 length = 0.001
@@ -91,22 +102,8 @@ bg_color = Color(0, 0, 0, 0.6901961)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ae6bn"]
 bg_color = Color(0, 0, 0, 0.6901961)
 
-[sub_resource type="SystemFont" id="SystemFont_oepk5"]
-font_names = PackedStringArray("Bebas Neue Cyrillic")
-subpixel_positioning = 0
-
-[sub_resource type="SystemFont" id="SystemFont_an6vn"]
-font_names = PackedStringArray("Inter")
-font_weight = 450
-subpixel_positioning = 0
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3sl4t"]
 load_path = "res://.godot/imported/Leva.png-4d72abc0e931b8bb7934b9a08cb4706f.ctex"
-
-[sub_resource type="SystemFont" id="SystemFont_3isj3"]
-font_names = PackedStringArray("Inter")
-font_weight = 450
-subpixel_positioning = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k2386"]
 bg_color = Color(0.09411765, 0.09411765, 0.09411765, 0.99215686)
@@ -187,7 +184,7 @@ offset_left = 18.0
 offset_top = -4.0
 offset_right = 327.0
 offset_bottom = 45.0
-theme_override_fonts/font = SubResource("SystemFont_oepk5")
+theme_override_fonts/font = ExtResource("3_ya6jm")
 theme_override_font_sizes/font_size = 35
 text = "Грушенька"
 horizontal_alignment = 3
@@ -196,10 +193,10 @@ vertical_alignment = 2
 [node name="DialogueText" type="RichTextLabel" parent="DialogueUI/DialoguePanel" unique_id=381958699]
 layout_mode = 0
 offset_left = 31.0
-offset_top = 30.0
+offset_top = 19.0
 offset_right = 648.0
-offset_bottom = 138.0
-theme_override_fonts/normal_font = SubResource("SystemFont_an6vn")
+offset_bottom = 120.0
+theme_override_fonts/normal_font = ExtResource("4_evemy")
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 22
 theme_override_font_sizes/bold_italics_font_size = 22
@@ -254,7 +251,7 @@ offset_left = 620.00024
 offset_top = 89.99998
 offset_right = 6669.999
 offset_bottom = 429.99997
-theme_override_fonts/normal_font = SubResource("SystemFont_3isj3")
+theme_override_fonts/normal_font = ExtResource("4_evemy")
 theme_override_font_sizes/normal_font_size = 249
 theme_override_font_sizes/bold_font_size = 22
 theme_override_font_sizes/bold_italics_font_size = 22
@@ -281,7 +278,7 @@ offset_left = 620.00024
 offset_top = 89.99998
 offset_right = 6679.999
 offset_bottom = 429.99997
-theme_override_fonts/normal_font = SubResource("SystemFont_3isj3")
+theme_override_fonts/normal_font = ExtResource("4_evemy")
 theme_override_font_sizes/normal_font_size = 249
 theme_override_font_sizes/bold_font_size = 22
 theme_override_font_sizes/bold_italics_font_size = 22
@@ -308,7 +305,7 @@ offset_left = 620.00024
 offset_top = 89.99998
 offset_right = 6679.999
 offset_bottom = 429.99997
-theme_override_fonts/normal_font = SubResource("SystemFont_3isj3")
+theme_override_fonts/normal_font = ExtResource("4_evemy")
 theme_override_font_sizes/normal_font_size = 249
 theme_override_font_sizes/bold_font_size = 22
 theme_override_font_sizes/bold_italics_font_size = 22
@@ -320,9 +317,9 @@ scroll_active = false
 
 [node name="DialogueTimerBar" type="ProgressBar" parent="DialogueUI" unique_id=1283197331]
 layout_mode = 0
-offset_left = 575.08997
+offset_left = 570.08997
 offset_top = 992.0
-offset_right = 1165.0
+offset_right = 1143.09
 offset_bottom = 1006.0
 theme_override_styles/background = SubResource("StyleBoxFlat_k2386")
 theme_override_styles/fill = SubResource("StyleBoxFlat_wn28b")
@@ -331,6 +328,7 @@ value = 1.0
 show_percentage = false
 
 [node name="LoyaltyValueLabel" type="Label" parent="DialogueUI" unique_id=1956050865]
+visible = false
 layout_mode = 0
 offset_left = 1162.09
 offset_top = 48.0
@@ -348,20 +346,41 @@ scale = Vector2(0.32006818, 0.32006818)
 [node name="Katerina" type="Node2D" parent="DialogueUI/New_Portrait" unique_id=2134452565]
 
 [node name="Katerina_Base" type="Sprite2D" parent="DialogueUI/New_Portrait/Katerina" unique_id=1821879449]
-position = Vector2(31.243515, -46.86506)
-scale = Vector2(1.0739903, 1.0739903)
+position = Vector2(-43.459763, -78.1084)
+scale = Vector2(1.0248977, 1.0739903)
 texture = SubResource("CompressedTexture2D_w0ec4")
+
+[node name="Katerina_Angry" type="Sprite2D" parent="DialogueUI/New_Portrait/Katerina" unique_id=753606756]
+position = Vector2(-15.340412, 65.61092)
+scale = Vector2(1.32492, 1.4232199)
+texture = ExtResource("6_otpxi")
+
+[node name="Katerina_Kind" type="Sprite2D" parent="DialogueUI/New_Portrait/Katerina" unique_id=311791294]
+position = Vector2(-9.092285, 118.72485)
+scale = Vector2(1.4471551, 1.4471552)
+texture = ExtResource("7_fiamw")
 
 [node name="Leva" type="Node2D" parent="DialogueUI/New_Portrait" unique_id=1253416076]
 
 [node name="Leva_Base" type="Sprite2D" parent="DialogueUI/New_Portrait/Leva" unique_id=605429446]
+position = Vector2(-27.837925, 3.1243343)
 texture = SubResource("CompressedTexture2D_3sl4t")
+
+[node name="Leva_Angry" type="Sprite2D" parent="DialogueUI/New_Portrait/Leva" unique_id=910924389]
+position = Vector2(28.400188, 18.74603)
+scale = Vector2(1.192113, 1.192113)
+texture = ExtResource("8_ya6jm")
+
+[node name="Leva_Kind" type="Sprite2D" parent="DialogueUI/New_Portrait/Leva" unique_id=1173002967]
+position = Vector2(31.52452, 21.87041)
+scale = Vector2(1.2469212, 1.1667598)
+texture = ExtResource("9_evemy")
 
 [node name="Alex" type="Node2D" parent="DialogueUI/New_Portrait" unique_id=1924561514]
 
 [node name="Alex_Base" type="Sprite2D" parent="DialogueUI/New_Portrait/Alex" unique_id=2124776172]
-position = Vector2(90.6056, 9.373056)
-scale = Vector2(0.7479354, 0.7479354)
+position = Vector2(0.2811432, 18.74606)
+scale = Vector2(0.7846462, 0.7479354)
 texture = ExtResource("5_w0ec4")
 
 [node name="Grigory" type="Node2D" parent="DialogueUI/New_Portrait" unique_id=65312602]
@@ -376,12 +395,27 @@ position = Vector2(28.119154, -3.1243854)
 scale = Vector2(0.78118515, 0.78118515)
 texture = ExtResource("7_3aohm")
 
+[node name="GregoryKind" type="Sprite2D" parent="DialogueUI/New_Portrait/Grigory" unique_id=1777352291]
+position = Vector2(35.051758, 0.4272461)
+scale = Vector2(0.82301265, 0.7845956)
+texture = ExtResource("15_evemy")
+
 [node name="Smerdyakov" type="Node2D" parent="DialogueUI/New_Portrait" unique_id=354287956]
 
 [node name="Smerdyakov_Base" type="Sprite2D" parent="DialogueUI/New_Portrait/Smerdyakov" unique_id=518272334]
 position = Vector2(-2.8431587, -37.49209)
 scale = Vector2(0.895935, 0.89593506)
 texture = ExtResource("9_6cwu7")
+
+[node name="Smerdyakov_ Angry" type="Sprite2D" parent="DialogueUI/New_Portrait/Smerdyakov" unique_id=1637472474]
+position = Vector2(47.146484, -18.74585)
+scale = Vector2(1.3351296, 1.3351296)
+texture = ExtResource("14_jss5g")
+
+[node name="Smerdyakov_Kind" type="Sprite2D" parent="DialogueUI/New_Portrait/Smerdyakov" unique_id=758632657]
+position = Vector2(45.40457, -52.65358)
+scale = Vector2(1.3399262, 1.3399265)
+texture = ExtResource("15_6yx3a")
 
 [node name="Telephone" type="Node2D" parent="DialogueUI/New_Portrait" unique_id=1207969278]
 
@@ -396,6 +430,16 @@ texture = ExtResource("10_mqx6s")
 position = Vector2(5.9436913, -53.066074)
 scale = Vector2(0.7897856, 0.78978604)
 texture = ExtResource("11_u8o2i")
+
+[node name="Old_Angry" type="Sprite2D" parent="DialogueUI/New_Portrait/Old" unique_id=917683587]
+position = Vector2(-2.050761, 37.11539)
+scale = Vector2(1.2129233, 1.2129233)
+texture = ExtResource("18_7ph3j")
+
+[node name="Old_Kind" type="Sprite2D" parent="DialogueUI/New_Portrait/Old" unique_id=1854497474]
+position = Vector2(28.400013, 93.729996)
+scale = Vector2(1.3195977, 1.3195978)
+texture = ExtResource("19_s56er")
 
 [node name="Police" type="Node2D" parent="DialogueUI/New_Portrait" unique_id=2075515996]
 position = Vector2(53.395508, 78.10864)
@@ -436,17 +480,17 @@ offset_bottom = 40.0
 
 [node name="LoyaltyIcon" type="TextureRect" parent="LoyaltyUI/PanelContainer" unique_id=321191157]
 layout_mode = 0
-offset_left = 1792.0
-offset_top = 180.0
-offset_right = 2048.0
-offset_bottom = 436.0
+offset_left = 1770.9999
+offset_top = 581.0
+offset_right = 2026.9999
+offset_bottom = 837.0
 scale = Vector2(0.335, 0.335)
 texture = ExtResource("11_b6e3c")
 
 [node name="ChangeArrow" type="TextureRect" parent="LoyaltyUI/PanelContainer" unique_id=1506411371]
 layout_mode = 0
-offset_left = 1710.0001
-offset_top = 184.0
-offset_right = 1966.0001
-offset_bottom = 440.0
+offset_left = 1689.0
+offset_top = 585.0
+offset_right = 1945.0
+offset_bottom = 841.0
 scale = Vector2(0.3, 0.3)

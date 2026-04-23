@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dcd887p65gk7l"]
+
+[ext_resource type="PackedScene" uid="uid://m0vf3nbmb0p5" path="res://scenes/player_body.tscn" id="1_e2xr4"]
+[ext_resource type="PackedScene" uid="uid://dbmog8fj8cw4k" path="res://scenes/ItemToPickUp.tscn" id="2_l8gjh"]
+[ext_resource type="PackedScene" uid="uid://cdf0d488negb5" path="res://scenes/DoorRoot.tscn" id="3_tplju"]
+[ext_resource type="PackedScene" uid="uid://wbqv270qhw0n" path="res://scenes/NoiseObject.tscn" id="4_uowwx"]
+[ext_resource type="PackedScene" uid="uid://1ruwys0jtnuq" path="res://scenes/night_level_1.tscn" id="5_x6jny"]
+[ext_resource type="Texture2D" uid="uid://dkbv8vmteyg3u" path="res://assets/skyboxes/AllSky_Night_MoonBurst Equirect.png" id="6_by846"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qjcnp"]
+panorama = ExtResource("6_by846")
+energy_multiplier = 2.0
+
+[sub_resource type="Sky" id="Sky_6skh6"]
+sky_material = SubResource("PanoramaSkyMaterial_qjcnp")
+radiance_size = 5
+
+[sub_resource type="Environment" id="Environment_nrtb7"]
+background_mode = 2
+background_energy_multiplier = 0.5
+sky = SubResource("Sky_6skh6")
+ambient_light_source = 3
+fog_enabled = true
+fog_density = 0.0169
+fog_sky_affect = 0.075
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0001
+volumetric_fog_gi_inject = 0.0
+volumetric_fog_anisotropy = 0.0
+volumetric_fog_length = 84.17
+volumetric_fog_ambient_inject = 2.14
+
+[node name="Nightshift" type="Node3D" unique_id=1076303024]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=251204181]
+transform = Transform3D(1, 0, 0, 0, 0.7478446, 0.6638741, 0, -0.6638741, 0.7478446, 0, 330.95477, 474.00726)
+visible = false
+
+[node name="PlayerBody" parent="." unique_id=516785971 instance=ExtResource("1_e2xr4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0363688, 0)
+
+[node name="ItemToPickUp" parent="." unique_id=1961857898 instance=ExtResource("2_l8gjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.256146)
+
+[node name="DoorRoot" parent="." unique_id=526019147 instance=ExtResource("3_tplju")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -3.0401006, 1.7822299, 0.6693039)
+
+[node name="NoiseObject" parent="." unique_id=1689373546 instance=ExtResource("4_uowwx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3637505, 0.5642719, 6.964814)
+
+[node name="DoorRoot2" parent="." unique_id=1282474158 instance=ExtResource("3_tplju")]
+transform = Transform3D(-3.287822e-08, 0, -1, 0, 1, 0, 0.7521659, 0, -4.371139e-08, 3.9937882, 1.5761445, 4.77607)
+
+[node name="night_level1" parent="." unique_id=224379011 instance=ExtResource("5_x6jny")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=731481238]
+environment = SubResource("Environment_nrtb7")

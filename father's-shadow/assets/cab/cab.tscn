@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://xe6ikh5gc1pd"]
+
+[ext_resource type="Script" uid="uid://chrm3wa08gm4b" path="res://scenes/cab.gd" id="1_k68j2"]
+[ext_resource type="PackedScene" uid="uid://dlt3hnurijvlv" path="res://assets/cab/cab.gltf" id="2_g1ge1"]
+[ext_resource type="PackedScene" uid="uid://d3gx1i40uvuix" path="res://scenes/pause_menu.tscn" id="3_g1ge1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_spjk5"]
+size = Vector3(1.5336914, 9.035034, 13.319519)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ysf7l"]
+size = Vector3(6.6312866, 1.2752686, 6.5163574)
+
+[sub_resource type="SystemFont" id="SystemFont_myx47"]
+font_names = PackedStringArray("Montserrat")
+font_weight = 825
+hinting = 2
+multichannel_signed_distance_field = true
+
+[node name="Cab" type="Node3D" unique_id=311286431]
+script = ExtResource("1_k68j2")
+
+[node name="cab" parent="." unique_id=2073643422 instance=ExtResource("2_g1ge1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1834276, 0, 0.5203469)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1635521922]
+transform = Transform3D(0.04959937, 0, 0.9987693, 0, 1, 0, -0.9987693, 0, 0.04959937, 5.624544, 8.9137, 6.2082767)
+
+[node name="LampLight1" type="SpotLight3D" parent="." unique_id=2133249530]
+transform = Transform3D(1, 0, 0, 0, 0.007033604, 0.99997526, 0, -0.99997526, 0.007033604, -5.6903057, 14.78953, 11.447178)
+light_color = Color(0.94377536, 0.71978, 0.33939496, 1)
+light_energy = 16.0
+light_indirect_energy = 3.815
+light_volumetric_fog_energy = 6.185
+light_size = 0.027
+light_specular = 1.241
+spot_range = 29.235628
+spot_angle = 57.270782
+
+[node name="LampLight2" type="SpotLight3D" parent="." unique_id=1518196723]
+transform = Transform3D(0.8572212, 0.46452522, -0.22223432, 0, 0.43156627, 0.90208125, 0.5149483, -0.7732832, 0.36994776, -2.3248422, 8.633298, 3.8434913)
+light_color = Color(0.8540143, 0.5983811, 0.15543553, 1)
+light_energy = 9.889
+light_indirect_energy = 5.0
+light_volumetric_fog_energy = 1.07
+light_size = 0.389
+spot_range = 8.707891
+spot_angle = 43.02695
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=215142500]
+transform = Transform3D(0.22505286, -0.6130174, 0.7573381, 0.17461924, 0.79006946, 0.587621, -0.9585715, 1.5444506e-08, 0.28485203, -111.98483, 17.517637, 21.262348)
+light_color = Color(1, 0.88235295, 0.24705882, 1)
+light_energy = 0.02
+light_angular_distance = 34.11
+
+[node name="BoardCamera" type="Camera3D" parent="." unique_id=1209751779]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.2309995, 9.362275, 11.643303)
+
+[node name="BoardArea" type="Area3D" parent="." unique_id=1819893643]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoardArea" unique_id=1631663509]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.818193, 8.540161, 11.334552)
+shape = SubResource("BoxShape3D_spjk5")
+
+[node name="BoardArea2" type="Area3D" parent="." unique_id=229069147]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoardArea2" unique_id=31668300]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.818193, 8.540161, 11.334552)
+shape = SubResource("BoxShape3D_spjk5")
+
+[node name="PhoneCamera" type="Camera3D" parent="." unique_id=1080629008]
+transform = Transform3D(-3.2769723e-08, -0.6617961, 0.74968386, -2.8928028e-08, 0.74968386, 0.6617961, -1, -1.7763568e-15, -4.371139e-08, -0.17132354, 8.678093, 2.876288)
+
+[node name="PhoneArea" type="Area3D" parent="." unique_id=456420352]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PhoneArea" unique_id=1461381420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6224196, 6.9386997, 0.8014717)
+shape = SubResource("BoxShape3D_ysf7l")
+
+[node name="PauseMenu" parent="." unique_id=98752847 instance=ExtResource("3_g1ge1")]
+process_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1384039602]
+
+[node name="ReturnButton" type="Button" parent="CanvasLayer" unique_id=1149972542]
+visible = false
+offset_left = 126.0
+offset_top = 960.0
+offset_right = 1792.0
+offset_bottom = 1039.0
+theme_override_fonts/font = SubResource("SystemFont_myx47")
+theme_override_font_sizes/font_size = 39
+text = "НАЗАД"
+
+[connection signal="input_event" from="BoardArea" to="." method="_on_board_area_input_event"]
+[connection signal="mouse_entered" from="BoardArea" to="." method="_on_board_area_mouse_entered"]
+[connection signal="mouse_exited" from="BoardArea" to="." method="_on_board_area_mouse_exited"]
+[connection signal="input_event" from="BoardArea2" to="." method="_on_board_area_input_event"]
+[connection signal="mouse_entered" from="BoardArea2" to="." method="_on_board_area_mouse_entered"]
+[connection signal="mouse_exited" from="BoardArea2" to="." method="_on_board_area_mouse_exited"]
+[connection signal="input_event" from="PhoneArea" to="." method="_on_phone_area_input_event"]
+[connection signal="mouse_entered" from="PhoneArea" to="." method="_on_phone_area_mouse_entered"]
+[connection signal="mouse_exited" from="PhoneArea" to="." method="_on_phone_area_mouse_exited"]

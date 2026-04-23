@@ -1,0 +1,241 @@
+[gd_scene format=3 uid="uid://d3gx1i40uvuix"]
+
+[ext_resource type="Script" uid="uid://bnemw87qlw1o4" path="res://pause_menu.gd" id="1_n87rw"]
+[ext_resource type="FontFile" uid="uid://d3p0rdtn5l510" path="res://fonts/Montserrat-Bold.ttf" id="2_myx47"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kukqi"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="PauseMenu" type="Control" unique_id=98752847]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n87rw")
+
+[node name="Background" type="ColorRect" parent="." unique_id=685323815]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.10980392, 0.11372549, 0.105882354, 0.48235294)
+
+[node name="HubMenu" type="VBoxContainer" parent="." unique_id=1847206962]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContinueButton" type="Button" parent="HubMenu" unique_id=2113571282]
+custom_minimum_size = Vector2(280, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_kukqi")
+text = "Продолжить"
+
+[node name="SettingsButton" type="Button" parent="HubMenu" unique_id=1733396317]
+custom_minimum_size = Vector2(280, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_kukqi")
+text = "Настройки"
+
+[node name="TutorialButton" type="Button" parent="HubMenu" unique_id=1468523748]
+custom_minimum_size = Vector2(280, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_kukqi")
+text = "Обучение"
+
+[node name="ExitToMenuButton" type="Button" parent="HubMenu" unique_id=208897346]
+custom_minimum_size = Vector2(280, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_kukqi")
+text = "Выйти в меню"
+
+[node name="QuitButton" type="Button" parent="HubMenu" unique_id=473930852]
+custom_minimum_size = Vector2(280, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_kukqi")
+text = "Выйти из игры"
+
+[node name="GameMenu" type="VBoxContainer" parent="." unique_id=1095465654]
+visible = false
+layout_mode = 0
+offset_top = 149.0
+offset_right = 1920.0
+offset_bottom = 781.00073
+
+[node name="ContinueButton" type="Button" parent="GameMenu" unique_id=489183227]
+custom_minimum_size = Vector2(280, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_kukqi")
+text = "Продолжить"
+
+[node name="RestartButton" type="Button" parent="GameMenu" unique_id=852257736]
+custom_minimum_size = Vector2(280, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_kukqi")
+text = "Начать заново"
+
+[node name="SettingsButton" type="Button" parent="GameMenu" unique_id=58545549]
+custom_minimum_size = Vector2(280, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_kukqi")
+text = "Настройки"
+
+[node name="TutorialButton" type="Button" parent="GameMenu" unique_id=752211986]
+custom_minimum_size = Vector2(280, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_kukqi")
+text = "Обучение"
+
+[node name="ExitToMenuButton" type="Button" parent="GameMenu" unique_id=1306385542]
+custom_minimum_size = Vector2(280, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_kukqi")
+text = "Выйти в меню"
+
+[node name="QuitButton" type="Button" parent="GameMenu" unique_id=525092199]
+custom_minimum_size = Vector2(280, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_kukqi")
+text = "Выйти из игры"
+
+[node name="TutorialPanel" type="Panel" parent="." unique_id=1178458479]
+visible = false
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TutorialTitle" type="Label" parent="TutorialPanel" unique_id=1134135622]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 68.5
+offset_right = 1829.0
+offset_bottom = 162.25
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 91
+text = "ОБУЧЕНИЕ"
+horizontal_alignment = 1
+
+[node name="TutorialCloseButton" type="Button" parent="TutorialPanel" unique_id=255202644]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -186.0
+offset_top = -131.0
+offset_right = 219.0
+offset_bottom = -54.92395
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 54
+text = "закрыть"
+
+[node name="SettingsPanel" type="Panel" parent="." unique_id=243502259]
+visible = false
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsTitle" type="Label" parent="SettingsPanel" unique_id=212714378]
+layout_mode = 0
+offset_left = 579.0
+offset_top = 68.0
+offset_right = 1376.0
+offset_bottom = 185.5
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 94
+text = "НАСТРОЙКИ"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="SettingsPanel" unique_id=1742180701]
+texture_filter = 5
+texture_repeat = 1
+clip_contents = true
+layout_direction = 4
+layout_mode = 0
+offset_left = 628.0
+offset_top = 340.0
+offset_right = 785.5621
+offset_bottom = 361.67044
+scale = Vector2(4.43, 4.43)
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="VolumeValue" type="Label" parent="SettingsPanel" unique_id=832804909]
+layout_mode = 0
+offset_left = 628.0
+offset_top = 279.0
+offset_right = 1325.0
+offset_bottom = 341.5
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 50
+text = "100%"
+
+[node name="SettingsCloseButton" type="Button" parent="SettingsPanel" unique_id=466740021]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -186.0
+offset_top = -131.0
+offset_right = 219.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 54
+text = "закрыть"

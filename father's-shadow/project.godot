@@ -13,7 +13,11 @@ config_version=5
 config/name="Father's shadow"
 run/main_scene="uid://b7hujxmpoclpt"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/windows_native_icon="res://assets/icon/favicon.ico"
+
+[autoload]
+
+MusicManager="*uid://m5qur1wqlbsq"
 
 [display]
 
