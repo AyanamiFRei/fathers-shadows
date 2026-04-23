@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://xe6ikh5gc1pd"]
 
-[ext_resource type="Script" uid="uid://chrm3wa08gm4b" path="res://scenes/cab.gd" id="1_spjk5"]
-[ext_resource type="PackedScene" uid="uid://dlt3hnurijvlv" path="res://assets/cab/cab.gltf" id="1_xat6g"]
+[ext_resource type="Script" uid="uid://chrm3wa08gm4b" path="res://scenes/cab.gd" id="1_k68j2"]
+[ext_resource type="PackedScene" uid="uid://dlt3hnurijvlv" path="res://assets/cab/cab.gltf" id="2_g1ge1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_spjk5"]
 size = Vector3(1.5336914, 9.035034, 13.319519)
@@ -10,9 +10,9 @@ size = Vector3(1.5336914, 9.035034, 13.319519)
 size = Vector3(6.6312866, 1.2752686, 6.5163574)
 
 [node name="Cab" type="Node3D" unique_id=311286431]
-script = ExtResource("1_spjk5")
+script = ExtResource("1_k68j2")
 
-[node name="cab" parent="." unique_id=2073643422 instance=ExtResource("1_xat6g")]
+[node name="cab" parent="." unique_id=2073643422 instance=ExtResource("2_g1ge1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1834276, 0, 0.5203469)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1635521922]
@@ -54,6 +54,12 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.818193, 8.540161, 11.334552)
 shape = SubResource("BoxShape3D_spjk5")
 
+[node name="BoardArea2" type="Area3D" parent="." unique_id=229069147]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoardArea2" unique_id=31668300]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.818193, 8.540161, 11.334552)
+shape = SubResource("BoxShape3D_spjk5")
+
 [node name="PhoneCamera" type="Camera3D" parent="." unique_id=1080629008]
 transform = Transform3D(-3.2769723e-08, -0.6617961, 0.74968386, -2.8928028e-08, 0.74968386, 0.6617961, -1, -1.7763568e-15, -4.371139e-08, -0.17132354, 8.678093, 2.876288)
 
@@ -66,6 +72,9 @@ shape = SubResource("BoxShape3D_ysf7l")
 [connection signal="input_event" from="BoardArea" to="." method="_on_board_area_input_event"]
 [connection signal="mouse_entered" from="BoardArea" to="." method="_on_board_area_mouse_entered"]
 [connection signal="mouse_exited" from="BoardArea" to="." method="_on_board_area_mouse_exited"]
+[connection signal="input_event" from="BoardArea2" to="." method="_on_board_area_input_event"]
+[connection signal="mouse_entered" from="BoardArea2" to="." method="_on_board_area_mouse_entered"]
+[connection signal="mouse_exited" from="BoardArea2" to="." method="_on_board_area_mouse_exited"]
 [connection signal="input_event" from="PhoneArea" to="." method="_on_phone_area_input_event"]
 [connection signal="mouse_entered" from="PhoneArea" to="." method="_on_phone_area_mouse_entered"]
 [connection signal="mouse_exited" from="PhoneArea" to="." method="_on_phone_area_mouse_exited"]

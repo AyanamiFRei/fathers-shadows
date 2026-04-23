@@ -16,8 +16,8 @@ var current_item = null
 # ЗУМ КАМЕРЫ (SpringArm)
 # -------------------------
 
-@export var camera_normal_length: float = 15.0
-@export var camera_zoomed_length: float = 18.0
+@export var camera_normal_length: float = 10.0
+@export var camera_zoomed_length: float = 14.0
 @export var camera_lerp_speed: float = 10.0
 
 # -------------------------
