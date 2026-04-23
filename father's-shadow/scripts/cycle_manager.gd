@@ -34,6 +34,10 @@ const NIGHT_SCENES: Array = [
 	"res://scenes/nightshift2.tscn",
 ]
 
+const HUB_DIALOGUES: Array = [
+	"res://dialogue/Telephone1.json",
+]
+
 ## Диалоги дневной смены — строго по порядку.
 ## Замените и дополните пути под актуальную структуру проекта.
 const DAY_DIALOGUES: Array = [
@@ -41,7 +45,6 @@ const DAY_DIALOGUES: Array = [
 	"res://dialogue/Katerina.json",
 	"res://dialogue/Police.json",
 	"res://dialogue/Grigory.json",
-	"res://dialogue/Telephone1.json",
 ]
 
 
@@ -50,6 +53,9 @@ const DAY_DIALOGUES: Array = [
 # ─────────────────────────────────────────────────────────────
 
 var current_cycle: Cycle = Cycle.HUB
+
+## Индекс текущего диалога внутри хаба.
+var hub_dialogue_index: int = 0
 
 ## Индекс текущего диалога внутри дневной смены.
 var day_dialogue_index: int = 0
@@ -62,6 +68,15 @@ var night_count: int = 0
 #  Публичный API
 # ─────────────────────────────────────────────────────────────
 
+## Возвращает путь к JSON-диалогу для текущего шага хаба.
+func get_hub_dialogue_path() -> String:
+	if hub_dialogue_index >= 0 and hub_dialogue_index < HUB_DIALOGUES.size():
+		return HUB_DIALOGUES[hub_dialogue_index]
+
+	push_error("CycleManager: индекс hub-диалога %d вне диапазона [0, %d)."
+			% [hub_dialogue_index, HUB_DIALOGUES.size()])
+	return HUB_DIALOGUES[0]
+
 ## Возвращает путь к JSON-диалогу для текущего шага дневной смены.
 ## Вызывается из dialogue_manager._ready() вместо хардкода DIALOGUE_PATH.
 func get_day_dialogue_path() -> String:
@@ -72,6 +87,11 @@ func get_day_dialogue_path() -> String:
 			% [day_dialogue_index, DAY_DIALOGUES.size()])
 	return DAY_DIALOGUES[0]
 
+
+## Запустить хабовый диалог.
+## По аналогии со start_day(), запускает сцену telephone1.
+func start_hub() -> void:
+	current_cycle = Cycle.HUB
 
 ## Запустить дневную смену с первого диалога.
 ## Вызывается из хаба, когда игрок готов выйти на маршрут.

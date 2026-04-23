@@ -59,8 +59,12 @@ func _ready() -> void:
 	_setup_choice_labels()
 
 	#load_dialogue(DIALOGUE_PATH)
-	load_dialogue(CycleManager.get_day_dialogue_path())
-	if CycleManager.get_day_dialogue_path() in HIDE_PANEL_PATHS:
+	var current_path = CycleManager.get_hub_dialogue_path()
+	if CycleManager.current_cycle == CycleManager.Cycle.DAY:
+		current_path = CycleManager.get_day_dialogue_path()
+	
+	load_dialogue(current_path)
+	if current_path in HIDE_PANEL_PATHS:
 		$"../LoyaltyUI/PanelContainer".hide()
 	else:
 		$"../LoyaltyUI/PanelContainer".show()
