@@ -1,7 +1,7 @@
 extends Control
 
-const DIALOGUE_PATH := "res://dialogue/Telephone1.json"
-#const DIALOGUE_PATH := "res://dialogue/Leva.json"
+#const DIALOGUE_PATH := "res://dialogue/Telephone1.json"
+const DIALOGUE_PATH := "res://dialogue/Leva.json"
 #const DIALOGUE_PATH := "res://dialogue/Police.json"
 #const DIALOGUE_PATH := "res://dialogue/Katerina.json"
 #const DIALOGUE_PATH := "res://dialogue/Grigory.json"
@@ -24,7 +24,6 @@ const DEFAULT_CHOICE_ON_TIMEOUT := "choice_x"
 @onready var portrait_root: Node = $New_Portrait
 
 @onready var timer_bar = $DialogueTimerBar
-#@onready var loyalty_icon = $"../LoyaltyUI/PanelContainer/LoyaltyIcon"
 @onready var choice_panel: Control = $ChoicePanel
 @onready var choice_1_text = $ChoicePanel/Background/"Choice1 [X]"/AnswerOption1
 @onready var choice_2_text = $ChoicePanel/Background/"Choice2 [Y]"/AnswerOption2
@@ -48,18 +47,30 @@ var current_node_id := ""
 var pending_node_id := ""
 var current_npc_id := ""
 
+const HIDE_PANEL_PATHS := [
+	"res://dialogue/Telephone1.json",
+	"res://dialogue/Police.json", 
+	"res://dialogue/Telephone2.json", 
+	"res://dialogue/Police2.json"
+]
 
 func _ready() -> void:
 	_connect_ui_signals()
 	_setup_choice_labels()
 
 	load_dialogue(DIALOGUE_PATH)
+	if DIALOGUE_PATH in HIDE_PANEL_PATHS:
+		$"../LoyaltyUI/PanelContainer".hide()
+	else:
+		$"../LoyaltyUI/PanelContainer".show()
 	dialogue_state.reset_dialogue_timer()
 	dialogue_state.start_dialogue_timer()
 	start_dialogue()
 
 	end_anim_rect.visible = true
 	animation_player.play("fadeout")
+	
+
 
 
 func _process(_delta: float) -> void:

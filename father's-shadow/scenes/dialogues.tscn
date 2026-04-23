@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://b7k7nldd5kua4" path="res://art/RadioSet.png" id="12_mqx6s"]
 [ext_resource type="Texture2D" uid="uid://hpf4l54cwqim" path="res://art/Smerdyakov_Angry.png" id="14_jss5g"]
 [ext_resource type="Texture2D" uid="uid://b3lmmpmn5vq44" path="res://art/Smerdyakov_Kind.png" id="15_6yx3a"]
+[ext_resource type="Texture2D" uid="uid://bw54t65ydv2k0" path="res://art/Gregory_Kind.png" id="15_evemy"]
 [ext_resource type="Texture2D" uid="uid://crottf7hlmmcm" path="res://art/Old_Angry.png" id="18_7ph3j"]
 [ext_resource type="Texture2D" uid="uid://ddjrd7eejahti" path="res://art/Old_Kind.png" id="19_s56er"]
 
@@ -327,6 +328,7 @@ value = 1.0
 show_percentage = false
 
 [node name="LoyaltyValueLabel" type="Label" parent="DialogueUI" unique_id=1956050865]
+visible = false
 layout_mode = 0
 offset_left = 1162.09
 offset_top = 48.0
@@ -392,6 +394,11 @@ texture = ExtResource("6_51prw")
 position = Vector2(28.119154, -3.1243854)
 scale = Vector2(0.78118515, 0.78118515)
 texture = ExtResource("7_3aohm")
+
+[node name="GregoryKind" type="Sprite2D" parent="DialogueUI/New_Portrait/Grigory" unique_id=1777352291]
+position = Vector2(35.051758, 0.4272461)
+scale = Vector2(0.82301265, 0.7845956)
+texture = ExtResource("15_evemy")
 
 [node name="Smerdyakov" type="Node2D" parent="DialogueUI/New_Portrait" unique_id=354287956]
 
@@ -473,17 +480,17 @@ offset_bottom = 40.0
 
 [node name="LoyaltyIcon" type="TextureRect" parent="LoyaltyUI/PanelContainer" unique_id=321191157]
 layout_mode = 0
-offset_left = 1792.0
-offset_top = 180.0
-offset_right = 2048.0
-offset_bottom = 436.0
+offset_left = 1770.9999
+offset_top = 581.0
+offset_right = 2026.9999
+offset_bottom = 837.0
 scale = Vector2(0.335, 0.335)
 texture = ExtResource("11_b6e3c")
 
 [node name="ChangeArrow" type="TextureRect" parent="LoyaltyUI/PanelContainer" unique_id=1506411371]
 layout_mode = 0
-offset_left = 1710.0001
-offset_top = 184.0
-offset_right = 1966.0001
-offset_bottom = 440.0
+offset_left = 1689.0
+offset_top = 585.0
+offset_right = 1945.0
+offset_bottom = 841.0
 scale = Vector2(0.3, 0.3)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g4rnhudqk8h6"
-path="res://.godot/imported/icon.png-a4526fa92b2aba1f7632c2adbeba4a08.ctex"
+uid="uid://bw54t65ydv2k0"
+path="res://.godot/imported/Gregory_Kind.png-a81213ac180991b0affd90ff5be4cdfc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icon/icon.png"
-dest_files=["res://.godot/imported/icon.png-a4526fa92b2aba1f7632c2adbeba4a08.ctex"]
+source_file="res://art/Gregory_Kind.png"
+dest_files=["res://.godot/imported/Gregory_Kind.png-a81213ac180991b0affd90ff5be4cdfc.ctex"]
 
 [params]
 

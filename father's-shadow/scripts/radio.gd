@@ -11,6 +11,12 @@ var input_locked: bool = false
 @export var music_start_delay: float = 1.0
 @export var cassette_start_sounds: Array[AudioStream] = []
 
+# Какая кассета должна быть активна при старте
+@export var startup_cassette_path: NodePath = ^"Cas/cas6"
+
+# Включать ли кассету автоматически при запуске
+@export var autoplay_startup_cassette: bool = true
+
 
 func _ready():
 	randomize()
@@ -18,8 +24,35 @@ func _ready():
 	for cassette in $Cas.get_children():
 		if cassette.has_signal("cassette_clicked"):
 			cassette.cassette_clicked.connect(_on_cassette_clicked)
-	
+
 	music_player.finished.connect(_on_music_finished)
+
+	if autoplay_startup_cassette:
+		_activate_startup_cassette()
+
+
+func _activate_startup_cassette():
+	var cassette = get_node_or_null(startup_cassette_path)
+	if cassette == null:
+		return
+
+	if cassette.music == null:
+		return
+
+	# Если вдруг что-то уже выделено — снимаем
+	if selected_cassette != null and selected_cassette != cassette:
+		selected_cassette.set_normal()
+
+	selected_cassette = cassette
+	pending_cassette = cassette
+
+	# Визуальный маркер включенности
+	selected_cassette.set_selected()
+
+	# Сразу запускаем музыку без задержки
+	music_player.stop()
+	music_player.stream = cassette.music
+	music_player.play()
 
 
 func _on_cassette_clicked(cassette):
@@ -91,11 +124,13 @@ func _play_random_start_sfx():
 
 	sfx_player.stream = random_sfx
 	sfx_player.play()
-	
+
+
 func _on_music_finished():
 	if selected_cassette == null:
 		return
 	if selected_cassette.music == null:
 		return
+
 	music_player.stream = selected_cassette.music
 	music_player.play()
