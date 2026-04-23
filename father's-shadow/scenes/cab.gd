@@ -10,6 +10,8 @@ extends Node3D
 @onready var pause_menu: PauseMenu = $PauseMenu
 @onready var return_button: Button = $CanvasLayer/ReturnButton
 
+@onready var dialogue_manager = $"CanvasLayer/UI Textboard"
+
 var default_camera_transform: Transform3D
 var current_view := "default"
 var is_camera_moving := false
@@ -18,6 +20,8 @@ var board_blink_id := 0
 var phone_blink_id := 0
 
 func _ready() -> void:
+	dialogue_manager.process_mode = Node.PROCESS_MODE_DISABLED
+	dialogue_manager.visible = false
 	if pause_menu == null:
 		push_error("PauseMenu не найден в сцене Cab")
 		return
@@ -35,6 +39,8 @@ func _ready() -> void:
 
 func _on_return_button_pressed() -> void:
 	return_camera()
+	dialogue_manager.visible = false
+	
 
 func toggle_light() -> void:
 	lamp_light_1.visible = !lamp_light_1.visible
@@ -129,6 +135,8 @@ func _on_phone_area_input_event(camera, event, event_position, normal, shape_idx
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		stop_all_blinking()
 		move_camera_to_camera(phone_camera, "phone")
+		dialogue_manager.process_mode = Node.PROCESS_MODE_INHERIT
+		dialogue_manager.visible = true
 
 
 func _on_board_area_mouse_entered() -> void:

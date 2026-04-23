@@ -92,6 +92,7 @@ theme_override_font_sizes/font_size = 39
 text = "НАЗАД"
 
 [node name="UI Textboard" parent="CanvasLayer" unique_id=267544843 instance=ExtResource("4_lbji7")]
+layer = 0
 
 [connection signal="input_event" from="BoardArea" to="." method="_on_board_area_input_event"]
 [connection signal="mouse_entered" from="BoardArea" to="." method="_on_board_area_mouse_entered"]

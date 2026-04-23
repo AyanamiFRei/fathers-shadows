@@ -62,6 +62,7 @@ func _ready() -> void:
 	var current_path = CycleManager.get_hub_dialogue_path()
 	if CycleManager.current_cycle == CycleManager.Cycle.DAY:
 		current_path = CycleManager.get_day_dialogue_path()
+		animation_player.play("fadeout")
 	
 	load_dialogue(current_path)
 	if current_path in HIDE_PANEL_PATHS:
@@ -73,7 +74,6 @@ func _ready() -> void:
 	start_dialogue()
 	animation_player.animation_finished.connect(_on_animation_finished)
 	end_anim_rect.visible = true
-	animation_player.play("fadeout")
 	
 	
 func _on_animation_finished(anim_name: StringName) -> void:
