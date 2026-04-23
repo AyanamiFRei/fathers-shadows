@@ -17,6 +17,7 @@ config/windows_native_icon="res://assets/icon/favicon.ico"
 
 [autoload]
 
+CycleManager="*uid://fbgvlyv07eyq"
 MusicManager="*uid://m5qur1wqlbsq"
 
 [display]

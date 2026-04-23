@@ -1,7 +1,7 @@
 extends Control
 
 #const DIALOGUE_PATH := "res://dialogue/Telephone1.json"
-const DIALOGUE_PATH := "res://dialogue/Leva.json"
+#const DIALOGUE_PATH := "res://dialogue/Leva.json"
 #const DIALOGUE_PATH := "res://dialogue/Police.json"
 #const DIALOGUE_PATH := "res://dialogue/Katerina.json"
 #const DIALOGUE_PATH := "res://dialogue/Grigory.json"
@@ -58,19 +58,23 @@ func _ready() -> void:
 	_connect_ui_signals()
 	_setup_choice_labels()
 
-	load_dialogue(DIALOGUE_PATH)
-	if DIALOGUE_PATH in HIDE_PANEL_PATHS:
+	#load_dialogue(DIALOGUE_PATH)
+	load_dialogue(CycleManager.get_day_dialogue_path())
+	if CycleManager.get_day_dialogue_path() in HIDE_PANEL_PATHS:
 		$"../LoyaltyUI/PanelContainer".hide()
 	else:
 		$"../LoyaltyUI/PanelContainer".show()
 	dialogue_state.reset_dialogue_timer()
 	dialogue_state.start_dialogue_timer()
 	start_dialogue()
-
+	animation_player.animation_finished.connect(_on_animation_finished)
 	end_anim_rect.visible = true
 	animation_player.play("fadeout")
 	
-
+	
+func _on_animation_finished(anim_name: StringName) -> void:
+	if anim_name == &"fadein":
+		CycleManager.advance_day()
 
 
 func _process(_delta: float) -> void:
