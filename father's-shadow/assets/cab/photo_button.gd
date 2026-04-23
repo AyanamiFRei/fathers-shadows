@@ -1,5 +1,7 @@
 extends Button
 
+@export var menu_music: AudioStream
+
 var normal_style: StyleBoxFlat
 var hover_style: StyleBoxFlat
 
@@ -28,4 +30,5 @@ func _on_mouse_exited():
 
 func _on_pressed():
 	CycleManager.start_day()
+	MusicManager.stop_music()
 	

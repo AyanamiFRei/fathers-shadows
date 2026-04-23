@@ -18,6 +18,8 @@ extends Node3D
 @onready var photo_label: Label = $CanvasLayer2/PhotoLabel
 @onready var photo_button: Button = $CanvasLayer2/PhotoButton
 
+@export var hub_music: AudioStream
+
 var default_camera_transform: Transform3D
 var current_view := "default"
 var is_camera_moving := false
@@ -41,6 +43,7 @@ func _ready() -> void:
 	pause_menu.pause_opened.connect(_on_pause_opened)
 	pause_menu.pause_closed.connect(_on_pause_closed)
 	# CycleManager.start_hub()
+	MusicManager.play_music(hub_music)
 
 
 

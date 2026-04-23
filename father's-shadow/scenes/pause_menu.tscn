@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bnemw87qlw1o4" path="res://pause_menu.gd" id="1_n87rw"]
 [ext_resource type="FontFile" uid="uid://d3p0rdtn5l510" path="res://fonts/Montserrat-Bold.ttf" id="2_myx47"]
+[ext_resource type="Texture2D" uid="uid://v85gf6ifikuc" path="res://assets/learn/Обучение1.png" id="3_kukqi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kukqi"]
 content_margin_left = 4.0
@@ -167,15 +168,24 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -186.0
-offset_top = -131.0
-offset_right = 219.0
-offset_bottom = -54.92395
+offset_left = -202.0
+offset_top = -125.0
+offset_right = 203.0
+offset_bottom = -48.92395
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_myx47")
 theme_override_font_sizes/font_size = 54
 text = "закрыть"
+
+[node name="TextureRect" type="TextureRect" parent="TutorialPanel" unique_id=1599248732]
+layout_mode = 0
+offset_left = 306.00003
+offset_top = 182.0
+offset_right = 2226.0
+offset_bottom = 1262.0
+scale = Vector2(0.695, 0.695)
+texture = ExtResource("3_kukqi")
 
 [node name="SettingsPanel" type="Panel" parent="." unique_id=243502259]
 visible = false

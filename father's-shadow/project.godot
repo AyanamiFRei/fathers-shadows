@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Father's shadow"
-run/main_scene="uid://b7hujxmpoclpt"
+run/main_scene="uid://clq87ostxrowa"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/windows_native_icon="res://assets/icon/favicon.ico"
 

@@ -39,7 +39,8 @@ const DEFAULT_CHOICE_ON_TIMEOUT := "choice_x"
 @onready var loyalty_value_label: Label = $LoyaltyValueLabel
 @onready var loyalty_ui = $"../LoyaltyUI"
 
-@export var player: Node3D
+@onready var player = get_node("res://scripts/player_car.gd")
+@export var collision_loyalty_penalty: int = -3
 
 var start_id := ""
 var nodes: Dictionary = {}
@@ -58,6 +59,9 @@ func _ready() -> void:
 	_connect_ui_signals()
 	_setup_choice_labels()
 
+	if player != null and player.has_signal("traffic_collision"):
+		player.traffic_collision.connect(_on_player_traffic_collision)
+
 	#load_dialogue(DIALOGUE_PATH)
 	var current_path = CycleManager.get_hub_dialogue_path()
 	if CycleManager.current_cycle == CycleManager.Cycle.DAY:
@@ -74,7 +78,7 @@ func _ready() -> void:
 	start_dialogue()
 	animation_player.animation_finished.connect(_on_animation_finished)
 	end_anim_rect.visible = true
-	
+
 	
 func _on_animation_finished(anim_name: StringName) -> void:
 	if anim_name == &"fadein":
@@ -504,3 +508,12 @@ func _go_to_next_node(next_id: String, pause_time: float) -> void:
 	else:
 		current_node_id = next_id
 		show_current_node()
+
+func _on_player_traffic_collision() -> void:
+	if current_npc_id.is_empty():
+		return
+	if loyalty_state == null:
+		return
+
+	loyalty_state.change_loyalty(current_npc_id, collision_loyalty_penalty)
+	update_loyalty_ui()

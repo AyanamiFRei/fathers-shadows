@@ -1,4 +1,5 @@
 extends CharacterBody3D
+signal traffic_collision
 
 @export var base_speed: float = 13.0
 @export var boost_speed: float = 30.0
@@ -29,6 +30,8 @@ const PUSHBACK_DECAY    := 35.0   # за ~0.7 с импульс затухает
 const HIT_COOLDOWN_TIME := 0.5
 var _pushback_velocity: float = 0.0
 var _hit_cooldown: float = 0.0
+
+
 
 
 func _ready():
@@ -98,6 +101,7 @@ func _apply_pushback(delta: float) -> void:
 func _check_traffic_collision() -> void:
 	if _hit_cooldown > 0.0:
 		return
+
 	for i in get_slide_collision_count():
 		var col := get_slide_collision(i)
 		var collider := col.get_collider()
@@ -106,19 +110,18 @@ func _check_traffic_collision() -> void:
 		if not collider.is_in_group("traffic"):
 			continue
 
-		# Отброс игрока назад: impulse > base_speed → velocity.z < 0
 		_pushback_velocity = PUSHBACK_IMPULSE
 		_hit_cooldown = HIT_COOLDOWN_TIME
 
-		# Покраснение экрана
 		_trigger_hit_flash()
 
-		# Отброс встречной машины
+		# Сообщаем наружу, что было столкновение
+		traffic_collision.emit()
+
 		if collider.has_method("apply_bounce"):
 			collider.apply_bounce()
 
-		break  # одного столкновения за кадр достаточно
-
+		break
 
 func _trigger_hit_flash() -> void:
 	var flash_nodes := get_tree().get_nodes_in_group("collision_flash")

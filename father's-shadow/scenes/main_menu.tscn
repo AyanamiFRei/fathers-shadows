@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://syqu27avp4ui" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://cv8wu8ve8u5f" path="res://assets/menu/Untitled.png" id="2_bqqt6"]
-[ext_resource type="AudioStream" uid="uid://bacdixhi65q7a" path="res://music/menu/Hub(Pinboard) Theme.wav" id="3_bqqt6"]
+[ext_resource type="AudioStream" uid="uid://dnjsxnbkdhtfb" path="res://music/menu/Hub(Pinboard) Theme.wav" id="3_bqqt6"]
 [ext_resource type="FontFile" uid="uid://d3p0rdtn5l510" path="res://fonts/Montserrat-Bold.ttf" id="4_wu84c"]
+[ext_resource type="Texture2D" uid="uid://v85gf6ifikuc" path="res://assets/learn/Обучение1.png" id="5_8ln24"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
 content_margin_left = 4.0
@@ -103,7 +104,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
 text = "Выйти"
 
 [node name="TutorialPanel" type="Panel" parent="." unique_id=1735849713]
-visible = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -114,10 +114,10 @@ grow_vertical = 2
 
 [node name="TutorialTitle" type="Label" parent="TutorialPanel" unique_id=659173360]
 layout_mode = 0
-offset_left = 91.0
-offset_top = 68.5
-offset_right = 1829.0
-offset_bottom = 162.25
+offset_left = 104.0
+offset_top = 61.0
+offset_right = 1842.0
+offset_bottom = 173.0
 theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 91
 text = "ОБУЧЕНИЕ"
@@ -139,6 +139,15 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("4_wu84c")
 theme_override_font_sizes/font_size = 54
 text = "закрыть"
+
+[node name="TextureRect" type="TextureRect" parent="TutorialPanel" unique_id=1669181251]
+layout_mode = 0
+offset_left = 308.0
+offset_top = 192.0
+offset_right = 2228.0
+offset_bottom = 1272.0
+scale = Vector2(0.695, 0.695)
+texture = ExtResource("5_8ln24")
 
 [node name="SettingsPanel" type="Panel" parent="." unique_id=229380650]
 visible = false
