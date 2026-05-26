@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://b4co7sjr65a6w"]
+
+[ext_resource type="Script" uid="uid://dw6hhxt75ksbn" path="res://scripts/traffic_car.gd" id="1_y1bb4"]
+[ext_resource type="PackedScene" uid="uid://qhb5d6v0irqk" path="res://assets/cars/car2/scene.gltf" id="2_a63hg"]
+[ext_resource type="PackedScene" uid="uid://c6u8jebdya5xa" path="res://assets/cars/car1/scene.gltf" id="3_a63hg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tobn0"]
+albedo_color = Color(0, 0, 0.5529412, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_keafn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ex4jn"]
+size = Vector3(0.87106323, 1, 2.261438)
+
+[node name="CharacterBody3D2" type="CharacterBody3D" unique_id=1671194987]
+collision_layer = 3
+collision_mask = 9
+script = ExtResource("1_y1bb4")
+same_direction = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1511619662]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_tobn0")
+mesh = SubResource("BoxMesh_keafn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=724025258]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.017730713, 0, -0.0026745796)
+shape = SubResource("BoxShape3D_ex4jn")
+
+[node name="Sketchfab_Scene" parent="." unique_id=1777537472 instance=ExtResource("2_a63hg")]
+transform = Transform3D(-0.8, 0, -6.9938224e-08, 0, 0.8, 0, 6.9938224e-08, 0, -0.8, 0, -0.83631825, 0)
+visible = false
+
+[node name="Sketchfab_Scene2" parent="." unique_id=440113233 instance=ExtResource("3_a63hg")]
+transform = Transform3D(-6.3381515e-07, 0, -14.5, 0, 14.5, 0, 14.5, 0, -6.3381515e-07, 0, -0.95854044, 0)

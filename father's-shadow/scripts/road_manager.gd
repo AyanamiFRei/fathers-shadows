@@ -24,6 +24,8 @@ var _spawn_z: float = 0.0
 var _initialized: bool = false
 var _is_shifting: bool = false
 
+var indexoftile = 0
+
 
 func _ready() -> void:
 	call_deferred("_setup_road")
@@ -105,7 +107,8 @@ func _shift_forward_once() -> void:
 
 
 func _spawn_tile_forward() -> void:
-	var packed: PackedScene = road_scenes[randi() % road_scenes.size()]
+	indexoftile = abs(indexoftile-1)
+	var packed: PackedScene = road_scenes[indexoftile]
 	if packed == null:
 		push_error("RoadManager: в road_scenes есть null")
 		return

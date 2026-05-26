@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://busyighmmy4t6" path="res://scripts/traffic_gen.gd" id="3_lmeyo"]
 [ext_resource type="PackedScene" uid="uid://xgx06gl307mw" path="res://scenes/Radio.tscn" id="4_hji44"]
 [ext_resource type="PackedScene" uid="uid://0rxo47rrvsuq" path="res://scenes/road_manager.tscn" id="5_lmeyo"]
-[ext_resource type="Script" uid="uid://clvsghiw73bmt" path="res://scenes/camera_3d.gd" id="6_w141n"]
+[ext_resource type="Script" uid="uid://clvsghiw73bmt" path="res://scripts/camera_3d.gd" id="6_w141n"]
 [ext_resource type="Texture2D" uid="uid://chcovfv6rn3b3" path="res://assets/skyboxes/AllSky_Overcast4_Low.png" id="8_df7mf"]
 [ext_resource type="Script" uid="uid://bbkf5spd5tksl" path="res://scripts/radio_container.gd" id="9_radio"]
 [ext_resource type="PackedScene" uid="uid://d3gx1i40uvuix" path="res://scenes/pause_menu.tscn" id="11_5nr44"]
@@ -21,6 +21,10 @@ sky_material = SubResource("PanoramaSkyMaterial_hji44")
 background_mode = 2
 sky = SubResource("Sky_s5tdb")
 ambient_light_source = 3
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.001
+volumetric_fog_sky_affect = 0.76
 
 [node name="DayShift" type="Node3D" unique_id=669553328]
 script = ExtResource("1_vgchw")

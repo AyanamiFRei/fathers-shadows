@@ -8,6 +8,8 @@ const MAX_CARS = 25
 var player: Node3D
 var traffic_forward  = preload("res://scenes/TrafficCarForward.tscn")
 var traffic_backward = preload("res://scenes/TrafficCarBack.tscn")
+var traffic_forward2  = preload("res://scenes/TrafficCarForward2.tscn")
+var traffic_backward2 = preload("res://scenes/TrafficCarBack2.tscn")
 
 var is_started = false
 
@@ -36,13 +38,13 @@ func _process(delta: float) -> void:
 	if cars.size() >= MAX_CARS:
 		return
 
-	var lane: float = [-1.8, -1.8, 1.8].pick_random()
-	var posz: float = randi_range(player.global_position.z + 30, player.global_position.z + 40)
+	var lane: float = [-1.8, 1.8].pick_random()
+	var posz: float = randi_range(player.global_position.z + 100, player.global_position.z + 130)
 
 	if not _is_lane_free(lane, posz, cars):
 		return
 
-	var instance = (traffic_forward if lane > 0 else traffic_backward).instantiate()
+	var instance = ([traffic_forward, traffic_forward2].pick_random() if lane > 0 else [traffic_backward, traffic_backward2].pick_random()).instantiate()
 	instance.position = Vector3(lane, 1, posz)
 	get_tree().get_root().add_child(instance)
 

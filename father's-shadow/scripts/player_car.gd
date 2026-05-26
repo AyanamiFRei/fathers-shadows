@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+signal turning_started  # испускается при переходе в Phase.FOLLOW_PATH
+
 @export var base_speed: float = 13.0
 @export var boost_speed: float = 30.0
 @export var slow_speed: float = 7.0
@@ -11,6 +13,14 @@ extends CharacterBody3D
 
 # Радиус «достижения» первой точки пути перед тем как начать следовать кривой
 @export var path_reach_threshold: float = 1.5
+
+@export var ColShape: CollisionShape3D
+
+# --- Торможение перед трафиком во время финальной анимации ---
+# Дистанция, с которой начинается торможение
+@export var traffic_slow_distance: float = 12.0
+# Минимальная дистанция до машины впереди (стоп-дистанция)
+@export var traffic_stop_distance: float = 5.0
 
 var current_speed: float
 
@@ -33,6 +43,8 @@ var _hit_cooldown: float = 0.0
 
 func _ready():
 	current_speed = base_speed
+	ColShape.disabled = false
+	
 
 
 func _physics_process(delta):
@@ -141,48 +153,119 @@ func _trigger_loyalty_penalty() -> void:
 
 func end_anim():
 	print("END")
-	set_collision_mask_value(1, false)
+	ColShape.disabled = true
 	path_node = _find_nearest_path3d_ahead()
 	if path_node == null:
 		push_error("player_car: Path3D впереди не найден!")
 		return
 
-	# Первая точка кривой в мировом пространстве
-	path_start_world = path_node.to_global(path_node.curve.sample_baked(0.0, true))
-	path_progress    = 0.0
+	# Стартуем с ближайшей к машине точки кривой, а не с нулевого конца
+	var local_pos    := path_node.to_local(global_position)
+	path_progress    = path_node.curve.get_closest_offset(local_pos)
+	path_start_world = path_node.to_global(path_node.curve.sample_baked(path_progress, true))
 
 	phase = Phase.STRAIGHT_TO_PATH
 
 
-# Этап 1 — едем прямо (только вперёд, без боков) до первой точки пути
+# Этап 1 — едем прямо (только вперёд, без боков) до ближайшей точки пути
 func _drive_straight_to_path():
 	velocity.x = 0.0
-	velocity.z = base_speed
+	velocity.z = _get_end_anim_speed(global_transform.basis.z)
 	move_and_slide()
 
-	# Переключаемся, когда доехали до Z первой точки пути
-	if global_position.z >= path_start_world.z - path_reach_threshold:
-		# Сразу разворачиваем машину согласно направлению пути
+	# Переключаемся по дистанции в горизонтальной плоскости (не только по Z)
+	var flat_dist := Vector2(
+		global_position.x - path_start_world.x,
+		global_position.z - path_start_world.z).length()
+	if flat_dist <= path_reach_threshold:
+		# Разворачиваем машину согласно направлению пути.
+		# sample_baked_with_rotation возвращает трансформ где -Z = вперёд по кривой
+		# (конвенция Godot PathFollow3D). Поворачиваем на 180° вокруг Y → +Z вперёд.
 		var path_transform := path_node.curve.sample_baked_with_rotation(path_progress, true, false)
-		global_basis = (path_node.global_transform * path_transform).basis
+		var corrected_basis := (path_node.global_transform * path_transform).basis
+		corrected_basis = corrected_basis.rotated(Vector3.UP, PI)
+		global_basis = corrected_basis
 		phase = Phase.FOLLOW_PATH
+		turning_started.emit()  # сигнал для dialogue_manager — поворот начался
 
 
 # Этап 2 — едем по кривой
 func _follow_path():
-	path_progress += base_speed * get_physics_process_delta_time()
-	path_progress = minf(path_progress, path_node.curve.get_baked_length())
+	var delta := get_physics_process_delta_time()
 
-	# Позиция и поворот из кривой
+	# -Z кривой = вперёд по конвенции Godot Path3D
 	var path_transform := path_node.curve.sample_baked_with_rotation(path_progress, true, false)
 	var world_transform := path_node.global_transform * path_transform
+	var path_forward := -(world_transform.basis.z).normalized()
+
+	var speed := _get_end_anim_speed(path_forward)
+	path_progress += speed * delta
+	path_progress = minf(path_progress, path_node.curve.get_baked_length())
+
+	# Пересчитываем трансформ после сдвига прогресса
+	path_transform = path_node.curve.sample_baked_with_rotation(path_progress, true, false)
+	world_transform = path_node.global_transform * path_transform
 
 	var target_pos := world_transform.origin
-	var direction  := (target_pos - global_position).normalized()
+	var direction := target_pos - global_position
+	direction.y = 0.0
+	if direction.length_squared() > 0.0001:
+		direction = direction.normalized()
+	else:
+		direction = path_forward
 
-	velocity = direction * base_speed
-	global_basis = world_transform.basis  # машина смотрит вдоль пути
+	velocity = direction * speed
+
+	# -Z кривой → вперёд, корректируем поворотом на 180° вокруг Y
+	global_basis = world_transform.basis.rotated(Vector3.UP, PI)
 	move_and_slide()
+
+
+# Возвращает скорость с учётом трафика впереди.
+# Плавно подстраивается под скорость машины впереди вместо резкой остановки.
+func _get_end_anim_speed(forward_dir: Vector3) -> float:
+	var result := _nearest_traffic_ahead(forward_dir)
+	var dist: float = result[0]
+	var traffic_speed: float = result[1]
+
+	if dist >= traffic_slow_distance:
+		return base_speed
+
+	# t=1 → далеко (base_speed), t=0 → вплотную (скорость машины впереди)
+	var t = clamp((dist - traffic_stop_distance) / (traffic_slow_distance - traffic_stop_distance), 0.0, 1.0)
+	return lerp(traffic_speed, base_speed, t)
+
+
+# Возвращает [дистанция, скорость] для ближайшей машины из «traffic» впереди.
+# Если таких нет — [INF, 0.0].
+func _nearest_traffic_ahead(forward_dir: Vector3) -> Array:
+	var fwd := forward_dir
+	fwd.y = 0.0
+	if fwd.length_squared() < 0.001:
+		return [INF, 0.0]
+	fwd = fwd.normalized()
+
+	var best_dist := INF
+	var best_speed := 0.0
+	for t in get_tree().get_nodes_in_group("traffic"):
+		if not t is Node3D:
+			continue
+		var to_car: Vector3 = (t as Node3D).global_position - global_position
+		to_car.y = 0.0
+		var dist := to_car.length()
+		if dist > traffic_slow_distance + 2.0:
+			continue
+		if fwd.dot(to_car.normalized()) < 0.5:
+			continue
+		if dist < best_dist:
+			best_dist = dist
+			if t is CharacterBody3D:
+				var tv: Vector3 = (t as CharacterBody3D).velocity
+				tv.y = 0.0
+				best_speed = tv.length()
+			else:
+				best_speed = 0.0
+	return [best_dist, best_speed]
 
 
 # ──────────────────────────────────────────────
@@ -190,7 +273,15 @@ func _follow_path():
 # ──────────────────────────────────────────────
 
 func _find_nearest_path3d_ahead() -> Path3D:
-	var forward := -global_transform.basis.z
+	# Машина движется с velocity.z = base_speed (мировой +Z).
+	# Используем фактическое направление движения вместо -basis.z, который указывал НАЗАД.
+	var forward: Vector3
+	if velocity.length_squared() > 0.01:
+		forward = velocity.normalized()
+	else:
+		forward = global_transform.basis.z  # +basis.z = мировой +Z при нулевом повороте
+	forward.y = 0.0
+	forward = forward.normalized()
 	var all_paths: Array[Path3D] = []
 	_collect_all_paths(get_tree().current_scene, all_paths)
 
@@ -220,12 +311,13 @@ func _collect_all_paths(node: Node, result: Array[Path3D]) -> void:
 		_collect_all_paths(child, result)
 
 
+
 # ──────────────────────────────────────────────
 #  Прочее
 # ──────────────────────────────────────────────
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	print("Deletion")
-	if body.get_class() == "CharacterBody3D":
+	if body.is_in_group("traffic"):
 		body.queue_free()
 		print("deleted")

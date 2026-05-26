@@ -292,10 +292,6 @@ func apply_choice_loyalty(option: Dictionary) -> void:
 
 
 func end_dialogue() -> void:
-	var player_node = get_tree().get_root().find_child("Player", true, false)
-	if player_node != null and player_node.has_method("end_anim"):
-		player_node.end_anim()
-
 	dialogue_state.stop_dialogue_timer()
 	dialogue_state.stop_window_timer()
 	timer_bar.hide()
@@ -304,8 +300,26 @@ func end_dialogue() -> void:
 		loyalty_ui.hide()
 
 	end_anim_rect.visible = true
-	animation_player.play("fadein")
 	hide()
+
+	# Запускаем финальную анимацию машины и ждём начала поворота,
+	# чтобы только тогда включить fadein.
+	var player_node = get_tree().get_root().find_child("Player", true, false)
+	if player_node != null and player_node.has_method("end_anim"):
+		if player_node.has_signal("turning_started"):
+			# Подключаемся один раз: как только машина начнёт поворот — запускаем fadein
+			player_node.turning_started.connect(_on_player_turning_started, CONNECT_ONE_SHOT)
+		else:
+			# Сигнала нет (старая версия скрипта) — запускаем fadein сразу
+			animation_player.play("fadein")
+		player_node.end_anim()
+	else:
+		# Машины нет — запускаем fadein немедленно
+		animation_player.play("fadein")
+
+
+func _on_player_turning_started() -> void:
+	animation_player.play("fadein")
 
 func handle_window_timeout() -> void:
 	var node := _get_current_node()
