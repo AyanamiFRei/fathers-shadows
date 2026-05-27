@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dw7tquiax8y62"]
 
 [ext_resource type="Script" uid="uid://dth5htvlktdi4" path="res://scripts/item_to_pick_up1.gd" id="1_cy4ws"]
-[ext_resource type="AudioStream" uid="uid://c70uq3i2jj8wm" path="res://music/NightSfx/pickDocs3.wav" id="2_cy4ws"]
+[ext_resource type="AudioStream" uid="uid://cfojq4h8lpqen" path="res://music/NightSfx/pickDocs3.wav" id="2_cy4ws"]
+[ext_resource type="PackedScene" uid="uid://c3fhcj5l2oudt" path="res://assets/interactable/pickup3/scene.gltf" id="3_88l3x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v7dte"]
 
@@ -20,9 +21,13 @@ shape = SubResource("BoxShape3D_v7dte")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=138216784]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
 material_override = SubResource("StandardMaterial3D_hgqor")
 mesh = SubResource("BoxMesh_hgqor")
 
 [node name="PickupSound" type="AudioStreamPlayer3D" parent="." unique_id=1984950815]
 stream = ExtResource("2_cy4ws")
 volume_db = -1.5
+
+[node name="Sketchfab_Scene" parent="." unique_id=1719552964 instance=ExtResource("3_88l3x")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)

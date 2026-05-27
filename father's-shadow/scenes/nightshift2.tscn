@@ -11,8 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dmcwcj7or5l0q" path="res://scenes/ui_noise.tscn" id="9_gluhk"]
 [ext_resource type="PackedScene" uid="uid://dnh8bi7dt7iyv" path="res://scenes/inrectables/ItemToPickUp2.tscn" id="9_gqhg1"]
 [ext_resource type="PackedScene" uid="uid://dw7tquiax8y62" path="res://scenes/inrectables/ItemToPickUp3.tscn" id="10_c1l2i"]
-[ext_resource type="AudioStream" uid="uid://o73ls27t5ea" path="res://music/NigthTheme.wav" id="12_ep1cr"]
-[ext_resource type="AudioStream" uid="uid://djtf4th6x6aqh" path="res://music/NIghtatmosphere.wav" id="13_2p5fa"]
+[ext_resource type="AudioStream" uid="uid://dvin887ai1vik" path="res://music/NigthTheme.wav" id="12_ep1cr"]
+[ext_resource type="AudioStream" uid="uid://bjfalfdg4loqd" path="res://music/NIghtatmosphere.wav" id="13_2p5fa"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qjcnp"]
 panorama = ExtResource("6_c1l2i")
@@ -48,7 +48,7 @@ transform = Transform3D(1, 0, 0, 0, 0.7478446, 0.6638741, 0, -0.6638741, 0.74784
 visible = false
 
 [node name="PlayerBody" parent="." unique_id=516785971 instance=ExtResource("1_f2ffg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0363688, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0363688, 10.247157)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=731481238]
 environment = SubResource("Environment_nrtb7")

@@ -104,3 +104,7 @@ visible = false
 [node name="solid_object13" parent="." unique_id=495037229 instance=ExtResource("3_uog5t")]
 transform = Transform3D(2.059537, 0, 0, 0, 6.0647016, 0, 0, 0, 2.9650805, -8.819144, 1.821074, 3.5327115)
 visible = false
+
+[node name="vision_block+solid_object13" parent="." unique_id=446120751 instance=ExtResource("2_bkg6e")]
+transform = Transform3D(15.347069, 0, 0, 0, 5.965618, 0, 0, 0, 0.6997185, 0.37875557, 3.107667, 8.4328375)
+visible = false

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Document Clipboard with Pen
+* source:	https://sketchfab.com/3d-models/document-clipboard-with-pen-8650234a2e7949ca9fe9b4124e000d97
+* author:	Kami Rapacz (https://sketchfab.com/kuroderuta)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Document Clipboard with Pen" (https://sketchfab.com/3d-models/document-clipboard-with-pen-8650234a2e7949ca9fe9b4124e000d97) by Kami Rapacz (https://sketchfab.com/kuroderuta) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Papers & Envelopes
+* source:	https://sketchfab.com/3d-models/papers-envelopes-303f54d7a6e84aad9af3f341c2fa4ad7
+* author:	bossdeff (https://sketchfab.com/bossdeff)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Papers & Envelopes" (https://sketchfab.com/3d-models/papers-envelopes-303f54d7a6e84aad9af3f341c2fa4ad7) by bossdeff (https://sketchfab.com/bossdeff) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

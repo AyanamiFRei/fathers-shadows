@@ -16,6 +16,7 @@ material = SubResource("StandardMaterial3D_qu1os")
 size = Vector3(1.0769262, 1.1064453, 0.8450012)
 
 [node name="NoiseObject" type="StaticBody3D" unique_id=1689373546]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
 collision_layer = 64
 collision_mask = 16
 script = ExtResource("1_fjax7")

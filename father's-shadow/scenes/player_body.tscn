@@ -51,7 +51,7 @@ collision_mask = 4
 shape = SubResource("BoxShape3D_y1lj5")
 
 [node name="InteractionKey" type="Sprite3D" parent="." unique_id=1190130451]
-transform = Transform3D(-2.0000002, 1.7484554e-07, 7.642743e-15, 0, -8.742277e-08, 2.0000002, 1.7484557e-07, 1.9999999, 8.7422784e-08, 0, 1.9623418, 2.5599995)
+transform = Transform3D(2.0000002, 0, 0, 0, -8.742277e-08, 2.0000002, 0, -1.9999999, -8.7422784e-08, 0, 1.9623418, 1.0084901)
 texture = ExtResource("2_qvhny")
 
 [node name="VisualRoot" type="Node3D" parent="." unique_id=314913964]
