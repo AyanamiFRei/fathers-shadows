@@ -40,10 +40,19 @@ const HIT_COOLDOWN_TIME := 0.5
 var _pushback_velocity: float = 0.0
 var _hit_cooldown: float = 0.0
 
+@export var ambient_sound: AudioStream
+
 
 func _ready():
 	current_speed = base_speed
 	ColShape.disabled = false
+	
+	if ambient_sound:
+		var ambient_player = AudioStreamPlayer.new()
+		ambient_player.stream = ambient_sound
+		ambient_player.bus = "Ambient"
+		add_child(ambient_player)
+		ambient_player.play()
 	
 
 

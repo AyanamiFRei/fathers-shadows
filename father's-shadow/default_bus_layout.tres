@@ -1,0 +1,10 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://cr4ci6xn8kfui"]
+
+[resource]
+bus/0/send = &"AmbientCity"
+bus/1/name = &"AmbientCity"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 6.0199986
+bus/1/send = &"Master"
