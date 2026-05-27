@@ -41,6 +41,8 @@ const DEFAULT_CHOICE_ON_TIMEOUT := "choice_x"
 
 @export var player: Node3D
 
+var voice_player: AudioStreamPlayer
+
 var start_id := ""
 var nodes: Dictionary = {}
 var current_node_id := ""
@@ -75,6 +77,11 @@ func _ready() -> void:
 	start_dialogue()
 	animation_player.animation_finished.connect(_on_animation_finished)
 	end_anim_rect.visible = true
+	
+	voice_player = AudioStreamPlayer.new()
+	voice_player.name = "VoicePlayer"
+	add_child(voice_player)
+	print("VoicePlayer создан")
 	
 	
 func _on_animation_finished(anim_name: StringName) -> void:
@@ -224,6 +231,7 @@ func show_line_node(node: Dictionary) -> void:
 	dialogue_text.text = str(node.get("text", ""))
 	show_portrait_node(resolve_portrait_node(node))
 	_start_window(LINE_TIME_LIMIT)
+	play_random_voice()
 
 
 func show_choice_node(node: Dictionary) -> void:
@@ -528,3 +536,29 @@ func _go_to_next_node(next_id: String, pause_time: float) -> void:
 	else:
 		current_node_id = next_id
 		show_current_node()
+		
+		
+func play_random_voice() -> void:
+	if not voice_player:
+		print("Ошибка: voice_player не создан")
+		return
+	if current_npc_id.is_empty():
+		return
+	var dir_path = "res://music/Dialogs/%s/" % current_npc_id.capitalize()
+	var files = []
+	var dir = DirAccess.open(dir_path)
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if file_name.ends_with(".wav"):
+				files.append(file_name)
+			file_name = dir.get_next()
+		dir.list_dir_end()
+	if files.is_empty():
+		return
+	var random_file = files[randi() % files.size()]
+	var stream = load(dir_path + random_file)
+	if stream:
+		voice_player.stream = stream
+		voice_player.play()

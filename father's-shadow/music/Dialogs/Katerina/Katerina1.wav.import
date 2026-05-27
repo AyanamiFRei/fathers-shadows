@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bpca385j3revg"
-path="res://.godot/imported/Katerina1.wav-da24e4c2415d88fa944c798a6e113d6d.sample"
+path="res://.godot/imported/Katerina1.wav-fd2217a1c2b8fb928f0d12fa4f2b3f76.sample"
 
 [deps]
 
-source_file="res://music/Dialogs/Katerina/Katerina1.wav"
-dest_files=["res://.godot/imported/Katerina1.wav-da24e4c2415d88fa944c798a6e113d6d.sample"]
+source_file="res://music/Dialogs/katerina/Katerina1.wav"
+dest_files=["res://.godot/imported/Katerina1.wav-fd2217a1c2b8fb928f0d12fa4f2b3f76.sample"]
 
 [params]
 
