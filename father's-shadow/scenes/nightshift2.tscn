@@ -45,7 +45,7 @@ transform = Transform3D(1, 0, 0, 0, 0.7478446, 0.6638741, 0, -0.6638741, 0.74784
 visible = false
 
 [node name="PlayerBody" parent="." unique_id=516785971 instance=ExtResource("1_f2ffg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 10.247)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 10.247)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=731481238]
 environment = SubResource("Environment_nrtb7")

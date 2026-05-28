@@ -25,6 +25,8 @@ size = Vector3(0.5, 0.5, 0.5)
 collision_layer = 16
 collision_mask = 97
 script = ExtResource("1_y1lj5")
+camera_normal_length = 5.0
+camera_zoomed_length = 7.0
 vision_block_mask = 32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2012474206]
@@ -52,7 +54,7 @@ collision_mask = 4
 shape = SubResource("BoxShape3D_y1lj5")
 
 [node name="InteractionKey" type="Sprite3D" parent="." unique_id=1190130451]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.9623418, 1.0084901)
+transform = Transform3D(1.5, 0, 0, 0, -6.556708e-08, 1.5, 0, -1.5, -6.556708e-08, 0, -0.7255727, -0.7229787)
 texture = ExtResource("2_qvhny")
 
 [node name="VisualRoot" type="Node3D" parent="." unique_id=314913964]
@@ -67,21 +69,22 @@ mesh = SubResource("BoxMesh_y1lj5")
 [node name="VisionOrigin" type="Node3D" parent="VisualRoot" unique_id=1578773561]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="VisualRoot" unique_id=1518666411]
-transform = Transform3D(1, 8.742278e-08, 8.742278e-08, 8.742278e-08, -1, 7.642742e-15, 8.742278e-08, 0, -1, -8.742278e-08, 1, -10.077243)
+transform = Transform3D(1, 8.742278e-08, 8.742278e-08, 8.742278e-08, -1, 7.642742e-15, 8.742278e-08, 0, -1, 0.72322744, 2.6, -3.5926373)
 light_energy = 20.0
 light_indirect_energy = 3.0
 light_volumetric_fog_energy = 2.895
+shadow_enabled = true
 spot_range = 23.694878
-spot_angle = 13.210703
+spot_angle = 10.134188
 spot_angle_attenuation = 1.035265
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1213629722]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03422451, 0)
-light_energy = 8.0
-omni_range = 3.0665026
+light_energy = 6.0
+omni_range = 1.3130277
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1533259661]
-transform = Transform3D(0.15, -2.2649372e-08, -9.900355e-16, 0, 6.5567085e-09, -0.15, -2.2649372e-08, -0.15, -6.5567085e-09, 0, 0, 0)
+transform = Transform3D(0.2, -3.019916e-08, -1.3200473e-15, 0, 8.742278e-09, -0.2, -3.019916e-08, -0.2, -8.742278e-09, 0, -2.4, 0)
 texture = ExtResource("3_ek12y")
 
 [node name="UINoise" parent="." unique_id=1068792126 instance=ExtResource("4_kgk0o")]

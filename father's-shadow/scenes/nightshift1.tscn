@@ -49,13 +49,13 @@ transform = Transform3D(1, 0, 0, 0, 0.7478446, 0.6638741, 0, -0.6638741, 0.74784
 visible = false
 
 [node name="PlayerBody" parent="." unique_id=516785971 instance=ExtResource("1_e2xr4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.428, 2.4, 6.027)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.428, 2.7, 6.027)
 
 [node name="DoorRoot" parent="." unique_id=526019147 instance=ExtResource("3_tplju")]
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -3.0401006, 1.8414357, 0.6693039)
 
 [node name="night_level1" parent="." unique_id=224379011 instance=ExtResource("5_x6jny")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024128914, 0, 0.0019416809)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024, -0.05, 0.002)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=731481238]
 environment = SubResource("Environment_nrtb7")
@@ -91,17 +91,17 @@ transform = Transform3D(0.0619021, 0, -0.9980822, 0, 1, 0, 0.9980822, 0, 0.06190
 transform = Transform3D(-0.0013264851, 0, -0.9999991, 0, 1, 0, 0.9999991, 0, -0.0013264851, 8.631096, 0.7930199, -1.1729044)
 
 [node name="NoiseObject3" parent="." unique_id=2096039997 instance=ExtResource("10_riaya")]
-transform = Transform3D(0.20623831, 0, -0.9785018, 0, 1, 0, 0.9785018, 0, 0.20623831, 7.4831595, 0, -0.1636796)
+transform = Transform3D(0.20623831, 0, -0.9785018, 0, 1, 0, 0.9785018, 0, 0.20623831, 7.4831595, 0.06368816, -0.1636796)
 
 [node name="NoiseObject4" parent="." unique_id=359087669 instance=ExtResource("10_riaya")]
 transform = Transform3D(-0.9452855, 0, -0.32624468, 0, 1, 0, 0.32624468, 0, -0.9452855, -6.4449077, 0.6632017, 3.3929267)
 sound_volume_db = 6.0
 
 [node name="NoiseObject5" parent="." unique_id=264661970 instance=ExtResource("14_1kcd4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2451181, 0.46084523, -0.8197385)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2451181, -0.064869165, -0.8197385)
 
 [node name="NoiseObject6" parent="." unique_id=238598581 instance=ExtResource("14_1kcd4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.166907, 0.3774588, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.166907, 0.05325097, 0)
 
 [node name="NoiseObject7" parent="." unique_id=2090021336 instance=ExtResource("14_1kcd4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3396564, 0.3774588, -2.8169696)
