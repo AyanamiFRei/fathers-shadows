@@ -1,6 +1,7 @@
 {
   "npc_id": "leva",
   "start": "npc1_1",
+  "voice_volume_offset": 3.0,
   "nodes": [
 
 {

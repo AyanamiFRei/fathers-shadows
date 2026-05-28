@@ -1,6 +1,7 @@
 {
 "npc_id": "smerdyakov",
 "start": "sm1_1",
+"voice_volume_offset": 3.0,
 "nodes": [
 
 {

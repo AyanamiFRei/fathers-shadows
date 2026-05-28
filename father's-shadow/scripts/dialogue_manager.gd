@@ -41,7 +41,7 @@ const DEFAULT_CHOICE_ON_TIMEOUT := "choice_x"
 
 @export var player: Node3D
 
-@export var dialogue_volume_db: float = -3.0 
+@export var dialogue_volume_db: float = -1.0 
 var voice_player: AudioStreamPlayer
 
 var start_id := ""
@@ -49,6 +49,7 @@ var nodes: Dictionary = {}
 var current_node_id := ""
 var pending_node_id := ""
 var current_npc_id := ""
+var current_voice_offset := 0.0
 
 const HIDE_PANEL_PATHS := [
 	"res://dialogue/Telephone1.json",
@@ -87,7 +88,7 @@ func _ready() -> void:
 	
 func _set_voice_volume() -> void:
 	if voice_player:
-		voice_player.volume_db = dialogue_volume_db
+		voice_player.volume_db = dialogue_volume_db + current_voice_offset
 		
 func _on_animation_finished(anim_name: StringName) -> void:
 	if anim_name == &"fadein":
@@ -182,6 +183,7 @@ func load_dialogue(path: String) -> void:
 
 	current_npc_id = str(data.get("npc_id", "")).to_lower()
 	start_id = str(data.get("start", ""))
+	current_voice_offset = float(data.get("voice_volume_offset", 0.0)) 
 	
 
 	if loyalty_ui != null:
@@ -554,28 +556,74 @@ func _go_to_next_node(next_id: String, pause_time: float) -> void:
 		
 		
 func play_random_voice() -> void:
+	print("=== play_random_voice called ===")
 	if not voice_player:
 		print("Ошибка: voice_player не создан")
 		return
 	if current_npc_id.is_empty():
+		print("current_npc_id пуст, голос не будет проигран")
 		return
 		
 	_set_voice_volume()
-	var dir_path = "res://music/Dialogs/%s/" % current_npc_id.capitalize()
+	var dir_path = "res://music/Dialogs/%s/" % current_npc_id
+	print("Ищем папку: ", dir_path)
+	
 	var files = []
 	var dir = DirAccess.open(dir_path)
 	if dir:
+		print("Папка открыта успешно")
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
+			print("Найден файл: ", file_name)
 			if file_name.ends_with(".wav"):
 				files.append(file_name)
+				print("  добавлен .wav файл")
 			file_name = dir.get_next()
 		dir.list_dir_end()
+	else:
+		print("НЕ удалось открыть папку! DirAccess.open вернул null")
+		print("Проверьте, существует ли папка по точному пути: ", dir_path)
+		
 	if files.is_empty():
+		print("Нет .wav файлов в папке")
 		return
+		
+	print("Всего .wav файлов: ", files.size())
 	var random_file = files[randi() % files.size()]
+	print("Выбран случайный файл: ", random_file)
 	var stream = load(dir_path + random_file)
 	if stream:
 		voice_player.stream = stream
 		voice_player.play()
+		print("Голос начал проигрываться")
+	else:
+		print("Не удалось загрузить звуковой файл: ", dir_path + random_file)
+		
+func force_stop() -> void:
+	# Останавливаем таймеры диалога
+	if dialogue_state:
+		dialogue_state.stop_dialogue_timer()
+		dialogue_state.stop_window_timer()
+	if timer_bar:
+		timer_bar.hide()
+	
+	# Останавливаем голос
+	if voice_player and voice_player.playing:
+		voice_player.stop()
+	
+	# Скрываем все панели диалога
+	set_ui_state(false, false)
+	
+	# Прячем весь менеджер
+	hide()
+	
+	# Отключаем обработку ввода и обновлений
+	process_mode = Node.PROCESS_MODE_DISABLED
+	
+	# Сбрасываем состояние диалога (чтобы при следующем открытии всё было новым)
+	current_node_id = ""
+	pending_node_id = ""
+	current_npc_id = ""
+	
+	print("DialogueManager принудительно остановлен")

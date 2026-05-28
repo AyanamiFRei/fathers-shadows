@@ -1,6 +1,7 @@
 {
 "npc_id": "old_lady",
 "start": "old1_1",
+"voice_volume_offset": 3.0,
 "nodes": [
 
 {

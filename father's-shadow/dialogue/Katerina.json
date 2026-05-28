@@ -1,6 +1,7 @@
 {
 "npc_id": "katerina",
 "start": "kat_1",
+"voice_volume_offset": 3.0,
 "nodes": [
 
 {

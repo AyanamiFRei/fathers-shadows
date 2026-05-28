@@ -111,14 +111,35 @@ func return_camera() -> void:
 		
 	if current_view == "phone" and call_in_progress:
 		_play_hangup()
-		call_in_progress = false  
+		call_in_progress = false
+		
+		# Принудительно останавливаем диалог, обращаясь к узлам
+		var dm = $"CanvasLayer/UI Textboard"
+		if dm:
+			# Останавливаем таймеры через DialogueState
+			var ds = dm.get_node_or_null("DialogueState")
+			if ds:
+				if ds.has_method("stop_dialogue_timer"): ds.stop_dialogue_timer()
+				if ds.has_method("stop_window_timer"): ds.stop_window_timer()
+			
+			# Останавливаем голос
+			var vp = dm.get_node_or_null("VoicePlayer")
+			if vp and vp.playing:
+				vp.stop()
+			
+			# Скрываем UI
+			dm.visible = false
+			dm.process_mode = Node.PROCESS_MODE_DISABLED
+			if dm.has_method("set_ui_state"):
+				dm.set_ui_state(false, false)
+			dm.hide()
+			
+			print("Диалог принудительно остановлен из cab.gd")
 
 	stop_all_blinking()
 	return_button.visible = false
-
 	set_area_interaction(board_area, true)
 	move_camera_to_transform(default_camera_transform, "default")
-
 	photo_label.visible = false
 	photo_button.visible = false
 

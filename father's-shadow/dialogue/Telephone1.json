@@ -1,6 +1,7 @@
 {
   "npc_id": "ivan_call_day1",
   "start": "call1_1",
+  "voice_volume_offset": 16.0,
   "nodes": [
 
 {

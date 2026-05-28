@@ -2,6 +2,7 @@
 {
   "npc_id": "police_call_2",
   "start": "pol2_1",
+  "voice_volume_offset": 3.0,
   "nodes": [
 
 {
