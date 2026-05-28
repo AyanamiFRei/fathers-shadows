@@ -3,7 +3,7 @@ extends StaticBody3D
 @export var noise_amount: float = 25.0
 @export var sound_volume_db: float = 0.0
 @onready var noise_area: Area3D = $NoiseArea
-@onready var noise_sound: AudioStreamPlayer = $NoiseSound 
+@onready var noise_sound:  = $NoiseSound 
 
 var visible_for_player: bool = false
 

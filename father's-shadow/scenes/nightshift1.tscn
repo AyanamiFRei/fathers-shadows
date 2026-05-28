@@ -95,6 +95,7 @@ transform = Transform3D(0.20623831, 0, -0.9785018, 0, 1, 0, 0.9785018, 0, 0.2062
 
 [node name="NoiseObject4" parent="." unique_id=359087669 instance=ExtResource("10_riaya")]
 transform = Transform3D(-0.9452855, 0, -0.32624468, 0, 1, 0, 0.32624468, 0, -0.9452855, -6.4449077, 0.6632017, 3.3929267)
+sound_volume_db = 6.0
 
 [node name="NoiseObject5" parent="." unique_id=264661970 instance=ExtResource("14_1kcd4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2451181, 0.46084523, -0.8197385)
