@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cwb131167bnq3" path="res://scripts/player_body.gd" id="1_y1lj5"]
 [ext_resource type="Texture2D" uid="uid://c6srelgfe4os" path="res://assets/sprites/icons8-e-key-48.png" id="2_qvhny"]
 [ext_resource type="Texture2D" uid="uid://lvbhnr0xqt86" path="res://assets/night_shift/GG.png" id="3_ek12y"]
+[ext_resource type="PackedScene" uid="uid://b68qhdtki8a1b" path="res://scenes/ui_noise.tscn" id="4_kgk0o"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qvhny"]
 
@@ -82,6 +83,8 @@ omni_range = 3.0665026
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1533259661]
 transform = Transform3D(0.2, -1.7484556e-08, -7.642742e-16, 0, 8.742278e-09, -0.2, -1.7484556e-08, -0.2, -8.742278e-09, 0, 0, 0)
 texture = ExtResource("3_ek12y")
+
+[node name="UINoise" parent="." unique_id=1068792126 instance=ExtResource("4_kgk0o")]
 
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]
