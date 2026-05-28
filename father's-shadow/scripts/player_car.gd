@@ -170,7 +170,7 @@ func end_anim():
 		push_error("player_car: Path3D впереди не найден!")
 		return
 
-	# Стартуем с ближайшей к машине точки кривой, а не с нулевого конца
+	# Стартуем с ближайшей к машине точки кривой
 	var local_pos    := path_node.to_local(global_position)
 	path_progress    = path_node.curve.get_closest_offset(local_pos)
 	path_start_world = path_node.to_global(path_node.curve.sample_baked(path_progress, true))
@@ -178,10 +178,26 @@ func end_anim():
 	phase = Phase.STRAIGHT_TO_PATH
 
 
-# Этап 1 — едем прямо (только вперёд, без боков) до ближайшей точки пути
+# Этап 1 — едем к ближайшей точке пути (с рулёжкой по X, не только прямо по Z)
 func _drive_straight_to_path():
-	velocity.x = 0.0
-	velocity.z = _get_end_anim_speed(global_transform.basis.z)
+	var to_target := path_start_world - global_position
+	to_target.y = 0.0
+
+	var speed := _get_end_anim_speed(global_transform.basis.z)
+
+	var delta := get_physics_process_delta_time()
+
+	if to_target.length_squared() > 0.0001:
+		var dir := to_target.normalized()
+		velocity = dir * speed
+		# Плавно поворачиваем машину в направлении движения.
+		# looking_at выравнивает -Z → передаём -dir, чтобы +Z смотрел вперёд.
+		var target_basis := Basis.looking_at(-dir, Vector3.UP)
+		global_basis = global_basis.slerp(target_basis, clamp(5.0 * delta, 0.0, 1.0))
+	else:
+		velocity.x = 0.0
+		velocity.z = speed
+
 	move_and_slide()
 
 	# Переключаемся по дистанции в горизонтальной плоскости (не только по Z)
@@ -300,13 +316,18 @@ func _find_nearest_path3d_ahead() -> Path3D:
 	var best_dist: float  = INF
 
 	for p in all_paths:
+		# Берём ближайшую точку кривой к машине.
+		# Фильтр dot < 0.0 исключает пути, чья ближайшая точка находится
+		# строго позади — но пропускает пути сбоку (dot == 0) и впереди.
 		var closest_world := p.to_global(p.curve.get_closest_point(p.to_local(global_position)))
 		var to_path       := closest_world - global_position
+		to_path.y         = 0.0
 		var dist          := to_path.length()
 
 		if dist > path_search_distance:
 			continue
-		if forward.dot(to_path.normalized()) < 0.0:
+		# Строго исключаем всё, что находится позади (полусфера вперёд)
+		if dist > 0.1 and forward.dot(to_path.normalized()) < 0.0:
 			continue
 		if dist < best_dist:
 			best_dist = dist
