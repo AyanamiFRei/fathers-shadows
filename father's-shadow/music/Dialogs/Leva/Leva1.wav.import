@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://n6kwrpleqiwp"
-path="res://.godot/imported/Leva1.wav-cd091389919e7ba8a7d2f57e07279aa1.sample"
+path="res://.godot/imported/Leva1.wav-e74440c62fac0fd458e7fa14536e7cb7.sample"
 
 [deps]
 
-source_file="res://music/Dialogs/leva/Leva1.wav"
-dest_files=["res://.godot/imported/Leva1.wav-cd091389919e7ba8a7d2f57e07279aa1.sample"]
+source_file="res://music/Dialogs/Leva/Leva1.wav"
+dest_files=["res://.godot/imported/Leva1.wav-e74440c62fac0fd458e7fa14536e7cb7.sample"]
 
 [params]
 

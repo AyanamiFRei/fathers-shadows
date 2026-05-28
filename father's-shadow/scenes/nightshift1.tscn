@@ -39,6 +39,7 @@ volumetric_fog_length = 84.17
 volumetric_fog_ambient_inject = 2.14
 
 [node name="Nightshift" type="Node3D" unique_id=1076303024]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11050916, 0)
 script = ExtResource("1_708v7")
 
 [node name="ItemToPickUp2" parent="." unique_id=1961857898 instance=ExtResource("1_8dqoc")]
@@ -49,7 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 0.7478446, 0.6638741, 0, -0.6638741, 0.74784
 visible = false
 
 [node name="PlayerBody" parent="." unique_id=516785971 instance=ExtResource("1_e2xr4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0363688, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3873892, 0)
 
 [node name="DoorRoot" parent="." unique_id=526019147 instance=ExtResource("3_tplju")]
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -3.0401006, 1.8414357, 0.6693039)
