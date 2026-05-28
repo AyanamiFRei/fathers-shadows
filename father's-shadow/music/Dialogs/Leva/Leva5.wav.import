@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://citwhn8ylrlsw"
-path="res://.godot/imported/Leva5.wav-1480e758c9bf08efb0aea4adc89ce7b5.sample"
+path="res://.godot/imported/Leva5.wav-d0a8d66770d497a80c4bab5a383a2b6e.sample"
 
 [deps]
 
-source_file="res://music/Dialogs/leva/Leva5.wav"
-dest_files=["res://.godot/imported/Leva5.wav-1480e758c9bf08efb0aea4adc89ce7b5.sample"]
+source_file="res://music/Dialogs/Leva/Leva5.wav"
+dest_files=["res://.godot/imported/Leva5.wav-d0a8d66770d497a80c4bab5a383a2b6e.sample"]
 
 [params]
 

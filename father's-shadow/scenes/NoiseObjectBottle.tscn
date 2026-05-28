@@ -11,9 +11,10 @@ albedo_color = Color(1, 0, 0, 1)
 material = SubResource("StandardMaterial3D_qu1os")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_praay"]
+size = Vector3(0.37329102, 1, 0.78222656)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n4kpc"]
-size = Vector3(1.0769262, 1.1064453, 0.8450012)
+size = Vector3(0.50024414, 1.1064453, 0.8251953)
 
 [node name="NoiseObject" type="StaticBody3D" unique_id=1689373546]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
@@ -27,22 +28,22 @@ visible = false
 mesh = SubResource("BoxMesh_r6yvt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=279704730]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.49133715, 0.19163936, 0.28459656)
+transform = Transform3D(0.8, 0, 0, 0, 5, 0, 0, 0, 0.8, 0.49133715, 0.19163936, 0.37170598)
 shape = SubResource("BoxShape3D_praay")
 
 [node name="NoiseArea" type="Area3D" parent="." unique_id=1019860710]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.50454086, 0.27366385, 0.3086361)
+transform = Transform3D(0.5, 0, 0, 0, 4, 0, 0, 0, 0.5, 0.50454086, 0.27366385, 0.3086361)
 collision_layer = 64
 collision_mask = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NoiseArea" unique_id=664813756]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.024981022, 0.075680494, 0.1613698)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.024980903, 0.07568052, 0.1613698)
 shape = SubResource("BoxShape3D_n4kpc")
 
 [node name="NoiseSound" type="AudioStreamPlayer3D" parent="." unique_id=1094831550]
 stream = ExtResource("2_p34gw")
 
 [node name="bottle" parent="." unique_id=1891255900 instance=ExtResource("3_p34gw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.342754, 0, -4.078625)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 23.900015, -0.6478161, -12.887107)
 
 [connection signal="body_entered" from="NoiseArea" to="." method="_on_noise_area_body_entered"]

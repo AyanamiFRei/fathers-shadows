@@ -57,9 +57,9 @@ var noise_immunity_timer: float = 0.0
 # ЗРЕНИЕ
 # -------------------------
 
-@export var vision_circle_radius: float = 2.3
-@export var vision_cone_radius: float = 30.0
-@export var vision_cone_angle_deg: float = 70.0
+@export var vision_circle_radius: float = 10.0
+@export var vision_cone_radius: float = 10.0
+@export var vision_cone_angle_deg: float = 30.0
 @export var vision_update_interval: float = 0.08
 
 @export_flags_3d_physics var vision_block_mask: int = 1

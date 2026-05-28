@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://dcy6jr1m6610p" path="res://scenes/DoorRoot2.tscn" id="6_hnvvc"]
 [ext_resource type="PackedScene" uid="uid://bvg52vrxfp1f5" path="res://scenes/DoorRoot3.tscn" id="7_hnvvc"]
 [ext_resource type="PackedScene" uid="uid://b7k16w8or67c0" path="res://scenes/NoiseObjectBottle.tscn" id="8_gluhk"]
-[ext_resource type="PackedScene" uid="uid://dmcwcj7or5l0q" path="res://scenes/ui_noise.tscn" id="9_gluhk"]
 [ext_resource type="PackedScene" uid="uid://dnh8bi7dt7iyv" path="res://scenes/inrectables/ItemToPickUp2.tscn" id="9_gqhg1"]
 [ext_resource type="PackedScene" uid="uid://dw7tquiax8y62" path="res://scenes/inrectables/ItemToPickUp3.tscn" id="10_c1l2i"]
 [ext_resource type="AudioStream" uid="uid://dvin887ai1vik" path="res://music/NigthTheme.wav" id="12_ep1cr"]
@@ -48,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 0.7478446, 0.6638741, 0, -0.6638741, 0.74784
 visible = false
 
 [node name="PlayerBody" parent="." unique_id=516785971 instance=ExtResource("1_f2ffg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0363688, 10.247157)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.387, 10.247)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=731481238]
 environment = SubResource("Environment_nrtb7")
@@ -67,15 +66,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.7
 [node name="DoorRoot4" parent="." unique_id=258571946 instance=ExtResource("7_hnvvc")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.7926764, 2.2314155, 8.929039)
 
-[node name="CanvasLayer" parent="." unique_id=1059494603 instance=ExtResource("9_gluhk")]
-follow_viewport_enabled = true
-
-[node name="ItemToPickUp1" parent="." unique_id=1961857898 instance=ExtResource("2_hnvvc")]
-
-[node name="ItemToPickUp2" parent="." unique_id=595164459 instance=ExtResource("9_gqhg1")]
-
-[node name="ItemToPickUp3" parent="." unique_id=245213291 instance=ExtResource("10_c1l2i")]
-
 [node name="Theme" type="AudioStreamPlayer3D" parent="." unique_id=69567696]
 stream = ExtResource("12_ep1cr")
 max_db = -10.0
@@ -84,3 +74,24 @@ autoplay = true
 [node name="Atmosphere" type="AudioStreamPlayer3D" parent="." unique_id=1776341146]
 stream = ExtResource("13_2p5fa")
 autoplay = true
+
+[node name="ItemToPickUp1" parent="." unique_id=1961857898 instance=ExtResource("2_hnvvc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.254651, 0.97645116, -7.24079)
+
+[node name="ItemToPickUp2" parent="." unique_id=858705185 instance=ExtResource("9_gqhg1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.593257, 1.043319, 0.3893416)
+
+[node name="ItemToPickUp3" parent="." unique_id=390271311 instance=ExtResource("10_c1l2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5825, 1.1401945, -9.253212)
+
+[node name="ItemToPickUp4" parent="." unique_id=2057474393 instance=ExtResource("2_hnvvc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8167598, 1.3587954, 10.902125)
+
+[node name="ItemToPickUp5" parent="." unique_id=2049711088 instance=ExtResource("9_gqhg1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3814387, 1.31687, 6.778742)
+
+[node name="ItemToPickUp6" parent="." unique_id=2057263463 instance=ExtResource("10_c1l2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.224043, 1.7178912, 10.20115)
+
+[node name="ItemToPickUp7" parent="." unique_id=394160125 instance=ExtResource("2_hnvvc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.826278, 2.4192529, -1.8911049)
