@@ -5,10 +5,6 @@ var current_item = null
 @onready var interact_area: Area3D = $InteractArea
 @onready var interact_key: Sprite3D = $InteractionKey
 
-# -------------------------
-# ССЫЛКИ НА НОДЫ
-# -------------------------
-
 @onready var pivot: Node3D = $Pivot
 @onready var spring_arm: SpringArm3D = $Pivot/SpringArm3D
 @onready var camera: Camera3D = $Pivot/SpringArm3D/Camera3D
@@ -16,33 +12,17 @@ var current_item = null
 @onready var vision_origin: Node3D = $VisualRoot/VisionOrigin
 @onready var player_sprite: Sprite3D = $Sprite3D
 
-# -------------------------
-# ДВИЖЕНИЕ
-# -------------------------
-
 @export var move_speed: float = 5.0
 @export var rotation_speed: float = 12.0
-
-# -------------------------
-# ЗУМ КАМЕРЫ (SpringArm)
-# -------------------------
 
 @export var camera_normal_length: float = 10.0
 @export var camera_zoomed_length: float = 14.0
 @export var camera_lerp_speed: float = 10.0
 
-# -------------------------
-# СМЕЩЕНИЕ КАМЕРЫ К КУРСОРУ
-# -------------------------
-
 @export var camera_offset_strength: float = 2.5
 @export var camera_offset_max_distance: float = 3.5
 @export var camera_offset_zoom_multiplier: float = 1.35
 @export var camera_offset_lerp_speed: float = 8.0
-
-# -------------------------
-# ШУМ
-# -------------------------
 
 @export var max_noise: float = 100.0
 @export var noise_decay_delay: float = 3.0
@@ -52,10 +32,7 @@ var current_item = null
 var current_noise: float = 0.0
 var last_noise_time: float = -999.0
 var noise_immunity_timer: float = 0.0
-
-# -------------------------
-# ЗРЕНИЕ
-# -------------------------
+var noise_level_failed: bool = false
 
 @export var vision_circle_radius: float = 10.0
 @export var vision_cone_radius: float = 10.0
@@ -67,6 +44,7 @@ var noise_immunity_timer: float = 0.0
 var vision_timer: float = 0.0
 
 signal noise_changed(value: float, max_value: float)
+
 
 func _ready() -> void:
 	add_to_group("player")
@@ -112,19 +90,13 @@ func _on_interact_area_body_entered(body) -> void:
 
 		current_item = body
 		interact_key.show()
-		print("зашел в зону: ", body.name)
 
 
 func _on_interact_area_body_exited(body) -> void:
 	if body == current_item:
 		current_item = null
 		interact_key.hide()
-		print("вышел из зоны: ", body.name)
 
-
-# -------------------------
-# ДВИЖЕНИЕ (WASD)
-# -------------------------
 
 func handle_movement() -> void:
 	var input_dir: Vector2 = Vector2.ZERO
@@ -142,10 +114,6 @@ func handle_movement() -> void:
 	velocity.y = 0.0
 
 
-# -------------------------
-# ПОВОРОТ К МЫШКЕ
-# -------------------------
-
 func rotate_to_mouse(delta: float) -> void:
 	var mouse_world: Variant = get_mouse_world_point()
 	if mouse_world == null:
@@ -160,24 +128,18 @@ func rotate_to_mouse(delta: float) -> void:
 
 	var target_angle: float = atan2(look_dir.x, look_dir.z)
 
-	# Поворот основного визуала
 	visual_root.rotation.y = lerp_angle(
 		visual_root.rotation.y,
 		target_angle,
 		rotation_speed * delta
 	)
 
-	# Поворот Sprite3D
 	player_sprite.rotation.y = lerp_angle(
 		player_sprite.rotation.y,
 		target_angle,
 		rotation_speed * delta
 	)
 
-
-# -------------------------
-# ЗУМ КАМЕРЫ (ПКМ)
-# -------------------------
 
 func handle_camera_zoom(delta: float) -> void:
 	var target_length: float = camera_normal_length
@@ -191,10 +153,6 @@ func handle_camera_zoom(delta: float) -> void:
 		camera_lerp_speed * delta
 	)
 
-
-# -------------------------
-# СМЕЩЕНИЕ КАМЕРЫ К КУРСОРУ
-# -------------------------
 
 func handle_camera_offset(delta: float) -> void:
 	var mouse_world: Variant = get_mouse_world_point()
@@ -224,10 +182,6 @@ func handle_camera_offset(delta: float) -> void:
 	)
 
 
-# -------------------------
-# ПОЛУЧЕНИЕ ТОЧКИ МЫШИ В МИРЕ
-# -------------------------
-
 func get_mouse_world_point() -> Variant:
 	if camera == null:
 		return null
@@ -246,11 +200,10 @@ func get_mouse_world_point() -> Variant:
 	return plane.intersects_ray(ray_origin, ray_dir)
 
 
-# -------------------------
-# СИСТЕМА ШУМА
-# -------------------------
-
 func add_noise(amount: float) -> void:
+	if noise_level_failed:
+		return
+
 	if noise_immunity_timer > 0.0:
 		return
 
@@ -262,8 +215,14 @@ func add_noise(amount: float) -> void:
 
 	print("Шум добавлен: ", amount, " | Текущий шум: ", current_noise)
 
+	if current_noise >= max_noise:
+		fail_by_noise()
+
 
 func update_noise_system(delta: float) -> void:
+	if noise_level_failed:
+		return
+
 	if noise_immunity_timer > 0.0:
 		noise_immunity_timer -= delta
 
@@ -276,15 +235,20 @@ func update_noise_system(delta: float) -> void:
 
 		emit_signal("noise_changed", current_noise, max_noise)
 
-	# проигрыш (пока отключён)
-	# if current_noise >= max_noise:
-	#     print("Игрок проиграл!")
-	#     get_tree().reload_current_scene()
 
+func fail_by_noise() -> void:
+	if noise_level_failed:
+		return
 
-# -------------------------
-# СИСТЕМА ЗРЕНИЯ
-# -------------------------
+	noise_level_failed = true
+
+	print("Шум заполнен. Перезапуск через 2 секунды.")
+
+	# задержка 2 секунды
+	await get_tree().create_timer(2.0).timeout
+
+	get_tree().reload_current_scene()
+
 
 func update_vision_system(delta: float) -> void:
 	vision_timer -= delta

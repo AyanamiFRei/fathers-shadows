@@ -74,23 +74,23 @@ transform = Transform3D(3.644065, 0, 0, 0, 2.9943933, 0, 0, 0, 1.8109341, -4.970
 visible = false
 
 [node name="solid_object3" parent="." unique_id=1506252135 instance=ExtResource("3_1phby")]
-transform = Transform3D(1.867954, 0, 0, 0, 2.398124, 0, 0, 0, 1.3493894, 2.5000725, 0.5483258, -7.4698434)
+transform = Transform3D(1.867954, 0, 0, 0, 3.848379, 0, 0, 0, 1.3493894, 2.5000725, 0.5483258, -7.4698434)
 visible = false
 
 [node name="solid_object4" parent="." unique_id=1933063024 instance=ExtResource("3_1phby")]
-transform = Transform3D(0.47798097, 0, 0, 0, 0.95411617, 0, 0, 0, 1.2257308, 1.3051279, 0.5365505, -7.454408)
+transform = Transform3D(0.47798097, 0, 0, 0, 3.8215032, 0, 0, 0, 1.2257308, 1.3051279, 0.5365505, -7.454408)
 visible = false
 
 [node name="solid_object5" parent="." unique_id=2023814927 instance=ExtResource("3_1phby")]
-transform = Transform3D(-2.0893212e-08, 0, 1.2257308, 0, 0.95411617, 0, -0.47798097, 0, -5.3578393e-08, 2.5254552, 0.5365505, -6.51719)
+transform = Transform3D(-2.0893212e-08, 0, 1.2257308, 0, 3.8729591, 0, -0.47798097, 0, -5.3578393e-08, 2.5254552, 0.5365505, -6.51719)
 visible = false
 
 [node name="solid_object6" parent="." unique_id=1623235980 instance=ExtResource("3_1phby")]
-transform = Transform3D(0.47798097, 0, 0, 0, 0.95411617, 0, 0, 0, 1.2257308, 3.6857297, 0.5365505, -7.454408)
+transform = Transform3D(0.47798097, 0, 0, 0, 3.8350337, 0, 0, 0, 1.2257308, 3.6857297, 0.5365505, -7.454408)
 visible = false
 
 [node name="solid_object7" parent="." unique_id=1610469839 instance=ExtResource("3_1phby")]
-transform = Transform3D(-2.0893212e-08, 0, 1.2257308, 0, 0.95411617, 0, -0.47798097, 0, -5.3578393e-08, 2.5254552, 0.5365505, -8.393826)
+transform = Transform3D(-2.0893212e-08, 0, 1.2257308, 0, 3.8535652, 0, -0.47798097, 0, -5.3578393e-08, 2.5254552, 0.5365505, -8.393826)
 visible = false
 
 [node name="solid_object8" parent="." unique_id=11379548 instance=ExtResource("3_1phby")]
@@ -110,39 +110,31 @@ transform = Transform3D(-1.5118793e-07, 0, 1.830096, 0, 4.610352, 0, -3.4587765,
 visible = false
 
 [node name="solid_object12" parent="." unique_id=1764237665 instance=ExtResource("3_1phby")]
-transform = Transform3D(1.867954, 0, 0, 0, 4.001161, 0, 0, 0, 1.5990541, -4.0822, 0.5483258, -2.5889604)
+transform = Transform3D(1.867954, 0, 0, 0, 7.594589, 0, 0, 0, 1.5990541, -4.0822, 0.5483258, -2.5889604)
 visible = false
 
 [node name="solid_object13" parent="." unique_id=833142542 instance=ExtResource("3_1phby")]
-transform = Transform3D(1.867954, 0, 0, 0, 4.001161, 0, 0, 0, 1.7513082, -6.131954, 0.5483258, -2.405616)
-visible = false
-
-[node name="solid_object14" parent="." unique_id=1863001025 instance=ExtResource("3_1phby")]
-transform = Transform3D(0.7795092, 0, 0, 0, 0.95411617, 0, 0, 0, 1.2257308, -6.5010476, 0.5365505, 1.0398643)
-visible = false
-
-[node name="solid_object15" parent="." unique_id=495028583 instance=ExtResource("3_1phby")]
-transform = Transform3D(0.56668, 0, 0.8416712, 0, 0.95411617, 0, -0.53526473, 0, 0.8910699, -5.749941, 0.5365505, 2.2266154)
+transform = Transform3D(1.867954, 0, 0, 0, 8.464437, 0, 0, 0, 1.7513082, -6.131954, 0.5483258, -2.405616)
 visible = false
 
 [node name="solid_object16" parent="." unique_id=2067249301 instance=ExtResource("3_1phby")]
-transform = Transform3D(0.83621854, 0, 0, 0, 2.4465308, 0, 0, 0, 2.4680746, 2.0905955, 0.5365505, 5.7369375)
+transform = Transform3D(0.83621854, 0, 0, 0, 5.904296, 0, 0, 0, 2.4680746, 2.0905955, 0.5365505, 5.7369375)
 visible = false
 
 [node name="solid_object17" parent="." unique_id=659098680 instance=ExtResource("3_1phby")]
-transform = Transform3D(1.0608441, 0, 0.389642, 0, 2.2559876, 0, -0.3914923, 0, 1.0558305, 3.4629064, 0.536551, 5.8995633)
+transform = Transform3D(1.0608441, 0, 0.389642, 0, 5.5675654, 0, -0.3914923, 0, 1.0558305, 3.4629064, 0.536551, 5.8995633)
 visible = false
 
 [node name="solid_object18" parent="." unique_id=537494137 instance=ExtResource("3_1phby")]
-transform = Transform3D(2.0916593, 0, 0, 0, 2.4465308, 0, 0, 0, 3.8543212, 4.983332, 0.5365505, 9.760098)
+transform = Transform3D(2.0916593, 0, 0, 0, 6.6594152, 0, 0, 0, 3.8543212, 4.983332, 0.5365505, 9.760098)
 visible = false
 
 [node name="solid_object19" parent="." unique_id=1927351428 instance=ExtResource("3_1phby")]
-transform = Transform3D(-2.8401779e-08, 0, 2.0661476, 0, 1.8013251, 0, -0.6497569, 0, -9.031418e-08, 2.669148, 0.5365505, 10.913244)
+transform = Transform3D(-2.8401779e-08, 0, 2.0661476, 0, 7.411788, 0, -0.6497569, 0, -9.031418e-08, 2.669148, 0.5365505, 10.913244)
 visible = false
 
 [node name="solid_object20" parent="." unique_id=677524443 instance=ExtResource("3_1phby")]
-transform = Transform3D(-7.6559004e-08, 0, 4.118196, 0, 2.4465308, 0, -1.7514659, 0, -1.8001207e-07, -4.758465, 0.5365505, 10.9036455)
+transform = Transform3D(-7.6559004e-08, 0, 4.118196, 0, 8.731924, 0, -1.7514659, 0, -1.8001207e-07, -4.758465, 0.5365505, 10.9036455)
 visible = false
 
 [node name="solid_object21" parent="." unique_id=93265714 instance=ExtResource("3_1phby")]
@@ -150,7 +142,7 @@ transform = Transform3D(-8.9761025e-09, 0, 4.1181955, 0, 6.7392716, 0, -0.205349
 visible = false
 
 [node name="solid_object22" parent="." unique_id=1870658704 instance=ExtResource("3_1phby")]
-transform = Transform3D(1.2955471, 0, 0, 0, 1.0661969, 0, 0, 0, 1.2484713, -6.444209, 0.5365505, 8.718043)
+transform = Transform3D(1.2955471, 0, 0, 0, 6.120615, 0, 0, 0, 1.2484713, -6.444209, 0.5365505, 8.718043)
 visible = false
 
 [node name="vision_block+solid_object15" parent="." unique_id=1846172044 instance=ExtResource("2_7rvi1")]
