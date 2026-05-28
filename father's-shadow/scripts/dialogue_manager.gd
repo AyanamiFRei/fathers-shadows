@@ -41,6 +41,7 @@ const DEFAULT_CHOICE_ON_TIMEOUT := "choice_x"
 
 @export var player: Node3D
 
+@export var dialogue_volume_db: float = -3.0 
 var voice_player: AudioStreamPlayer
 
 var start_id := ""
@@ -84,6 +85,10 @@ func _ready() -> void:
 	print("VoicePlayer создан")
 	
 	
+func _set_voice_volume() -> void:
+	if voice_player:
+		voice_player.volume_db = dialogue_volume_db
+		
 func _on_animation_finished(anim_name: StringName) -> void:
 	if anim_name == &"fadein":
 		CycleManager.advance_day()
@@ -154,6 +159,8 @@ func load_dialogue(path: String) -> void:
 	if not FileAccess.file_exists(path):
 		push_error("Файл диалога не найден: " + path)
 		return
+	if voice_player and voice_player.playing:
+		voice_player.stop()
 
 	var file := FileAccess.open(path, FileAccess.READ)
 	if file == null:
@@ -237,6 +244,8 @@ func show_line_node(node: Dictionary) -> void:
 func show_choice_node(node: Dictionary) -> void:
 	set_ui_state(false, true)
 	show_portrait_node(resolve_portrait_node(node))
+	if voice_player and voice_player.playing:
+		voice_player.stop()
 
 	var options = node.get("options", [])
 	_setup_choice_option(choice_1_button, choice_1_text, options, 0)
@@ -303,6 +312,8 @@ func end_dialogue() -> void:
 	dialogue_state.stop_dialogue_timer()
 	dialogue_state.stop_window_timer()
 	timer_bar.hide()
+	if voice_player and voice_player.playing:
+		voice_player.stop()
 
 	if loyalty_ui != null:
 		loyalty_ui.hide()
@@ -355,6 +366,8 @@ func start_pause_before_next(next_id: String, pause_time: float) -> void:
 	pending_node_id = next_id
 	dialogue_state.start_between_window_timer(pause_time)
 	set_ui_state(false, false)
+	if voice_player and voice_player.playing:
+		voice_player.stop()
 
 func update_loyalty_ui() -> void:
 	if current_npc_id.is_empty():
@@ -432,6 +445,8 @@ func set_ui_state(show_dialogue: bool, show_choice: bool) -> void:
 	if not ui_visible:
 		timer_bar.hide()
 		hide_all_portraits()
+		if voice_player and voice_player.playing:
+			voice_player.stop()
 
 
 func _connect_ui_signals() -> void:
@@ -544,6 +559,8 @@ func play_random_voice() -> void:
 		return
 	if current_npc_id.is_empty():
 		return
+		
+	_set_voice_volume()
 	var dir_path = "res://music/Dialogs/%s/" % current_npc_id.capitalize()
 	var files = []
 	var dir = DirAccess.open(dir_path)

@@ -20,12 +20,26 @@ extends Node3D
 
 @export var hub_music: AudioStream
 
+@export var ringtone_sound: AudioStream
+@export var pickup_sound: AudioStream
+@export var hangup_sound: AudioStream
+
+@onready var phone_ringtone_player: AudioStreamPlayer = $PhoneRingtonePlayer
+@onready var phone_sfx_player: AudioStreamPlayer = $PhoneSFXPlayer 
+
 var default_camera_transform: Transform3D
 var current_view := "default"
 var is_camera_moving := false
 
 var board_blink_id := 0
 var phone_blink_id := 0
+var phone_unlocked := false
+var ringtone_playing := false
+var call_in_progress := false
+
+@export var ringtone_vol: float = 0.0
+@export var phoneUP_vol: float = 0.0
+@export var phoneDown_vol: float = 0.0
 
 func _ready() -> void:
 	dialogue_manager.process_mode = Node.PROCESS_MODE_DISABLED
@@ -33,6 +47,7 @@ func _ready() -> void:
 	if pause_menu == null:
 		push_error("PauseMenu не найден в сцене Cab")
 		return
+	
 	
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	default_camera_transform = main_camera.global_transform
@@ -44,6 +59,13 @@ func _ready() -> void:
 	pause_menu.pause_closed.connect(_on_pause_closed)
 	# CycleManager.start_hub()
 	MusicManager.play_music(hub_music)
+	
+	# Блокируем телефон до звонка
+	set_area_interaction(phone_area, false)
+	
+	# Через 3 секунды начинаем бесконечный рингтон
+	await get_tree().create_timer(3.0).timeout
+	_start_ringtone()
 
 
 
@@ -86,6 +108,10 @@ func return_camera() -> void:
 		return
 	if current_view == "default":
 		return
+		
+	if current_view == "phone" and call_in_progress:
+		_play_hangup()
+		call_in_progress = false  
 
 	stop_all_blinking()
 	return_button.visible = false
@@ -132,6 +158,55 @@ func start_board_hover_effect() -> void:
 	blink_light_for_seconds(lamp_light_1, 1.5, 0.3, current_id, "board")
 
 
+func _start_ringtone() -> void:
+	if ringtone_playing:
+		return
+	ringtone_playing = true
+	
+	if phone_ringtone_player and ringtone_sound:
+		phone_ringtone_player.stream = ringtone_sound
+		phone_ringtone_player.volume_db = ringtone_vol
+		_play_ringtone_infinite()
+		phone_unlocked = true
+		set_area_interaction(phone_area, true)
+		print("Телефон звонит – можно ответить")
+	else:
+		push_error("Рингтон не настроен")
+
+func _play_ringtone_infinite() -> void:
+	while ringtone_playing:
+		phone_ringtone_player.play()
+		await phone_ringtone_player.finished
+
+func _stop_ringtone() -> void:
+	if phone_ringtone_player and phone_ringtone_player.playing:
+		phone_ringtone_player.stop()
+	ringtone_playing = false
+
+func _play_pickup() -> void:
+	if phone_sfx_player and pickup_sound:
+		phone_sfx_player.stream = pickup_sound
+		phone_sfx_player.volume_db = phoneUP_vol
+		phone_sfx_player.play()
+		await phone_sfx_player.finished   # ждём окончания звука (опционально)
+	else:
+		push_error("Звук поднятия трубки не настроен")
+
+func _play_hangup() -> void:
+	if phone_sfx_player and hangup_sound:
+		phone_sfx_player.stream = hangup_sound
+		phone_sfx_player.volume_db = phoneDown_vol
+		phone_sfx_player.play()
+	else:
+		push_error("Звук броска трубки не настроен")
+
+func _unlock_phone() -> void:
+	if phone_unlocked:
+		return
+	phone_unlocked = true
+	set_area_interaction(phone_area, true)
+	print("Телефон разблокирован для звонка")
+
 func start_phone_hover_effect() -> void:
 	board_blink_id += 1
 	lamp_light_1.visible = true
@@ -152,6 +227,10 @@ func _on_board_area_input_event(camera, event, event_position, normal, shape_idx
 func _on_phone_area_input_event(camera, event, event_position, normal, shape_idx) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		stop_all_blinking()
+		
+		_stop_ringtone()
+		_play_pickup()
+		call_in_progress = true   
 		move_camera_to_camera(phone_camera, "phone")
 		dialogue_manager.process_mode = Node.PROCESS_MODE_INHERIT
 		dialogue_manager.visible = true

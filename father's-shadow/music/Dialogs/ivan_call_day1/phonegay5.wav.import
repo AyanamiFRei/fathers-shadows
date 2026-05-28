@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bgorgis1bmafn"
-path="res://.godot/imported/phonegay5.wav-60b15a536bf1b10c4c09bdae217f3fd1.sample"
+path="res://.godot/imported/phonegay5.wav-8fd9fb1e4cf1d19bc1f79255202b07a2.sample"
 
 [deps]
 
-source_file="res://music/Dialogs/ivan_call_day1/phonegay5.wav"
-dest_files=["res://.godot/imported/phonegay5.wav-60b15a536bf1b10c4c09bdae217f3fd1.sample"]
+source_file="res://music/Dialogs/Ivan_call_day1/phonegay5.wav"
+dest_files=["res://.godot/imported/phonegay5.wav-8fd9fb1e4cf1d19bc1f79255202b07a2.sample"]
 
 [params]
 
