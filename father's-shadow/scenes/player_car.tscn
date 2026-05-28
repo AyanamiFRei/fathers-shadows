@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cul2070nfn8kk" path="res://scripts/player_car.gd" id="1_dnlqt"]
 [ext_resource type="PackedScene" uid="uid://bqkrmdwxi3hvv" path="res://assets/cars/victoria/victoria.gltf" id="2_ir7uv"]
+[ext_resource type="AudioStream" uid="uid://cye6anil1wpqc" path="res://music/City.wav" id="2_v64uw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnlqt"]
 albedo_color = Color(0, 0, 0, 1)
@@ -18,6 +19,7 @@ size = Vector3(12, 5, 52.667664)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.031132102, 0)
 script = ExtResource("1_dnlqt")
 ColShape = NodePath("CollisionShape3D1")
+ambient_sound = ExtResource("2_v64uw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1142478844]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

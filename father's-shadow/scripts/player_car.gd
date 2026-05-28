@@ -41,6 +41,7 @@ var _pushback_velocity: float = 0.0
 var _hit_cooldown: float = 0.0
 
 @export var ambient_sound: AudioStream
+var ambient_vol: float = 6.0
 
 
 func _ready():
@@ -49,6 +50,7 @@ func _ready():
 	
 	if ambient_sound:
 		var ambient_player = AudioStreamPlayer.new()
+		ambient_player.volume_db = ambient_vol
 		ambient_player.stream = ambient_sound
 		ambient_player.bus = "Ambient"
 		add_child(ambient_player)
