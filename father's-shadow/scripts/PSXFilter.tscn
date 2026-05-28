@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b5q0026ko2deo"]
+
+[ext_resource type="Shader" uid="uid://dmvpsagnkef81" path="res://scripts/Camera.gdshader" id="1_r3i3x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_stwa5"]
+shader = ExtResource("1_r3i3x")
+shader_parameter/pixel_size = 3.000000095
+shader_parameter/color_depth = 256.0
+shader_parameter/dither_strength = 0.0
+shader_parameter/scanlines = 1.0
+shader_parameter/vignette_strength = 1.0
+
+[node name="PSXFilter" type="CanvasLayer" unique_id=978590002]
+layer = 100
+follow_viewport_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=790243794]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_stwa5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)

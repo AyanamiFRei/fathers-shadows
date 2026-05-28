@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://o44bx6yw0hbq" path="res://scripts/traffic_car_back.gd" id="1_vgchw"]
 [ext_resource type="PackedScene" uid="uid://ovd370ienpj7" path="res://scenes/dialogues.tscn" id="2_w141n"]
 [ext_resource type="Script" uid="uid://busyighmmy4t6" path="res://scripts/traffic_gen.gd" id="3_lmeyo"]
+[ext_resource type="PackedScene" uid="uid://b5q0026ko2deo" path="res://scripts/PSXFilter.tscn" id="4_5nr44"]
 [ext_resource type="PackedScene" uid="uid://xgx06gl307mw" path="res://scenes/Radio.tscn" id="4_hji44"]
 [ext_resource type="PackedScene" uid="uid://0rxo47rrvsuq" path="res://scenes/road_manager.tscn" id="5_lmeyo"]
 [ext_resource type="Script" uid="uid://clvsghiw73bmt" path="res://scripts/camera_3d.gd" id="6_w141n"]
-[ext_resource type="AudioStream" uid="uid://cye6anil1wpqc" path="res://music/City.wav" id="7_5nr44"]
 [ext_resource type="Texture2D" uid="uid://chcovfv6rn3b3" path="res://assets/skyboxes/AllSky_Overcast4_Low.png" id="8_df7mf"]
 [ext_resource type="Script" uid="uid://bbkf5spd5tksl" path="res://scripts/radio_container.gd" id="9_radio"]
 [ext_resource type="PackedScene" uid="uid://d3gx1i40uvuix" path="res://scenes/pause_menu.tscn" id="11_5nr44"]
@@ -22,7 +22,6 @@ sky_material = SubResource("PanoramaSkyMaterial_hji44")
 background_mode = 2
 sky = SubResource("Sky_s5tdb")
 ambient_light_source = 3
-glow_enabled = true
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.001
 volumetric_fog_sky_affect = 0.76
@@ -64,6 +63,8 @@ near = 0.13
 script = ExtResource("6_w141n")
 player_path = NodePath("../../../VBoxContainer/SubViewportContainer2/SubViewport/Player")
 
+[node name="PSXFilter" parent="Control/HBoxContainer/SubViewportContainer/SubViewport/Camera3D" unique_id=978590002 instance=ExtResource("4_5nr44")]
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer" unique_id=1286296902]
 layout_mode = 2
 
@@ -93,13 +94,17 @@ render_target_update_mode = 4
 
 [node name="Player" parent="Control/HBoxContainer/VBoxContainer/SubViewportContainer2/SubViewport" unique_id=749761299 instance=ExtResource("1_v8rv7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2975521, 1.0459797, 88.965126)
-ambient_sound = ExtResource("7_5nr44")
 
 [node name="RoadManager" parent="." unique_id=933467709 node_paths=PackedStringArray("player") instance=ExtResource("5_lmeyo")]
 player = NodePath("../Control/HBoxContainer/VBoxContainer/SubViewportContainer2/SubViewport/Player")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=966695047]
-transform = Transform3D(1, 0, 0, 0, 0.7284786, 0.68506867, 0, -0.68506867, 0.7284786, -58.518196, 145.30731, 134.77039)
+transform = Transform3D(1, 0, 0, 0, 0.36007825, 0.932922, 0, -0.932922, 0.36007825, 0, 887.357, -253.317)
+light_color = Color(0.99671835, 0.977346, 0.91165894, 1)
+light_energy = 0.6
+light_indirect_energy = 2.0
+light_volumetric_fog_energy = 2.0
+light_specular = 0.7
 
 [node name="Node3D" type="Node3D" parent="." unique_id=993733496]
 script = ExtResource("3_lmeyo")

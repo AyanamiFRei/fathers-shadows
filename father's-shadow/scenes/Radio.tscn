@@ -2,26 +2,26 @@
 
 [ext_resource type="PackedScene" uid="uid://b5xgec3f1pt7" path="res://assets/cassets/cas1/cas1.gltf" id="1_5t4e2"]
 [ext_resource type="Script" uid="uid://dexjbid6egsbg" path="res://scripts/radio.gd" id="1_cptob"]
-[ext_resource type="AudioStream" uid="uid://cra5y67t1knij" path="res://music/sfx/cassste1.wav" id="2_d7w74"]
+[ext_resource type="AudioStream" uid="uid://b4a8u0ukff7ad" path="res://music/sfx/cassste1.wav" id="2_d7w74"]
 [ext_resource type="PackedScene" uid="uid://dhecv8g6la52o" path="res://assets/cassets/cas2/cas2.gltf" id="2_xvgsr"]
-[ext_resource type="AudioStream" uid="uid://bqeb7hcvhajhh" path="res://music/sfx/cassete2.wav" id="3_0814m"]
+[ext_resource type="AudioStream" uid="uid://c618gm4ky6wl3" path="res://music/sfx/cassete2.wav" id="3_0814m"]
 [ext_resource type="Script" uid="uid://cpkjwt6xvejku" path="res://assets/cassets/cas1/cas_1.gd" id="3_b2yaj"]
 [ext_resource type="PackedScene" uid="uid://degnf11emtxp0" path="res://assets/cassets/cas3/cas3.gltf" id="3_oqwcg"]
-[ext_resource type="AudioStream" uid="uid://igxshvy80y12" path="res://music/radio/metalsong.wav" id="4_4cwgp"]
+[ext_resource type="AudioStream" uid="uid://kfk0xxm5l5pp" path="res://music/radio/metalsong.wav" id="4_4cwgp"]
 [ext_resource type="PackedScene" uid="uid://1mj8u8wuvcty" path="res://assets/cassets/cas4/cas4.gltf" id="4_a6664"]
-[ext_resource type="AudioStream" uid="uid://bgwyk1v63ifo5" path="res://music/sfx/cassete3.wav" id="4_yagcb"]
+[ext_resource type="AudioStream" uid="uid://51osx5io8aar" path="res://music/sfx/cassete3.wav" id="4_yagcb"]
 [ext_resource type="PackedScene" uid="uid://de8fpj1nltfs7" path="res://assets/cassets/cas5/cas5.gltf" id="5_10v3s"]
 [ext_resource type="Script" uid="uid://csx85p6c716av" path="res://assets/cassets/cas2/cas_2.gd" id="5_b2yaj"]
 [ext_resource type="PackedScene" uid="uid://btrwqwli02ojy" path="res://assets/cassets/cas6/cas6.gltf" id="6_cptob"]
-[ext_resource type="AudioStream" uid="uid://dack0xvew2d1j" path="res://music/radio/lo-fi.wav" id="7_dvicb"]
+[ext_resource type="AudioStream" uid="uid://bemy8ecq7d6k7" path="res://music/radio/lo-fi.wav" id="7_dvicb"]
 [ext_resource type="Script" uid="uid://dqemxmhqaviay" path="res://assets/cassets/cas3/cas_3.gd" id="7_q712h"]
 [ext_resource type="Script" uid="uid://liuvnab2bohd" path="res://assets/cassets/cas4/cas_4.gd" id="9_1enmr"]
-[ext_resource type="AudioStream" uid="uid://ed417ppohgvt" path="res://music/radio/nps_musix.wav" id="10_bvueo"]
+[ext_resource type="AudioStream" uid="uid://dtir27747s1b2" path="res://music/radio/nps_musix.wav" id="10_bvueo"]
 [ext_resource type="Script" uid="uid://3ewsylwu67io" path="res://assets/cassets/cas5/cas_5.gd" id="11_aj7ea"]
 [ext_resource type="Script" uid="uid://ckmv42esc8dwv" path="res://assets/cassets/cas6/cas_6.gd" id="13_umdqk"]
-[ext_resource type="AudioStream" uid="uid://d0mjvygp6ukn8" path="res://music/radio/rodina.wav" id="15_d7w74"]
-[ext_resource type="AudioStream" uid="uid://0bflrxl1rvsk" path="res://music/radio/classsic.wav" id="16_tjokb"]
-[ext_resource type="AudioStream" uid="uid://brw6xhdip0owj" path="res://music/radio/сс.wav" id="18_0814m"]
+[ext_resource type="AudioStream" uid="uid://7xcxpo03i17w" path="res://music/radio/rodina.wav" id="15_d7w74"]
+[ext_resource type="AudioStream" uid="uid://baotgabilju4g" path="res://music/radio/classsic.wav" id="16_tjokb"]
+[ext_resource type="AudioStream" uid="uid://beyxv71wder6d" path="res://music/radio/сс.wav" id="18_0814m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q712h"]
 
@@ -115,9 +115,10 @@ fov = 80.8
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1228749272]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7878282, 5.980028)
+visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=35793590]
-transform = Transform3D(-0.9998465, 0, -0.017522307, 0, 1, 0, 0.017522307, 0, -0.9998465, -0.0016365051, 1.3083167, -8.624873)
+transform = Transform3D(-0.9998465, -1.8633733e-10, -0.017522305, -0.011950631, -0.7313299, 0.68191916, -0.012814587, 0.6820239, 0.7312176, -0.0016365051, 4.9146333, 4.7911067)
 light_energy = 9.0
 spot_range = 8.740261
 spot_angle = 40.518112
