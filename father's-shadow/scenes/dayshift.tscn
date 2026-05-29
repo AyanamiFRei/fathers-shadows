@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://0rxo47rrvsuq" path="res://scenes/road_manager.tscn" id="5_lmeyo"]
 [ext_resource type="Script" uid="uid://clvsghiw73bmt" path="res://scripts/camera_3d.gd" id="6_w141n"]
 [ext_resource type="Texture2D" uid="uid://chcovfv6rn3b3" path="res://assets/skyboxes/AllSky_Overcast4_Low.png" id="8_df7mf"]
+[ext_resource type="AudioStream" uid="uid://gixswrar4tip" path="res://music/sfx/car_hit_sound.wav" id="8_mdu4x"]
 [ext_resource type="Script" uid="uid://bbkf5spd5tksl" path="res://scripts/radio_container.gd" id="9_radio"]
 [ext_resource type="PackedScene" uid="uid://d3gx1i40uvuix" path="res://scenes/pause_menu.tscn" id="11_5nr44"]
 
@@ -94,6 +95,7 @@ render_target_update_mode = 4
 
 [node name="Player" parent="Control/HBoxContainer/VBoxContainer/SubViewportContainer2/SubViewport" unique_id=749761299 instance=ExtResource("1_v8rv7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2975521, 1.0459797, 88.965126)
+hit_sound = ExtResource("8_mdu4x")
 
 [node name="RoadManager" parent="." unique_id=933467709 node_paths=PackedStringArray("player") instance=ExtResource("5_lmeyo")]
 player = NodePath("../Control/HBoxContainer/VBoxContainer/SubViewportContainer2/SubViewport/Player")

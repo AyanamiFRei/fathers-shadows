@@ -43,6 +43,10 @@ var _hit_cooldown: float = 0.0
 @export var ambient_sound: AudioStream
 var ambient_vol: float = 6.0
 
+@export var hit_sound: AudioStream
+var _hit_sound_player: AudioStreamPlayer = null
+var hit_vol: float = -6.0
+
 
 func _ready():
 	current_speed = base_speed
@@ -55,6 +59,12 @@ func _ready():
 		ambient_player.bus = "Ambient"
 		add_child(ambient_player)
 		ambient_player.play()
+	if hit_sound:
+		_hit_sound_player = AudioStreamPlayer.new()
+		_hit_sound_player.stream = hit_sound
+		_hit_sound_player.volume_db = hit_vol
+		_hit_sound_player.bus = "Hit Soubnd"  # проверьте имя шины
+		add_child(_hit_sound_player)
 	
 
 
@@ -142,10 +152,17 @@ func _check_traffic_collision() -> void:
 		# Отброс встречной машины
 		if collider.has_method("apply_bounce"):
 			collider.apply_bounce()
+		_play_hit_sound()
 
 		break  # одного столкновения за кадр достаточно
 
-
+func _play_hit_sound() -> void:
+	if not _hit_sound_player:
+		return
+	# Прерываем текущее воспроизведение и начинаем заново
+	_hit_sound_player.stop()
+	_hit_sound_player.play()
+	
 func _trigger_hit_flash() -> void:
 	var flash_nodes := get_tree().get_nodes_in_group("collision_flash")
 	if flash_nodes.size() > 0:

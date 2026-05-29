@@ -20,6 +20,8 @@ var _bounce_z: float = 0.0
 var current_speed: float
 
 
+
+
 func _ready() -> void:
 	add_to_group("traffic")
 	current_speed = car_speed
